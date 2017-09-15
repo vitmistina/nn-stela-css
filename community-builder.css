@@ -1,0 +1,125 @@
+@font-face {
+  font-family: 'NNDagnyTextWeb';
+  src: url('/nnbrokerportalsk/s/NNDagnyTextWeb.eot');
+  src: url('/nnbrokerportalsk/s/NNDagnyTextWeb.eot?#iefix')
+      format('embedded-opentype'),
+    url('/nnbrokerportalsk/s/NNDagnyTextWeb.woff') format('woff');
+}
+@font-face {
+  font-family: 'NNDagnyDisplayWebPro';
+  src: url('/nnbrokerportalsk/s/NNDagnyDisplayWebPro.eot');
+  src: url('/nnbrokerportalsk/s/NNDagnyDisplayWebPro.eot?#iefix')
+      format('embedded-opentype'),
+    url('/nnbrokerportalsk/s/NNDagnyDisplayWebPro.woff') format('woff');
+}
+* {
+  font-family: 'NNDagnyDisplayWebPro';
+}
+.default-bg-overlay {
+  background: white none repeat scroll 0 0 !important;
+}
+.siteforceNapiliBody .cNavBarCon {
+  background-color: #ffffff !important;
+}
+.navigationMenuWrapper {
+  background-color: #ffffff !important;
+}
+.forceCommunityNavigationMenu {
+  border-top: 1px solid #aaaaaa;
+  background: white;
+}
+a.menuItemLink {
+  background-color: white !important;
+}
+a.menuItemLink:hover {
+  background-color: initial !important;
+  text-decoration: underline;
+}
+.forceCommunityNavigationMenu {
+  border-top: initial !important;
+  border-bottom: 1px solid #f2efed;
+}
+.menuItem.current .menuItemLink {
+  color: #ea650d !important;
+}
+.forceCommunityNavigationMenu .menuItemLink,
+.forceCommunityNavigationMenu .menuItemLink.triggerLink {
+  text-transform: none !important;
+}
+.article-head {
+  color: #ea650d;
+}
+.slds-medium-order--1 {
+  order: 1 !important;
+}
+.slds-medium-order--2 {
+  order: 2 !important;
+}
+@media only screen and (min-width: 48em) {
+  .siteforceNapiliBody .cBrandingLogo {
+    min-height: 6em;
+    position: relative;
+    bottom: 1.5em;
+  }
+}
+
+:root .forceCommunityOmniBox.selfServiceSearchWrapper .search-button span.label {
+  color: white !important;
+}
+
+:root .forceCommunityOmniBox.selfServiceSearchWrapper .search-button.uiButton {
+  -webkit-border-radius: 0 5px 5px 0;
+  border-radius: 0 5px 5px 0;
+  background-color: #ea650d !important;
+}
+
+:root .forceCommunityOmniBox.selfServiceSearchWrapper .search-button.uiButton:hover {
+  background-color: #ea650d !important;
+}
+
+:root .uiInput--input.input {
+  -webkit-border-radius: 5px 0 0 5px;
+  border-radius: 5px 0 0 5px;
+}
+
+:root .selfServiceProfileMenuTrigger .profileName {
+  text-transform: none !important;
+}
+
+:root .forceCommunityNavigationMenu .menuItemLink,
+:root .forceCommunityNavigationMenu .menuItemLink.triggerLink,
+:root .forceCommunityNavigationMenu .subMenuItem a[aria-disabled=false] {
+  font-family: "NNDagnyDisplayWebPro";
+  font-size: 16px;
+}
+
+:root .forceCommunityHeadline .headlineTitle {
+  text-transform: none;
+}
+
+:root h1,
+:root h2,
+:root h3,
+:root h4,
+:root h5,
+:root h6 {
+  font-family: "NNDagnyDisplayWebPro";
+}
+
+:root button.buttonStyle {
+  color: white !important;
+  -webkit-border-radius: 5px !important;
+  border-radius: 5px !important;
+  background-color: #ea650d !important;
+}
+
+.profile {
+  display: none;
+}
+
+@media only screen and (min-width: 64.0625em) {
+  :root .siteforceNapiliBody .cProfileCon {
+    width: 25%;
+    float: right;
+  }
+}
