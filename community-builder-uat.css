@@ -12,8 +12,14 @@
       format('embedded-opentype'),
     url('/nnbrokerportalsk/s/NNDagnyDisplayWebPro.woff') format('woff');
 }
+body,
+html {
+  color: #414141;
+}
+
 * {
-  font-family: 'NNDagnyDisplayWebPro';
+  font-family: 'NNDagnyDisplayWebPro' !important;
+  font-size: 16px;
 }
 .default-bg-overlay {
   background: white none repeat scroll 0 0 !important;
@@ -67,10 +73,20 @@ a.menuItemLink:hover {
   color: white !important;
 }
 
-:root .forceCommunityOmniBox.selfServiceSearchWrapper .search-button.uiButton {
-  -webkit-border-radius: 0 5px 5px 0;
-  border-radius: 0 5px 5px 0;
-  background-color: #ea650d !important;
+:root .forceCommunitySearchBox  .search-button.uiButton,
+:root .forceCommunitySearchBox  .search-button.uiButton.focus {
+  background: 0;
+  content: "";
+  background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABIAAAAUCAYAAACAl21KAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAHLSURBVHgBnZRRTsJAEIZntpQYq0mfMLzBDeoJ1JNYjfiqnkB7AvHNRCL1BnoCuIG9ATyYgPpgE5EY6O64u7SElkKKkzQ7u/n77Uz77yKsiY9TywUDjwHQkVNbPiEABcDpqfL44y9qMQ8wcLdqrGx2kKC2ahNC7IvJ5Kjq//bVnOVBDNN8VRAt5uKKG9N65eFbbir2ORcnhNBHIq17a1hObkXv57u9GBKMJ+yo7odhVtNzbdsy+a1MXbWZ1O3j8jdh7WzZeaFg22U+q5zIS7fG1IeV/Qt+tw6iQlVKQtzpthAPUiACrMdjAAWCIv4cpw7LE3CkEDYLOwVCpC81ljk4hV4vlWrxm0G6NYIXnRjsuABGehVjHaVB46jUBO1eOPw827leBxmeWZdycFXOp1NvyUfDhnXBgDXjEps8ilJ/UHuoHF1La1/OJOTttUY3S6BBw3INYO30KnXlI2FYWzh3c4jK04Z0pd1N1kmEUtmVf+Awu5la5wBetTXqJkullRAAv9IanegDbJgOkrAJWSjMaVC9Xzarrig5qPOSCxyRbLDkylioBETEvU0gGpRz7/jVzKVVCCQh9sI8VJ6AfwQjAfqi0hAQV5u2lMQfgffexhA4enwAAAAASUVORK5CYII=');
+  background-size: cover;
+  width: 18px;
+  height: 20px;
+  right: 124px;
+  top: 12px;
+}
+
+:root .forceCommunitySearchBox  .search-button.uiButton:hover {
+  background-color: transparent;
 }
 
 :root .forceCommunityOmniBox.selfServiceSearchWrapper .search-button.uiButton:hover {
@@ -78,12 +94,16 @@ a.menuItemLink:hover {
 }
 
 :root .uiInput--input.input {
-  -webkit-border-radius: 5px 0 0 5px;
-  border-radius: 5px 0 0 5px;
+  border-bottom: 1px solid #f1edeb;
+  max-width: 500px;
+  max-height: 30px;
+  padding-top: 12px;
 }
 
 :root .selfServiceProfileMenuTrigger .profileName {
   text-transform: none !important;
+  color: #414141;
+  text-shadow: none;
 }
 
 :root .forceCommunityNavigationMenu .menuItemLink,
@@ -111,4 +131,56 @@ a.menuItemLink:hover {
   -webkit-border-radius: 5px !important;
   border-radius: 5px !important;
   background-color: #ea650d !important;
+}
+.siteforceServiceBody .cHeaderOverlay {
+  height: inherit;
+  background: rgba(255, 255, 255, 0.2) !important;
+}
+
+.slds-button_neutral,
+.slds-button--neutral {
+  border: 0 !important;
+}
+
+.cBrandingLogo {
+}
+
+:root .forceActionLink {
+  color: white !important;
+  -webkit-border-radius: 5px !important;
+  border-radius: 5px !important;
+  background-color: #ea650d !important;
+}
+
+.forceCommunityGlobalNavigation .slds-list__item a,
+.forceCommunityGlobalNavigation .slds-list__item button {
+  font-size: 1em !important;
+}
+
+.forceCommunityGlobalNavigation .slds-list__item a:hover,
+.forceCommunityGlobalNavigation .slds-list__item a.slds-is-active:not([data-type="home"]),
+.forceCommunityGlobalNavigation .slds-list__item button:not([disabled]):hover,
+.forceCommunityGlobalNavigation .slds-list__item button:not([disabled]).slds-is-active:not([data-type="home"]) {
+  background-color: transparent !important;
+  text-decoration: underline;
+}
+
+.siteforceServiceBody .cHeaderLine {
+  border-bottom: 1px solid #999999 !important;
+}
+
+.slds-truncate {
+  margin-right: 5px !important;
+}
+
+:root .forceCommunitySearchBox .search-button.uiButton span {
+  display: none;
+}
+
+.siteforceServiceBody .cSearchPublisher .mobile-search-icon {
+  color: #ea650d !important;
+}
+
+.headingFontSize span {
+  font-size: 24px;
 }

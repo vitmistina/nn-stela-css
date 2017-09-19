@@ -1,0 +1,15 @@
+{
+  "components": [
+    {
+      "Selected": "true",
+      "CalculationName": "Smrt alebo doziti (UM3C)",
+      "SumAssured": "750000",
+      "Term": "64",
+      "MedicalLoading": "100",
+      "RiskGroup": "",
+      "CalculationLoading": "100",
+      "PremiumBeforeAllDiscount": "200",
+      "PremiumAfterAllDiscount": "250"
+    }
+  ]
+}

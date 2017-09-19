@@ -1,0 +1,13 @@
+<!-- <div ng-repeat="p in control.vlcSI[control.itemsKey]" class="summaryComponent"> -->
+<div ng-repeat="p in components" class="summaryComponent">
+    <h2 ng-if="p.Selected">{{p.CalculationName}}</h2>
+    <div class="slds-grid slds-grid_pull-padded" ng-if="p.Selected">
+      <div class="slds-size-4-of-12 slds-p-right--medium"><p class="slds-text-align--center">Poistná suma</p><p class="slds-text-align--right">{{p.SumAssured | number }}  €</p></div>
+      <div class="slds-size-2-of-12 slds-p-horizontal--medium"><p class="slds-text-align--center">Poistná doba</p><p class="slds-text-align--right component-value">{{p.Term}}</p></div>
+      <div class="slds-size-2-of-12 slds-p-horizontal--medium"><p class="slds-text-align--center">Zdravotné navýšenie o</p><p class="slds-text-align--right component-value">{{p.MedicalLoading}} %</p></div>
+      <div class="slds-size-1-of-12 slds-p-horizontal--medium"><p class="slds-text-align--center">Riziková skupina</p><p class="slds-text-align--right component-value">{{p.RiskGroup}}</p></div>
+      <div class="slds-size-1-of-12 slds-p-horizontal--medium"><p class="slds-text-align--center">Celkové navýšenie o</p><p class="slds-text-align--right component-value">{{p.CalculationLoading}} %</p></div>
+      <div class="slds-size-1-of-12 slds-p-horizontal--medium"><p class="slds-text-align--center">Poistné pred zľavami</p><p class="slds-text-align--right component-value">{{p.PremiumBeforeAllDiscount}} €</p></div>
+      <div class="slds-size-1-of-12 slds-p-horizontal--medium"><p class="slds-text-align--center">Poistné po zľavách</p><p class="slds-text-align--right component-value final-price">{{p.PremiumAfterAllDiscount}} €</p></div>
+    </div>
+</div>

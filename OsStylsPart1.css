@@ -565,6 +565,8 @@
 .via-slds .slds-form-element__control > div.vlc-control-wrapper {
   position: relative;
   background-color: white;
+  -webkit-border-radius: 4px;
+  border-radius: 4px;
 }
 .via-slds .slds-form-element__control > div.vlc-control-wrapper > input,
 .via-slds .slds-form-element__control > div.vlc-control-wrapper > textarea {
@@ -706,6 +708,19 @@ ng-form {
 
 .via-slds form[stepForm] {
   border-right: 0 !important;
+}
+
+.via-slds .slds-popover--tooltip .slds-popover__body {
+  color: white !important;
+  font-size: .65rem;
+}
+
+.via-slds .slds-textarea {
+  min-height: 9rem !important;
+}
+
+.via-slds .slds-popover--tooltip {
+  max-width: 37rem !important;
 }
 
 .div2::before {
