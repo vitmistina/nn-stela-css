@@ -1,4 +1,4 @@
-@import url('./slds-fonts.css');
+@import url("./slds-fonts.css");
 .via-slds {
   /*! normalize.css v3.0.2 | MIT License | git.io/normalize */
   /*! HTML5 Boilerplate v5.2.0 | MIT License | https://html5boilerplate.com/ */
@@ -81,87 +81,137 @@
   box-shadow: #c23934 0 0 0 1px inset, 0 0 3px #ea650d;
 }
 
-.via-slds .slds-radio [type=radio]:checked + .slds-radio--faux:after,
-.via-slds .slds-radio [type=radio]:checked
-  + .slds-radio__label .slds-radio--faux:after,
-.via-slds .slds-radio [type=radio]:checked ~ .slds-radio--faux:after {
+.via-slds .slds-radio [type="radio"]:checked + .slds-radio--faux:after,
+.via-slds
+  .slds-radio
+  [type="radio"]:checked
+  + .slds-radio__label
+  .slds-radio--faux:after,
+.via-slds .slds-radio [type="radio"]:checked ~ .slds-radio--faux:after {
   background: #ea650d;
 }
 
-.via-slds .slds-radio [type=radio]:focus + .slds-radio--faux,
-.via-slds .slds-radio [type=radio]:focus + .slds-radio__label .slds-radio--faux,
-.via-slds .slds-radio [type=radio]:focus ~ .slds-radio--faux {
+.via-slds .slds-radio [type="radio"]:focus + .slds-radio--faux,
+.via-slds
+  .slds-radio
+  [type="radio"]:focus
+  + .slds-radio__label
+  .slds-radio--faux,
+.via-slds .slds-radio [type="radio"]:focus ~ .slds-radio--faux {
   border-color: #ea650d;
   box-shadow: 0 0 3px #ea650d;
 }
 
-.via-slds .slds-radio--button [type=radio]:checked + .slds-radio--button__label,
-.via-slds .slds-radio--button [type=radio]:checked + .slds-radio--faux,
-.via-slds .slds-radio--button [type=radio]:checked ~ .slds-radio--faux {
+.via-slds
+  .slds-radio--button
+  [type="radio"]:checked
+  + .slds-radio--button__label,
+.via-slds .slds-radio--button [type="radio"]:checked + .slds-radio--faux,
+.via-slds .slds-radio--button [type="radio"]:checked ~ .slds-radio--faux {
   background-color: #ea650d;
 }
 
-.via-slds .slds-radio--button [type=radio]:checked
+.via-slds
+  .slds-radio--button
+  [type="radio"]:checked
   + .slds-radio--button__label:focus,
-.via-slds .slds-radio--button [type=radio]:checked
+.via-slds
+  .slds-radio--button
+  [type="radio"]:checked
   + .slds-radio--button__label:hover,
-.via-slds .slds-radio--button [type=radio]:checked + .slds-radio--faux:focus,
-.via-slds .slds-radio--button [type=radio]:checked + .slds-radio--faux:hover,
-.via-slds .slds-radio--button [type=radio]:checked ~ .slds-radio--faux:focus,
-.via-slds .slds-radio--button [type=radio]:checked ~ .slds-radio--faux:hover {
+.via-slds .slds-radio--button [type="radio"]:checked + .slds-radio--faux:focus,
+.via-slds .slds-radio--button [type="radio"]:checked + .slds-radio--faux:hover,
+.via-slds .slds-radio--button [type="radio"]:checked ~ .slds-radio--faux:focus,
+.via-slds .slds-radio--button [type="radio"]:checked ~ .slds-radio--faux:hover {
   background-color: #ea650d;
 }
 
-.via-slds .slds-radio--button [type=radio]:focus + .slds-radio--button__label,
-.via-slds .slds-radio--button [type=radio]:focus + .slds-radio--faux,
-.via-slds .slds-radio--button [type=radio]:focus ~ .slds-radio--faux {
+.via-slds .slds-radio--button [type="radio"]:focus + .slds-radio--button__label,
+.via-slds .slds-radio--button [type="radio"]:focus + .slds-radio--faux,
+.via-slds .slds-radio--button [type="radio"]:focus ~ .slds-radio--faux {
   box-shadow: 0 0 3px #ea650d;
 }
 
-.via-slds .slds-checkbox [type=checkbox]:checked + .slds-checkbox--faux:after,
-.via-slds .slds-checkbox [type=checkbox]:checked
-  + .slds-checkbox__label .slds-checkbox--faux:after,
-.via-slds .slds-checkbox [type=checkbox]:checked ~ .slds-checkbox--faux:after {
+.via-slds .slds-checkbox [type="checkbox"]:checked + .slds-checkbox--faux:after,
+.via-slds
+  .slds-checkbox
+  [type="checkbox"]:checked
+  + .slds-checkbox__label
+  .slds-checkbox--faux:after,
+.via-slds
+  .slds-checkbox
+  [type="checkbox"]:checked
+  ~ .slds-checkbox--faux:after {
   border-bottom: 2px solid #ea650d;
   border-left: 2px solid #ea650d;
 }
 
-.via-slds .slds-checkbox [type=checkbox]:focus + .slds-checkbox--faux,
-.via-slds .slds-checkbox [type=checkbox]:focus
-  + .slds-checkbox__label .slds-checkbox--faux,
-.via-slds .slds-checkbox [type=checkbox]:focus ~ .slds-checkbox--faux {
+.via-slds .slds-checkbox [type="checkbox"]:focus + .slds-checkbox--faux,
+.via-slds
+  .slds-checkbox
+  [type="checkbox"]:focus
+  + .slds-checkbox__label
+  .slds-checkbox--faux,
+.via-slds .slds-checkbox [type="checkbox"]:focus ~ .slds-checkbox--faux {
   border-color: #ea650d;
   box-shadow: 0 0 3px #ea650d;
 }
 
-.via-slds .slds-checkbox [type=checkbox]:focus:checked
-  + .slds-checkbox__label .slds-checkbox--faux,
-.via-slds .slds-checkbox [type=checkbox]:focus:checked > .slds-checkbox--faux,
-.via-slds .slds-checkbox [type=checkbox]:focus:checked ~ .slds-checkbox--faux {
+.via-slds
+  .slds-checkbox
+  [type="checkbox"]:focus:checked
+  + .slds-checkbox__label
+  .slds-checkbox--faux,
+.via-slds .slds-checkbox [type="checkbox"]:focus:checked > .slds-checkbox--faux,
+.via-slds
+  .slds-checkbox
+  [type="checkbox"]:focus:checked
+  ~ .slds-checkbox--faux {
   border-color: #ea650d;
 }
 
-.via-slds .slds-checkbox [type=checkbox]:indeterminate
+.via-slds
+  .slds-checkbox
+  [type="checkbox"]:indeterminate
   + .slds-checkbox--faux:after,
-.via-slds .slds-checkbox [type=checkbox]:indeterminate
-  + .slds-checkbox__label .slds-checkbox--faux:after,
-.via-slds .slds-checkbox [type=checkbox]:indeterminate
+.via-slds
+  .slds-checkbox
+  [type="checkbox"]:indeterminate
+  + .slds-checkbox__label
+  .slds-checkbox--faux:after,
+.via-slds
+  .slds-checkbox
+  [type="checkbox"]:indeterminate
   ~ .slds-checkbox--faux:after {
   background: #ea650d;
 }
 
-.via-slds .slds-checkbox--toggle [type=checkbox]:focus + .slds-checkbox--faux,
-.via-slds .slds-checkbox--toggle [type=checkbox]:focus
-  + .slds-checkbox--faux_container .slds-checkbox--faux,
-.via-slds .slds-checkbox--toggle [type=checkbox]:focus ~ .slds-checkbox--faux {
+.via-slds .slds-checkbox--toggle [type="checkbox"]:focus + .slds-checkbox--faux,
+.via-slds
+  .slds-checkbox--toggle
+  [type="checkbox"]:focus
+  + .slds-checkbox--faux_container
+  .slds-checkbox--faux,
+.via-slds
+  .slds-checkbox--toggle
+  [type="checkbox"]:focus
+  ~ .slds-checkbox--faux {
   border-color: #ea650d;
   box-shadow: 0 0 3px #ea650d;
 }
 
-.via-slds .slds-checkbox--toggle [type=checkbox]:checked + .slds-checkbox--faux,
-.via-slds .slds-checkbox--toggle [type=checkbox]:checked
-  + .slds-checkbox--faux_container .slds-checkbox--faux,
-.via-slds .slds-checkbox--toggle [type=checkbox]:checked
+.via-slds
+  .slds-checkbox--toggle
+  [type="checkbox"]:checked
+  + .slds-checkbox--faux,
+.via-slds
+  .slds-checkbox--toggle
+  [type="checkbox"]:checked
+  + .slds-checkbox--faux_container
+  .slds-checkbox--faux,
+.via-slds
+  .slds-checkbox--toggle
+  [type="checkbox"]:checked
   ~ .slds-checkbox--faux {
   border-color: #ea650d;
   background-color: #ea650d;
@@ -183,33 +233,57 @@
   box-shadow: #c23934 0 0 0 1px inset, 0 0 3px #ea650d;
 }
 
-.via-slds .slds-checkbox--button [type=checkbox]:checked
+.via-slds
+  .slds-checkbox--button
+  [type="checkbox"]:checked
   + .slds-checkbox--button__label,
-.via-slds .slds-checkbox--button [type=checkbox]:checked + .slds-checkbox--faux,
-.via-slds .slds-checkbox--button [type=checkbox]:checked
+.via-slds
+  .slds-checkbox--button
+  [type="checkbox"]:checked
+  + .slds-checkbox--faux,
+.via-slds
+  .slds-checkbox--button
+  [type="checkbox"]:checked
   ~ .slds-checkbox--faux {
   background-color: #ea650d;
 }
 
-.via-slds .slds-checkbox--button [type=checkbox]:checked
+.via-slds
+  .slds-checkbox--button
+  [type="checkbox"]:checked
   + .slds-checkbox--button__label:focus,
-.via-slds .slds-checkbox--button [type=checkbox]:checked
+.via-slds
+  .slds-checkbox--button
+  [type="checkbox"]:checked
   + .slds-checkbox--button__label:hover,
-.via-slds .slds-checkbox--button [type=checkbox]:checked
+.via-slds
+  .slds-checkbox--button
+  [type="checkbox"]:checked
   + .slds-checkbox--faux:focus,
-.via-slds .slds-checkbox--button [type=checkbox]:checked
+.via-slds
+  .slds-checkbox--button
+  [type="checkbox"]:checked
   + .slds-checkbox--faux:hover,
-.via-slds .slds-checkbox--button [type=checkbox]:checked
+.via-slds
+  .slds-checkbox--button
+  [type="checkbox"]:checked
   ~ .slds-checkbox--faux:focus,
-.via-slds .slds-checkbox--button [type=checkbox]:checked
+.via-slds
+  .slds-checkbox--button
+  [type="checkbox"]:checked
   ~ .slds-checkbox--faux:hover {
   background-color: #ea650d;
 }
 
-.via-slds .slds-checkbox--button [type=checkbox]:focus
+.via-slds
+  .slds-checkbox--button
+  [type="checkbox"]:focus
   + .slds-checkbox--button__label,
-.via-slds .slds-checkbox--button [type=checkbox]:focus + .slds-checkbox--faux,
-.via-slds .slds-checkbox--button [type=checkbox]:focus ~ .slds-checkbox--faux {
+.via-slds .slds-checkbox--button [type="checkbox"]:focus + .slds-checkbox--faux,
+.via-slds
+  .slds-checkbox--button
+  [type="checkbox"]:focus
+  ~ .slds-checkbox--faux {
   box-shadow: 0 0 3px #ea650d;
 }
 
@@ -218,7 +292,8 @@
   box-shadow: 0 0 3px #ea650d;
 }
 
-.via-slds .slds-file-selector__input:focus
+.via-slds
+  .slds-file-selector__input:focus
   ~ .slds-file-selector__body
   > .slds-file-selector__button {
   box-shadow: 0 0 3px #ea650d;
@@ -241,8 +316,12 @@
   box-shadow: 0 0 3px #ea650d;
 }
 
-.via-slds .slds-app-launcher__tile--small:focus .slds-app-launcher__tile-figure--small,
-.via-slds .slds-app-launcher__tile--small:hover .slds-app-launcher__tile-figure--small {
+.via-slds
+  .slds-app-launcher__tile--small:focus
+  .slds-app-launcher__tile-figure--small,
+.via-slds
+  .slds-app-launcher__tile--small:hover
+  .slds-app-launcher__tile-figure--small {
   border-color: #ea650d;
 }
 
@@ -280,7 +359,9 @@
   border-color: #ea650d;
 }
 
-.via-slds .slds-tabs--default__item.slds-active .slds-tabs--default__link:focus {
+.via-slds
+  .slds-tabs--default__item.slds-active
+  .slds-tabs--default__link:focus {
   color: #ea650d;
 }
 
@@ -374,19 +455,23 @@
 .via-slds .slds-has-list-interactions > .slds-item.slds-is-selected:focus,
 .via-slds .slds-has-list-interactions > .slds-item.slds-is-selected:hover,
 .via-slds .slds-has-list-interactions > .slds-list__item.slds-is-selected:focus,
-.via-slds .slds-has-list-interactions
+.via-slds
+  .slds-has-list-interactions
   > .slds-list__item.slds-is-selected:hover {
   box-shadow: #ea650d 0 -2px 0 inset, #ea650d 0 0 0 1px inset;
 }
 
-.via-slds .slds-list--vertical.slds-has-dividers
+.via-slds
+  .slds-list--vertical.slds-has-dividers
   > .slds-list__item.slds-is-selected {
   box-shadow: #ea650d 0 0 0 1px inset;
 }
 
-.via-slds .slds-list--vertical.slds-has-dividers
+.via-slds
+  .slds-list--vertical.slds-has-dividers
   > .slds-list__item.slds-is-selected:focus,
-.via-slds .slds-list--vertical.slds-has-dividers
+.via-slds
+  .slds-list--vertical.slds-has-dividers
   > .slds-list__item.slds-is-selected:hover {
   box-shadow: #ea650d 0 -2px 0 inset, #ea650d 0 0 0 1px inset;
 }
@@ -450,7 +535,7 @@
 
 .via-slds ul.slds-list--vertical.vlc-slds-list--vertical span {
   font-weight: normal;
-  font-size: .8rem;
+  font-size: 0.8rem;
   font-style: italic;
 }
 .via-slds div.vlc-slds-back-button {
@@ -464,7 +549,7 @@
 .via-slds .vlc-slds-remote-action--button .vlc-control-wrapper .slds-box {
   border: 0px solid transparent;
 }
-.via-slds form[stepForm] {
+.via-slds form[stepform] {
   background: #f1edeb;
   -webkit-border-radius: 5px;
   border-radius: 5px;
@@ -475,22 +560,27 @@
 .via-slds .vlc-slds-radio-control span.slds-form-element__label {
   font-weight: normal;
 }
-:root .via-slds .slds-radio [type=radio]:checked + .slds-radio--faux,
-.via-slds .slds-radio [type=radio]:checked
-  + .slds-radio__label .slds-radio--faux,
-.via-slds .slds-radio [type=radio]:checked ~ .slds-radio--faux :checked:before {
+:root .via-slds .slds-radio [type="radio"]:checked + .slds-radio--faux,
+.via-slds
+  .slds-radio
+  [type="radio"]:checked
+  + .slds-radio__label
+  .slds-radio--faux,
+.via-slds
+  .slds-radio
+  [type="radio"]:checked
+  ~ .slds-radio--faux
+  :checked:before {
   -webkit-appearance: none;
   background: white !important;
 }
 
-.div2 h2 {
-  font-size: 20px;
-}
 :root .info,
 :root .warning,
 :root .autocorrect,
 :root .questionary {
   color: #414141 !important;
+  padding-bottom: 5px;
 }
 
 .via-slds .slds-table th {
@@ -498,11 +588,11 @@
   text-align: center;
 }
 
-:root .via-slds input[type=email].ng-dirty.ng-valid,
-:root .via-slds input[type=password].ng-dirty.ng-valid,
-:root .via-slds input[type=tel].ng-dirty.ng-valid,
-:root .via-slds input[type=text].ng-dirty.ng-valid,
-:root .via-slds input[type=url].ng-dirty.ng-valid,
+:root .via-slds input[type="email"].ng-dirty.ng-valid,
+:root .via-slds input[type="password"].ng-dirty.ng-valid,
+:root .via-slds input[type="tel"].ng-dirty.ng-valid,
+:root .via-slds input[type="text"].ng-dirty.ng-valid,
+:root .via-slds input[type="url"].ng-dirty.ng-valid,
 :root .via-slds textarea.ng-dirty.ng-valid,
 :root slds-form-element__control {
   border: 1px solid;
@@ -528,7 +618,10 @@
 :root div {
   border-color: rgba(229, 222, 217, 1) !important;
 }
-.via-slds .vlc-slds-multiSelect-control ul[horizontalmode] span.slds-form-element__label {
+.via-slds
+  .vlc-slds-multiSelect-control
+  ul[horizontalmode]
+  span.slds-form-element__label {
   font-weight: normal;
 }
 .via-slds .list-group.vertical-steps .list-group-item {
@@ -552,8 +645,10 @@
 .via-slds label[vlc-slds-toggle] .slds-form-element__label--toggleText {
   font-weight: normal;
 }
-.via-slds .vlc-slds-block label[vlc-slds-toggle=toggle]
-  ~ div[vlc-slds-toggle-elem=visible] {
+.via-slds
+  .vlc-slds-block
+  label[vlc-slds-toggle="toggle"]
+  ~ div[vlc-slds-toggle-elem="visible"] {
   font-weight: normal;
 }
 .via-slds ul.vlc-slds-knowledge-item .vlc-slds-knowledge-list-item > h3 {
@@ -572,10 +667,12 @@
 .via-slds .slds-form-element__control > div.vlc-control-wrapper > textarea {
   background: white;
 }
-.via-slds .slds-form-element__control
+.via-slds
+  .slds-form-element__control
   > div.vlc-control-wrapper
   > input[disabled],
-.via-slds .slds-form-element__control
+.via-slds
+  .slds-form-element__control
   > div.vlc-control-wrapper
   > textarea[disabled] {
   background: rgba(229, 222, 217, 1);
@@ -586,68 +683,106 @@
   text-transform: none;
   overflow-y: hidden;
 }
-.via-slds .slds-form-element__control
-  > div.vlc-control-wrapper textarea.ng-dirty
+.via-slds
+  .slds-form-element__control
+  > div.vlc-control-wrapper
+  textarea.ng-dirty
   ~ label,
-.via-slds .slds-form-element__control
-  > div.vlc-control-wrapper textarea:focus
+.via-slds
+  .slds-form-element__control
+  > div.vlc-control-wrapper
+  textarea:focus
   ~ label,
-.via-slds .slds-form-element__control
-  > div.vlc-control-wrapper textarea[cloned=dirty]
+.via-slds
+  .slds-form-element__control
+  > div.vlc-control-wrapper
+  textarea[cloned="dirty"]
   + label {
-  -webkit-transform: translate3d(0, -1.2rem, 0) scale3d(.8, .8, 1);
-  transform: translate3d(0, -1.2rem, 0) scale3d(.8, .8, 1);
+  -webkit-transform: translate3d(0, -1.2rem, 0) scale3d(0.8, 0.8, 1);
+  transform: translate3d(0, -1.2rem, 0) scale3d(0.8, 0.8, 1);
 }
-.via-slds .slds-form-element__control
-  > div.vlc-control-wrapper input.ng-dirty
+.via-slds
+  .slds-form-element__control
+  > div.vlc-control-wrapper
+  input.ng-dirty
   + label,
-.via-slds .slds-form-element__control
-  > div.vlc-control-wrapper input.ng-dirty
+.via-slds
+  .slds-form-element__control
+  > div.vlc-control-wrapper
+  input.ng-dirty
   ~ label,
-.via-slds .slds-form-element__control
-  > div.vlc-control-wrapper input.ng-touched.td-input
+.via-slds
+  .slds-form-element__control
+  > div.vlc-control-wrapper
+  input.ng-touched.td-input
   + label,
-.via-slds .slds-form-element__control
-  > div.vlc-control-wrapper input.slds-input.ng-dirty.ng-touched[vlc-slds-lookup-control]
+.via-slds
+  .slds-form-element__control
+  > div.vlc-control-wrapper
+  input.slds-input.ng-dirty.ng-touched[vlc-slds-lookup-control]
   ~ label,
-.via-slds .slds-form-element__control
-  > div.vlc-control-wrapper input.slds-input[cloned=dirty]
+.via-slds
+  .slds-form-element__control
+  > div.vlc-control-wrapper
+  input.slds-input[cloned="dirty"]
   ~ label,
-.via-slds .slds-form-element__control
-  > div.vlc-control-wrapper input:focus
+.via-slds
+  .slds-form-element__control
+  > div.vlc-control-wrapper
+  input:focus
   + label,
-.via-slds .slds-form-element__control
-  > div.vlc-control-wrapper input[cloned=dirty]
+.via-slds
+  .slds-form-element__control
+  > div.vlc-control-wrapper
+  input[cloned="dirty"]
   + label,
-.via-slds .slds-form-element__control
-  > div.vlc-control-wrapper input[type=text]:focus
+.via-slds
+  .slds-form-element__control
+  > div.vlc-control-wrapper
+  input[type="text"]:focus
   ~ label,
-.via-slds .slds-form-element__control
-  > div.vlc-control-wrapper input.ng-dirty
+.via-slds
+  .slds-form-element__control
+  > div.vlc-control-wrapper
+  input.ng-dirty
   + label,
-.via-slds .slds-form-element__control
-  > div.vlc-control-wrapper input.ng-dirty
+.via-slds
+  .slds-form-element__control
+  > div.vlc-control-wrapper
+  input.ng-dirty
   ~ label,
-.via-slds .slds-form-element__control
-  > div.vlc-control-wrapper input.ng-touched.td-input
+.via-slds
+  .slds-form-element__control
+  > div.vlc-control-wrapper
+  input.ng-touched.td-input
   + label,
-.via-slds .slds-form-element__control
-  > div.vlc-control-wrapper input.slds-input.ng-dirty.ng-touched[vlc-slds-lookup-control]
+.via-slds
+  .slds-form-element__control
+  > div.vlc-control-wrapper
+  input.slds-input.ng-dirty.ng-touched[vlc-slds-lookup-control]
   ~ label,
-.via-slds .slds-form-element__control
-  > div.vlc-control-wrapper input.slds-input[cloned=dirty]
+.via-slds
+  .slds-form-element__control
+  > div.vlc-control-wrapper
+  input.slds-input[cloned="dirty"]
   ~ label,
-.via-slds .slds-form-element__control
-  > div.vlc-control-wrapper input:focus
+.via-slds
+  .slds-form-element__control
+  > div.vlc-control-wrapper
+  input:focus
   + label,
-.via-slds .slds-form-element__control
-  > div.vlc-control-wrapper input[cloned=dirty]
+.via-slds
+  .slds-form-element__control
+  > div.vlc-control-wrapper
+  input[cloned="dirty"]
   + label,
-.via-slds .slds-form-element__control
-  > div.vlc-control-wrapper input[type=text]:focus
+.via-slds
+  .slds-form-element__control
+  > div.vlc-control-wrapper
+  input[type="text"]:focus
   ~ label {
-  -webkit-transform: translate3d(0, -1.2rem, 0) scale3d(.8, .8, 1) !important;
-  transform: translate3d(0, -1.2rem, 0) scale3d(.8, .8, 1) !important;
+  -webkit-transform: translate3d(0, -1.2rem, 0) scale3d(0.8, 0.8, 1) !important;
+  transform: translate3d(0, -1.2rem, 0) scale3d(0.8, 0.8, 1) !important;
 }
 .via-slds .slds-form-element__control p[vlc-bind-html] {
   color: rgba(65, 65, 65, 1);
@@ -667,9 +802,14 @@
   color: rgba(230, 68, 21, 1);
 }
 .via-slds .vlc-disclosure.ng-valid span.vlc-asterix.icon-v-asterix:before,
-.via-slds .vlc-slds-checkbox.ng-valid.ng-dirty span.vlc-asterix.icon-v-asterix:before,
-.via-slds .vlc-slds-multiSelect-control.ng-valid span.vlc-asterix.icon-v-asterix:before,
-.via-slds input.slds-input.ng-valid
+.via-slds
+  .vlc-slds-checkbox.ng-valid.ng-dirty
+  span.vlc-asterix.icon-v-asterix:before,
+.via-slds
+  .vlc-slds-multiSelect-control.ng-valid
+  span.vlc-asterix.icon-v-asterix:before,
+.via-slds
+  input.slds-input.ng-valid
   ~ label
   > span.vlc-asterix.icon-v-asterix:before,
 .via-slds select.ng-valid + label > span.vlc-asterix.icon-v-asterix:before,
@@ -681,7 +821,7 @@
   color: rgba(65, 65, 65, 1);
 }
 ng-form {
-  padding-right: .65rem;
+  padding-right: 0.65rem;
 }
 .via-slds section.slds-page-header.vlc-slds-page--header:after {
   display: none;
@@ -698,21 +838,29 @@ ng-form {
   padding: 23px 10px !important;
 }
 
-.via-slds .vlc-slds-remote-action--button .vlc-control-wrapper .slds-box.vlc-slds-box--neutral {
+.via-slds
+  .vlc-slds-remote-action--button
+  .vlc-control-wrapper
+  .slds-box.vlc-slds-box--neutral {
   border: 1px solid #ea650d !important;
 }
 
-:root .via-slds .vlc-slds-remote-action--button .vlc-control-wrapper .slds-box.vlc-slds-box--neutral p {
+:root
+  .via-slds
+  .vlc-slds-remote-action--button
+  .vlc-control-wrapper
+  .slds-box.vlc-slds-box--neutral
+  p {
   color: #ea650d !important;
 }
 
-.via-slds form[stepForm] {
+.via-slds form[stepform] {
   border-right: 0 !important;
 }
 
 .via-slds .slds-popover--tooltip .slds-popover__body {
   color: white !important;
-  font-size: .65rem;
+  font-size: 0.65rem;
 }
 
 .via-slds .slds-textarea {
@@ -723,6 +871,84 @@ ng-form {
   max-width: 37rem !important;
 }
 
-.div2::before {
-  content: url('data:image/png;base64, iVBORw0KGgoAAAANSUhEUgAAAFUAAAA5CAYAAABHw2d7AAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA3hJREFUeNrsnF2ITVEUx/fFfaCZeWAmD5giIo00SUmN1B3fjY9BiBQPt5QX5IEHLyT5mBcPGDVKDSmfkzGkxNBIvooSxsPgYaYm4YbBZa7/6qybPad77kfnnHvPPnuv+j2sfW53r/O/Z5+19sdMJJVKCWPe2jAjgRHViGpENWZENaIaUY25tRGZGvvjFSrEPhrUg82gFuwHF6qaE58DKWqArRzEwBqwCFRK106AarDXiJrbRoJ5YC1YDMZl+WwksMM/QLYEnAITcnyuBxwD54yo2W04OJxF0A+gnd6j4BH4GehEFRCbBWpsbX3gJgt5Dwwok/0DYqtsfivYCn4rWVJxlj0IZoNkCeIaBDNsbWdVEDSbqDvB9gDFSYnogeozqvKAxXkd/FB6RsU3sUvyk5wgkj7XgrQNEeV6NCq1X1R+msolSjeYwj7d4CHQVYSY6kCD5L8uUr++D38qVW7Z2lYUKaYNNr+jRMnSc1HJ2mz+giLEUwaW2dquKLY+kbVO7eJZSzX7NTxlTAh/lgz/8Ly+Wmp7BR6GSdTvoBNskt6r8SLHd43FFmEZ/umbKqVdFgparmkqza8/gTFSWzO/FqIexkGLIXNsyfAleBZGUftZ2Eap7Qk47UMsLRlGyaCKouaTcK7a/NU+xFFpq02VzPqFiHoXfJP8uWC8x3HUi6FbI49VHfr5DH+yjzzDiknrAkfBG4/eq7/CUJsWKmp6IhCT/HU+z//bVRY13yKeFlOKtZZJQ/+FDqK+BcdtT5MfkF0Silsh2ym7wUlQ4WOpQz/yO51ETYXhhoMmqh+2Q1hHdqgCGCWsBZtOnUSlYT/Jo37/8vftAVVSe5NOT+pkcENYOwFe/uVFxJb1n+ok6kbxf2vFrz2qtrC8U/MtqZ77HMdXYZ060SpR0VO0FMzn96GXw5++jxZtunXM/h2MMQ9FpT2qOGdrKnvOCPcn7SaCbcLal6J1WloAT+giah1n/zL21wtrd7XRRd/TwR0wln1apFkurBPSAyqLmm+iOiAJmjY6lbfSRd/7JEHlH2+LDtmfxJzqcG2mi76nObTX6iAqrfr3OVx776LvXof2Hl3q1CMOtaubg2NNGcozErRFF1FbOSnRNJK2rGk3tUEM3bsq1G6DheA++ALOs9+ruqgR808USvekGjOiGlGNqMaMqEZUI6oxR/snwABxXrHrTFNHXAAAAABJRU5ErkJggg==');
+#PremiumInfo label,
+#PremiumInfo2 label {
+  display: none;
+}
+
+#Messages,
+#RidersMessages {
+  position: relative;
+  left: -25px;
+  padding-left: 25px;
+  width: 108%;
+  margin-bottom: 20px;
+  border-bottom: 2px solid #ffffff;
+}
+
+.via-slds .vlc-slds-right--panel:after {
+  display: none;
+}
+
+:root .recalculatBtn {
+  border: 0;
+  border-radius: 4px;
+  background-color: transparent;
+  color: #ea650d !important;
+  font-weight: 700;
+  background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAMBSURBVHgBlVZvThpREJ95szRN/bc2hpSkicsJxBMUTlA8gZBo02/S9gDKARrpt6Y2gZ5AeoLiCeQGbj/RIomo1dDie9N5C1rU3Yf9JewOj/nz5jfz3oAwBUcl359RusiKAyRcBuY+GzgFxvalpla20e+77DHph+ON2TwjbouYBwcYoWkMf8h8/tV6UIBOyQ8opevTHMegoYfDaqYxCBMDdEszOUipfRGD8VII0xFMyKEEKUwGuQlgd+55+lBS9u13DVDO7J03YAq6m7IpUIdJQTz7sIUUWr4xjJxbkDbRu1eBIqh/65MYGmilaxft7uZcOJGJUJwSigeFmwCzntni26mCIcxFKSq1K88gLkAK4avkWoQRlZM6+R+v5ivPPp3VlKWGkXfuGivAhSgAYgjJiHSY4fs9e+btKAOhJh9vy0EUQOu13/A4lqLHMBifAQ5jGtLvSKt7CPySY48DBva5WANxMnAfJiNZUsw6QtET5zmXce8tlRTDumasesq8YMY8sl5jojoY8J/u6oIjdKDgTnHjYBD6HlyF0lenVpYl35hIDl124nzFm+rc6LYSzYHInjFtJAiFtrBX0U3rYRqUsN93K6gSAtVTRDlStIVM+ycV8FFRHdm2sAscCr3Qdqks7ZrKH6OzS+9189To8pnRi7bw8s6eGbMKTqAEYD5wqfTeqNojRUe9d1RcINqfV3TSrUBO3kf247KV6+ZADZGbLiViU5Msy6R1S85E1crpGrRlJpTl3iqD03jYUs/3LixFrcRdKMrbNh1CKpB7Y8XKtgaKYN3KDveNzMdBGPWBJionFVsOom/G3XKFsHjdpiCpmATPklmoaVgd2Y/R2ZwryWGsT+iF6b3zLDwAxxszFcbJjjKr6REzt++InxuzOzgak9c7aSK62zhyoqF4PUfA1mhijtwfmTYThG2hIID/gKVFZnP57my+dxbtFJPCFuQK/gIPQ19avXr5hFbjBj+6LDuv/QC0tl2Ul2Ivy/UYjLbLfSn2gdLYvpinZraW/NflLyesSrfPx0rIAAAAAElFTkSuQmCC");
+  background-repeat: no-repeat;
+  background-position: right;
+  width: 175px;
+}
+
+:root .via-slds .slds-page-header__title {
+  font-size: 35px;
+  color: #ea650d !important;
+}
+
+#OccupationAndSportLookupHint {
+  margin-top: 20px;
+}
+
+.summaryComponent h2 {
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.summaryLabel {
+  font-size: 11px;
+  min-height: 40px;
+  display: flex;
+  margin-bottom: 5px;
+}
+
+.summaryLabel p {
+  width: 100%;
+  align-self: flex-end;
+}
+
+.summaryValue {
+  font-size: 12px;
+}
+
+.medical-loading {
+  font-size: 11px;
+}
+
+.final-price {
+  font-weight: bold;
+  font-size: 15px;
+}
+
+.previous-price {
+  text-decoration: line-through;
+}
+
+.sum-assured {
+  font-weight: bold;
+}
+
+.summaryComponent h2 {
+  margin-top: 15px;
 }

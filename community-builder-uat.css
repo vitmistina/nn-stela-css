@@ -12,7 +12,7 @@
       format('embedded-opentype'),
     url('/nnbrokerportalsk/s/NNDagnyDisplayWebPro.woff') format('woff');
 }
-body,
+/*body,
 html {
   color: #414141;
 }
@@ -20,7 +20,8 @@ html {
 * {
   font-family: 'NNDagnyDisplayWebPro' !important;
   font-size: 16px;
-}
+}*/
+
 .default-bg-overlay {
   background: white none repeat scroll 0 0 !important;
 }
@@ -74,18 +75,24 @@ a.menuItemLink:hover {
 }
 
 :root .forceCommunitySearchBox  .search-button.uiButton,
-:root .forceCommunitySearchBox  .search-button.uiButton.focus {
+:root .forceCommunitySearchBox  .search-button.uiButton.focus,
+:root .forceCommunitySearchBox .has-input .search-button.uiButton {
   background: 0;
   content: "";
   background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABIAAAAUCAYAAACAl21KAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAHLSURBVHgBnZRRTsJAEIZntpQYq0mfMLzBDeoJ1JNYjfiqnkB7AvHNRCL1BnoCuIG9ATyYgPpgE5EY6O64u7SElkKKkzQ7u/n77Uz77yKsiY9TywUDjwHQkVNbPiEABcDpqfL44y9qMQ8wcLdqrGx2kKC2ahNC7IvJ5Kjq//bVnOVBDNN8VRAt5uKKG9N65eFbbir2ORcnhNBHIq17a1hObkXv57u9GBKMJ+yo7odhVtNzbdsy+a1MXbWZ1O3j8jdh7WzZeaFg22U+q5zIS7fG1IeV/Qt+tw6iQlVKQtzpthAPUiACrMdjAAWCIv4cpw7LE3CkEDYLOwVCpC81ljk4hV4vlWrxm0G6NYIXnRjsuABGehVjHaVB46jUBO1eOPw827leBxmeWZdycFXOp1NvyUfDhnXBgDXjEps8ilJ/UHuoHF1La1/OJOTttUY3S6BBw3INYO30KnXlI2FYWzh3c4jK04Z0pd1N1kmEUtmVf+Awu5la5wBetTXqJkullRAAv9IanegDbJgOkrAJWSjMaVC9Xzarrig5qPOSCxyRbLDkylioBETEvU0gGpRz7/jVzKVVCCQh9sI8VJ6AfwQjAfqi0hAQV5u2lMQfgffexhA4enwAAAAASUVORK5CYII=');
   background-size: cover;
   width: 18px;
   height: 20px;
-  right: 124px;
+  right: 14%;
   top: 12px;
 }
 
-:root .forceCommunitySearchBox  .search-button.uiButton:hover {
+:root .forceCommunitySearchBox .search-button.uiButton:active,
+:root .forceCommunitySearchBox .search-button.uiButton:focus,
+:root .forceCommunitySearchBox .search-button.uiButton:hover,
+:root .forceCommunitySearchBox .has-input .search-button.uiButton:active,
+:root .forceCommunitySearchBox .has-input .search-button.uiButton:focus,
+:root .forceCommunitySearchBox .has-input .search-button.uiButton:hover {
   background-color: transparent;
 }
 
@@ -93,7 +100,7 @@ a.menuItemLink:hover {
   background-color: #ea650d !important;
 }
 
-:root .uiInput--input.input {
+:root .forceCommunitySearchBox .search-field.uiInput--input.input {
   border-bottom: 1px solid #f1edeb;
   max-width: 500px;
   max-height: 30px;
@@ -183,4 +190,11 @@ a.menuItemLink:hover {
 
 .headingFontSize span {
   font-size: 24px;
+}
+
+@media only screen and (min-width: 64.0625em) {
+  :root .siteforceNapiliBody .cProfileCon {
+    width: 25%;
+    float: right;
+  }
 }

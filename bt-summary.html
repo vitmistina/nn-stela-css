@@ -1,13 +1,62 @@
-<!-- <div ng-repeat="p in control.vlcSI[control.itemsKey]" class="summaryComponent"> -->
-<div ng-repeat="p in components" class="summaryComponent">
-    <h2 ng-if="p.Selected">{{p.CalculationName}}</h2>
-    <div class="slds-grid slds-grid_pull-padded" ng-if="p.Selected">
-      <div class="slds-size-4-of-12 slds-p-right--medium"><p class="slds-text-align--center">Poistná suma</p><p class="slds-text-align--right">{{p.SumAssured | number }}  €</p></div>
-      <div class="slds-size-2-of-12 slds-p-horizontal--medium"><p class="slds-text-align--center">Poistná doba</p><p class="slds-text-align--right component-value">{{p.Term}}</p></div>
-      <div class="slds-size-2-of-12 slds-p-horizontal--medium"><p class="slds-text-align--center">Zdravotné navýšenie o</p><p class="slds-text-align--right component-value">{{p.MedicalLoading}} %</p></div>
-      <div class="slds-size-1-of-12 slds-p-horizontal--medium"><p class="slds-text-align--center">Riziková skupina</p><p class="slds-text-align--right component-value">{{p.RiskGroup}}</p></div>
-      <div class="slds-size-1-of-12 slds-p-horizontal--medium"><p class="slds-text-align--center">Celkové navýšenie o</p><p class="slds-text-align--right component-value">{{p.CalculationLoading}} %</p></div>
-      <div class="slds-size-1-of-12 slds-p-horizontal--medium"><p class="slds-text-align--center">Poistné pred zľavami</p><p class="slds-text-align--right component-value">{{p.PremiumBeforeAllDiscount}} €</p></div>
-      <div class="slds-size-1-of-12 slds-p-horizontal--medium"><p class="slds-text-align--center">Poistné po zľavách</p><p class="slds-text-align--right component-value final-price">{{p.PremiumAfterAllDiscount}} €</p></div>
+<div ng-repeat="p in control.vlcSI[control.itemsKey]" class="summaryComponent slds-size--1-of-1">
+  <!-- <div ng-repeat="p in components" class="summaryComponent"> -->
+  <h2 ng-if="p.Selected">{{p.CalculationName}}</h2>
+  <div class="slds-grid slds-grid_pull-padded slds-wrap slds-size--1-of-1" ng-if="p.Selected">
+    <div class="slds-size--1-of-4 slds-medium-size--2-of-12 slds-p-right--x-small slds-medium-p-right--medium">
+      <div class="summaryLabel">
+        <p class="slds-text-align--center">Poistná suma</p>
+      </div>
+      <div class="summaryValue">
+        <p class="slds-text-align--right sum-assured">{{p.SumAssured | number }} €</p>
+      </div>
     </div>
+    <div class="slds-size--1-of-4 slds-medium-size--1-of-12 slds-p-horizontal--x-small">
+      <div class="summaryLabel">
+        <p class="slds-text-align--center">Poistná doba</p>
+      </div>
+      <div class="summaryValue">
+        <p class="slds-text-align--center ">{{p.Term}}</p>
+      </div>
+    </div>
+    <div class="slds-size--1-of-4 slds-medium-size--2-of-12 slds-p-horizontal--x-small">
+      <div class="summaryLabel">
+        <p class="slds-text-align--center">Zdravotné navýšenie</p>
+      </div>
+      <div class="summaryValue">
+        <p class="slds-text-align--center medical-loading">{{p.MedicalLoading}} %</p>
+      </div>
+    </div>
+    <div class="slds-size--1-of-4 slds-medium-size--1-of-12 slds-p-left--x-small slds-medium-p-horizontal--xx-small">
+      <div class="summaryLabel">
+        <p class="slds-text-align--center">Riziková skupina</p>
+      </div>
+      <div class="summaryValue">
+        <p class="slds-text-align--center">{{p.RiskGroup}}</p>
+      </div>
+    </div>
+    <div class="slds-size--1-of-3 slds-medium-size--2-of-12 slds-p-right--small slds-medium-p-horizontal--small">
+      <div class="summaryLabel">
+        <p class="slds-text-align--center">Celkové navýšenie</p>
+      </div>
+      <div class="summaryValue">
+        <p class="slds-text-align--center">{{p.CalculationLoading | number : 0 }} %</p>
+      </div>
+    </div>
+    <div class="slds-size--1-of-3 slds-medium-size--2-of-12 slds-p-horizontal--x-small">
+      <div class="summaryLabel">
+        <p class="slds-text-align--center">Pred zľavami</p>
+      </div>
+      <div class="summaryValue">
+        <p class="slds-text-align--right  previous-price">{{p.PremiumBeforeAllDiscount}} €</p>
+      </div>
+    </div>
+    <div class="slds-size--1-of-3 slds-medium-size--2-of-12 slds-p-left--small">
+      <div class="summaryLabel">
+        <p class="slds-text-align--center">Poistné po zľavách</p>
+      </div>
+      <div class="summaryValue">
+        <p class="slds-text-align--right  final-price">{{p.PremiumAfterAllDiscount}} €</p>
+      </div>
+    </div>
+  </div>
 </div>
