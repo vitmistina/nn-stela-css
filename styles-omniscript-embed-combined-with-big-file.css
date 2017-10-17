@@ -829,7 +829,8 @@ ng-form {
   width: 1.875rem;
 }
 
-#RecalculateRemote3 {
+#RecalculateRemote3,
+#Recalculate {
   padding: 23px 10px !important;
 }
 
