@@ -1,0 +1,463 @@
+.via-slds .slds-spinner--brand .slds-spinner__dot-a:after,
+.via-slds .slds-spinner--brand .slds-spinner__dot-a:before,
+.via-slds .slds-spinner--brand .slds-spinner__dot-b:after,
+.via-slds .slds-spinner--brand .slds-spinner__dot-b:before,
+.via-slds .slds-spinner--brand.slds-spinner:after,
+.via-slds .slds-spinner--brand.slds-spinner:before {
+  background-color: #ea650d;
+}
+.via-slds .slds-input,
+.via-slds .slds-form-element__label,
+.via-slds .slds-select:active,
+.via-slds .slds-select:focus,
+.via-slds .vlc-slds-wizard,
+.via-slds,
+.via-slds label,
+.via-slds label span,
+select {
+  color: #414141 !important;
+  border-color: #ea650d !important;
+}
+
+.via-slds .slds-page-header__title.vlc-slds-page-header__title {
+  color: #ea650d !important;
+  border-color: #ea650d !important;
+  font-size: 24px;
+}
+
+div {
+  border-color: #ea650d !important;
+  color: #414141 !important;
+}
+
+li {
+  border-color: #ea650d !important;
+}
+
+.vlc-slds-bpTree-step-chart__container {
+  position: relative;
+  top: 60px;
+}
+
+.via-slds .vlc-slds-cart .vlc-slds-cart-container.slds-size--1-of-1 {
+  position: relative;
+  top: 0px;
+  right: 0px;
+  z-index: 5;
+  height: 0em;
+  width: 40%;
+  float: right;
+  color: #ea650d;
+}
+
+.via-slds .slds-icon,
+.via-slds .vlc-slds-wizard .vlc-slds--grippy > svg,
+.via-slds .vlc-slds-wizard .vlc-slds--grippy > svg:first-child,
+.via-slds .list-group.vertical-steps .list-group-item svg,
+.vlc-slds p {
+  fill: #fff !important;
+  background: #ea650d;
+}
+
+.via-slds input[type="email"].ng-dirty.ng-valid,
+.via-slds input[type="password"].ng-dirty.ng-valid,
+.via-slds input[type="tel"].ng-dirty.ng-valid,
+.via-slds input[type="text"].ng-dirty.ng-valid,
+.via-slds input[type="url"].ng-dirty.ng-valid,
+.via-slds textarea.ng-dirty.ng-valid,
+slds-form-element__control {
+  border: 1px solid;
+  border-color: #ea650d !important;
+}
+
+.ng-invalid-required {
+  color: #999999;
+}
+
+.via-slds .vlc-slds-remote-action--button .vlc-control-wrapper .slds-box {
+  background-color: #ea650d;
+}
+
+.slds-box .vlc-slds-box--neutral,
+strong,
+select {
+  color: #414141 !important;
+}
+
+.via-slds .slds-radio [type="radio"]:checked + .slds-radio--faux,
+.via-slds
+  .slds-radio
+  [type="radio"]:checked
+  + .slds-radio__label
+  .slds-radio--faux,
+.via-slds
+  .slds-radio
+  [type="radio"]:checked
+  ~ .slds-radio--faux
+  :checked:before {
+  -webkit-appearance: none;
+  background: #ea650d !important;
+}
+
+path[attributes style] {
+  fill: rgb(238, 127, 0);
+  d: path(
+    "m 19.1 42.5 l -16.5 -16.6 c -0.6 -0.6 -0.6 -1.6 0 -2.2 l 2.2 -2.2 c 0.6 -0.6 1.6 -0.6 2.2 0 l 12.4 12.5 c 0.4 0.4 1.1 0.4 1.5 0 l 24.3 -24.5 c 0.6 -0.6 1.6 -0.6 2.2 0 l 2.2 2.2 c 0.6 0.6 0.6 1.6 0 2.2 l -28.3 28.6 c -0.6 0.7 -1.6 0.7 -2.2 0 Z"
+  );
+}
+
+.slds-form-element__control {
+  overflow-x: auto;
+}
+.via-slds .list-group.vertical-steps .list-group-item.active:before {
+  background-color: #ea650d !important;
+}
+.via-slds .list-group.vertical-steps .list-group-item.completed:before {
+  background: #ea650d !important;
+}
+.via-slds .list-group.vertical-steps .list-group-item.active:before {
+  background-color: #ea650d !important;
+}
+.via-slds section.slds-page-header.vlc-slds-page--header::after {
+  background: linear-gradient(
+    141deg,
+    rgb(238, 127, 0),
+    rgb(219, 179, 31) 51%,
+    rgb(227, 80, 80) 75%
+  ) !important;
+}
+.via-slds .vlc-slds-wizard::before {
+  background: linear-gradient(
+    -141deg,
+    rgb(238, 127, 0) 25%,
+    rgb(219, 179, 31) 50%,
+    rgb(227, 80, 80) 90%
+  );
+}
+.via-slds .vlc-slds-right--panel::after {
+  background: linear-gradient(
+    141deg,
+    #ff0000,
+    #ff7f00 15%,
+    #ffff00 30%,
+    #00ff00 45%,
+    #0000ff 60%,
+    #4b0082 75%,
+    #9400d3 90%
+  );
+}
+.vlc-slds-cart-container-top-panel {
+  margin-top: -12px;
+}
+.via-slds .slds-col--padded {
+  padding-right: 0;
+}
+.slds-form-element__control {
+  overflow: hidden;
+}
+.vlc-control-wrapper {
+  overflow: hidden !important;
+}
+.via-slds .slds-truncate {
+  white-space: normal !important;
+}
+.via-slds .slds-table th {
+  white-space: normal !important;
+}
+#table1 {
+  background: rgb(244, 246, 249);
+}
+
+.message.description {
+  color: white !important;
+}
+
+.via-slds input.ng-pristine.ng-invalid:focus,
+.via-slds input.ng-pristine.ng-valid:focus,
+.via-slds textarea.ng-pristine.ng-invalid:focus,
+.via-slds textarea.ng-pristine.ng-valid:focus {
+  border: 1px solid rgba(229, 222, 217, 1) !important;
+}
+
+.via-slds ul.slds-list--vertical.vlc-slds-list--vertical span {
+  font-weight: normal;
+  font-size: 0.8rem;
+  font-style: italic;
+}
+.via-slds div.vlc-slds-back-button {
+  font-weight: normal;
+  text-transform: uppercase;
+}
+
+.via-slds .vlc-slds-button--tertiary {
+  font-weight: normal;
+}
+.via-slds .vlc-slds-remote-action--button .vlc-control-wrapper .slds-box {
+  border: 0px solid transparent;
+}
+.via-slds form[stepform] {
+  background: #f1edeb;
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
+}
+.via-slds section.slds-page-header.vlc-slds-page--header {
+  font-weight: normal;
+}
+.via-slds .vlc-slds-radio-control span.slds-form-element__label {
+  font-weight: normal;
+}
+:root .via-slds .slds-radio [type="radio"]:checked + .slds-radio--faux,
+.via-slds
+  .slds-radio
+  [type="radio"]:checked
+  + .slds-radio__label
+  .slds-radio--faux,
+.via-slds
+  .slds-radio
+  [type="radio"]:checked
+  ~ .slds-radio--faux
+  :checked:before {
+  -webkit-appearance: none;
+  background: white !important;
+}
+.div2 h2 {
+  font-size: 20px;
+}
+:root .info {
+  color: #5b9853;
+}
+:root .via-slds input[type="email"].ng-dirty.ng-valid,
+:root .via-slds input[type="password"].ng-dirty.ng-valid,
+:root .via-slds input[type="tel"].ng-dirty.ng-valid,
+:root .via-slds input[type="text"].ng-dirty.ng-valid,
+:root .via-slds input[type="url"].ng-dirty.ng-valid,
+:root .via-slds textarea.ng-dirty.ng-valid,
+:root slds-form-element__control {
+  border: 1px solid;
+  border-color: #e5ded9 !important;
+}
+/* odstranění box shadow po focusu na select */
+:root .via-slds .slds-select:active,
+:root .via-slds .slds-select:focus {
+  -webkit-box-shadow: 0 0 0 0 #000000;
+  box-shadow: 0 0 0 0 #000000;
+}
+:root .via-slds .slds-input,
+:root .via-slds .slds-form-element__label,
+:root .via-slds .slds-select:active,
+:root .via-slds .slds-select:focus,
+:root .via-slds .vlc-slds-wizard,
+:root .via-slds,
+:root .via-slds label,
+:root .via-slds label span,
+:root select {
+  border-color: rgba(229, 222, 217, 1) !important;
+}
+:root div {
+  border-color: rgba(229, 222, 217, 1) !important;
+}
+.via-slds
+  .vlc-slds-multiSelect-control
+  ul[horizontalmode]
+  span.slds-form-element__label {
+  font-weight: normal;
+}
+.via-slds .list-group.vertical-steps .list-group-item {
+  text-transform: none;
+  font-weight: 300;
+}
+.via-slds .list-group.vertical-steps .list-group-item:before {
+  background-color: white;
+  transform: translateX(-55%);
+  border: 2px solid #ea650d;
+}
+:root .via-slds .list-group.vertical-steps .list-group-item.active:before {
+  background-color: #ea650d !important;
+}
+:root .via-slds .list-group.vertical-steps .list-group-item.completed:before {
+  background: #ea650d !important;
+}
+.via-slds .vlc-slds-selItem label.vlc-slds-selItem__label {
+  font-weight: normal;
+}
+.via-slds label[vlc-slds-toggle] .slds-form-element__label--toggleText {
+  font-weight: normal;
+}
+.via-slds
+  .vlc-slds-block
+  label[vlc-slds-toggle="toggle"]
+  ~ div[vlc-slds-toggle-elem="visible"] {
+  font-weight: normal;
+}
+.via-slds ul.vlc-slds-knowledge-item .vlc-slds-knowledge-list-item > h3 {
+  font-weight: normal;
+}
+.via-slds .slds-form-element__label {
+  font-weight: normal;
+}
+.via-slds .slds-form-element__control > div.vlc-control-wrapper {
+  position: relative;
+  background-color: white;
+}
+.via-slds .slds-form-element__control > div.vlc-control-wrapper > input,
+.via-slds .slds-form-element__control > div.vlc-control-wrapper > textarea {
+  background: white;
+}
+.via-slds
+  .slds-form-element__control
+  > div.vlc-control-wrapper
+  > input[disabled],
+.via-slds
+  .slds-form-element__control
+  > div.vlc-control-wrapper
+  > textarea[disabled] {
+  background: rgba(229, 222, 217, 1);
+}
+.via-slds .slds-form-element__control > div.vlc-control-wrapper > label {
+  left: 11px;
+  font-size: 14px;
+  text-transform: none;
+  overflow-y: hidden;
+}
+.via-slds
+  .slds-form-element__control
+  > div.vlc-control-wrapper
+  textarea.ng-dirty
+  ~ label,
+.via-slds
+  .slds-form-element__control
+  > div.vlc-control-wrapper
+  textarea:focus
+  ~ label,
+.via-slds
+  .slds-form-element__control
+  > div.vlc-control-wrapper
+  textarea[cloned="dirty"]
+  + label {
+  -webkit-transform: translate3d(0, -1.2rem, 0) scale3d(0.7, 0.7, 1);
+  transform: translate3d(0, -1.2rem, 0) scale3d(0.7, 0.7, 1);
+}
+.via-slds
+  .slds-form-element__control
+  > div.vlc-control-wrapper
+  input.ng-dirty
+  + label,
+.via-slds
+  .slds-form-element__control
+  > div.vlc-control-wrapper
+  input.ng-dirty
+  ~ label,
+.via-slds
+  .slds-form-element__control
+  > div.vlc-control-wrapper
+  input.ng-touched.td-input
+  + label,
+.via-slds
+  .slds-form-element__control
+  > div.vlc-control-wrapper
+  input.slds-input.ng-dirty.ng-touched[vlc-slds-lookup-control]
+  ~ label,
+.via-slds
+  .slds-form-element__control
+  > div.vlc-control-wrapper
+  input.slds-input[cloned="dirty"]
+  ~ label,
+.via-slds
+  .slds-form-element__control
+  > div.vlc-control-wrapper
+  input:focus
+  + label,
+.via-slds
+  .slds-form-element__control
+  > div.vlc-control-wrapper
+  input[cloned="dirty"]
+  + label,
+.via-slds
+  .slds-form-element__control
+  > div.vlc-control-wrapper
+  input[type="text"]:focus
+  ~ label {
+  -webkit-transform: translate3d(0, -1.2rem, 0) scale3d(0.7, 0.7, 1);
+  transform: translate3d(0, -1.2rem, 0) scale3d(0.7, 0.7, 1);
+}
+.via-slds .slds-form-element__control p[vlc-bind-html] {
+  color: rgba(65, 65, 65, 1);
+  word-break: normal;
+}
+.via-slds .vlc-slds-text-block p[ng-bind-html] {
+  font-weight: normal;
+}
+.via-slds {
+  font-weight: normal;
+}
+.via-slds span.vlc-asterix.icon-v-asterix:before {
+  color: rgba(230, 68, 21, 1);
+}
+.via-slds .vlc-disclosure.ng-valid span.vlc-asterix.icon-v-asterix:before,
+.via-slds
+  .vlc-slds-checkbox.ng-valid.ng-dirty
+  span.vlc-asterix.icon-v-asterix:before,
+.via-slds
+  .vlc-slds-multiSelect-control.ng-valid
+  span.vlc-asterix.icon-v-asterix:before,
+.via-slds
+  input.slds-input.ng-valid
+  ~ label
+  > span.vlc-asterix.icon-v-asterix:before,
+.via-slds select.ng-valid + label > span.vlc-asterix.icon-v-asterix:before,
+.via-slds textarea.ng-valid + label > span.vlc-asterix.icon-v-asterix:before {
+  color: #5b9853;
+}
+.via-slds .vlc-slds-currency-symbol {
+  top: 60%;
+  color: rgba(65, 65, 65, 1);
+}
+ng-form {
+  padding-right: 0.65rem;
+}
+.via-slds section.slds-page-header.vlc-slds-page--header:after {
+  display: none;
+}
+.via-slds .vlc-slds-wizard:before {
+  display: none;
+}
+.via-slds .slds-popover--tooltip .slds-popover__body {
+  color: #414141 !important;
+  font-size: 0.65rem;
+}
+
+.via-slds .vlc-control-wrapper[help="true"] > a {
+  background-color: #ea650d !important;
+}
+
+.via-slds .slds-textarea {
+  min-height: 9rem !important;
+}
+
+.via-slds .slds-popover--tooltip {
+  max-width: 37rem !important;
+  background-color: #ffffff !important;
+  border-color: #f1edeb !important;
+}
+
+#SignatureOptions0 label.slds-radio,
+#SignatureOptions2 label.slds-radio {
+  width: 200px;
+  height: 100px;
+}
+
+#SignatureOptions0 .imgItemContainer,
+#SignatureOptions2 .imgItemContainer {
+  height: 100px;
+  background-color: #ea650d;
+}
+
+#SignatureOptions0 .imgItemContainer .imgItem,
+#SignatureOptions2 .imgItemContainer .imgItem {
+  color: white !important;
+}
+
+#SignatureOptions0 .via-slds .borderOverlay,
+#SignatureOptions2 .via-slds .borderOverlay {
+  border: 0;
+}

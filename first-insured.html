@@ -1,0 +1,85 @@
+                <tr ng-show="IsVisible == g.GroupName" ng-repeat='p in g.Components' ng-if="p.Relevant" >
+                    <td style="width:100%" colspan="9">
+                        <div class="slds-grid slds-grid_pull-padded slds-wrap slds-size--1-of-1" style="width:100%;">
+                            <div class="slds-size--1-of-6 slds-small-size--1-of-12 slds-medium-size--1-of-12 slds-p-right--x-small slds-medium-p-right--medium">
+                                <label class="slds-checkbox">
+                                    <input type="checkbox" ng-model="p.Selected" ng-checked="{{p.Selected}}" ng-change="riderChanged()"/>
+                                    <span class="slds-checkbox--faux"></span>
+                                </label>
+                            </div>
+                            <div class="slds-size--5-of-6 slds-small-size--11-of-12 slds-medium-size--7-of-12 slds-p-right--x-small slds-medium-p-right--medium">
+                                <span style="white-space:normal; min-width:200px;">{{p.ComponentCalculationName}}</span>
+                            </div>
+                            <div class="slds-size--1-of-1 slds-medium-size--4-of-12 slds-p-right--x-small slds-medium-p-right--medium" ng-if="p.Selected">
+                                <!-- <input style="text-align:left !Important;" ng-if="showFirstInsuredRecalculateBtn" class="recalculatBtn" type="button" value="Prepočítať všetky"/>  -->
+                                <input style="text-align:left !Important;" ng-if="showFirstInsuredRecalculateBtn" class="recalculatBtn" type="button" value="Prepočítať všetky" ng-click="buttonClick(bpTree.response, control, this, replacePercentages(control.vlcSI[control.itemsKey]),control.propSetMap.sendJSONPath, recalculated)"/>
+                            </div>
+                        </div>
+
+                      
+                        <div class="slds-grid slds-grid_pull-padded slds-wrap slds-size--1-of-1" style="width:100%;" ng-if="p.Selected">
+                            <div class="slds-size--3-of-4 slds-medium-size--2-of-12 slds-p-right--x-small slds-medium-p-right--medium" ng-if="p.Selected">
+                                <div class="summaryLabel">
+                                    <p class="slds-text-align--center">Poistná suma (€)</p>
+                                </div>
+                                <div class="summaryValue input-icon input-icon-right">
+                                    <i class="">€</i>
+                                    <input  type="text" ng-change="riderChanged(p)" style="text-align: left;" ng-model="p.SumAssured" pattern="[0-9]+([\.,][0-9]+)*" format  min="0"  to-number class="slds-input"  placeholder="Poistná suma" >
+                                </div>
+                            </div>
+                            <div class="slds-size--1-of-4 slds-medium-size--1-of-12 slds-p-right--x-small slds-medium-p-right--medium" ng-if="p.Selected">
+                                <div class="summaryLabel">
+                                    <p class="slds-text-align--center">Poistná doba</p>
+                                </div>
+                                <div class="summaryValue">
+                                    <input ng-change="riderChanged(p)" ng-model="p.Term" min="1"  to-number class="slds-input" type="number" placeholder="Poistiť do veku poisteneho" value="{{p.Term}}">
+                                </div>
+                            </div>
+                            <div class="slds-size--1-of-3 slds-medium-size--2-of-12 slds-p-right--x-small slds-medium-p-right--medium" ng-if="p.Selected">
+                                <div class="summaryLabel">
+                                    <p class="slds-text-align--center">Zdravotné navýšenie</p>
+                                </div>
+                                <div class="summaryValue input-icon input-icon-right">
+                                    <i class="">%</i>
+                                    <input ng-change="riderChanged(p)" min="0"  to-number style="text-align: left;" ng-model="p.MedicalLoading" class="slds-input" type="number" placeholder="Loading" value="{{p.MedicalLoading}}">
+                                </div>
+                            </div>
+                            <div class="slds-size--1-of-3 slds-medium-size--1-of-12 slds-p-right--x-small slds-medium-p-right--medium" ng-if="p.Selected">
+                                <div class="summaryLabel">
+                                    <p class="slds-text-align--center">Riziková skupina</p>
+                                </div>
+                                <div class="summaryValue">
+                                    <p class="slds-text-align--center">{{p.RiskGroup}}</p>
+                                </div>
+                            </div>
+                            <div class="slds-size--1-of-3 slds-medium-size--2-of-12 slds-p-right--x-small slds-medium-p-right--medium" ng-if="p.Selected">
+                                <div class="summaryLabel">
+                                    <p class="slds-text-align--center">Celkové navýšenie</p>
+                                </div>
+                                <div class="summaryValue">
+                                    <p class="slds-text-align--center">{{ p.CalculatedLoadingPercent | number : 0 }} %</p>
+                                </div>
+                            </div>
+                            <div class="slds-size--1-of-2 slds-medium-size--2-of-12 slds-p-right--x-small slds-medium-p-right--medium" ng-if="p.Selected">
+                                <div class="summaryLabel">
+                                    <p class="slds-text-align--center">Pred zľavami</p>
+                                </div>
+                                <div class="summaryValue">
+                                    <p class="slds-text-align--center previous-price">{{p.PremiumBeforeAllDiscount}} €</p>
+                                </div>
+                            </div>
+                            <div class="slds-size--1-of-2 slds-medium-size--2-of-12 slds-p-right--x-small slds-medium-p-right--medium" ng-if="p.Selected">
+                                <div class="summaryLabel">
+                                    <p class="slds-text-align--center">Poistné po zľavách</p>
+                                </div>
+                                <div class="summaryValue">
+                                    <p class="slds-text-align--center final-price">{{p.PremiumAfterAllDiscount}} €</p>
+                                </div>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
