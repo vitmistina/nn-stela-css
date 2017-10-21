@@ -44,14 +44,14 @@
       </div>
     </div>
   </div>
-  <div id="children_{{control.vlcSI[control.itemsKey][0].Children.indexOf(ch)}}" ng-repeat="ch in control.vlcSI[control.itemsKey][0].Children" style="border-top: 2px solid white !important; margin-top: 40px;">
+  <div id="children_{{control.vlcSI[control.itemsKey][0].Children.indexOf(ch)}}" ng-repeat="ch in control.vlcSI[control.itemsKey][0].Children" style="children-container">
     <div style="width: 100%; height: 10px; margin-top: 20px;">
       <div class="buttons"> {{count = control.vlcSI[control.itemsKey][0].Children.length;""}}
         <span><a ng-if="count > 1" href="" ng-click="removeChildFromCollection(ch, control.vlcSI[control.itemsKey][0])"><slds-button-svg-icon class="nn-chevron-icon" style="float:right" sprite="'utility'" icon="'delete'" extra-classes="'slds-input__icon'"></slds-button-svg-icon> Odobrať dieťa </a></span>
       </div>
     </div>
-    <div class="slds-size--1-of-1">
-      <div class="slds-size--1-of-1 slds-small-size--1-of-2 slds-form-element__control">
+    <div class="slds-size--1-of-1 slds-grid slds-grid_pull-padded slds-wrap">
+      <div class="slds-size--1-of-1 slds-small-size--1-of-2 slds-form-element__control child-input">
         <div class="vlc-control-wrapper" help="false">
           <input id="ChildName" type="text" name="loopname" ng-disabled="false" ng-required="true" ng-model="ch.Name" ng-blur="aggregate(this, 1, 1, true, -1)" ng-model-options="{ updateOn: 'default focusout blur', debounce: { 'default': control.propSetMap.debounceValue, 'focusout': 0, 'blur': 0 } }"
             class="slds-input ng-pristine ng-valid-minlength ng-valid-maxlength ng-empty ng-valid ng-valid-required ng-touched" ui-mask="" ng-maxlength="255" vlc-slds-ng-pattern="" ng-minlength="0" vlc-slds-val-watch="response" ng-init="init(this, control)"
@@ -59,7 +59,7 @@
           <label for="ChildName" class="slds-form-element__label ng-binding">Meno <span class="vlc-asterix icon-v-asterix ng-scope"></span></label>
         </div>
       </div>
-      <div class="slds-size--1-of-1 slds-small-size--1-of-2 slds-form-element__control slds-input-has-icon slds-input-has-icon--right">
+      <div class="slds-size--1-of-1 slds-small-size--1-of-2 slds-form-element__control slds-input-has-icon slds-input-has-icon--right child-input">
         <div class="vlc-control-wrapper" help="false">
           <input id="ChildBirthDate" ng-disabled="false" ng-required="true" type="text" class="slds-input ng-valid ng-valid-required ng-touched ng-not-empty ng-dirty ng-valid-valid ng-valid-parse" vlc-slds-val-checker="response" style="" ng-model="ch.BirthDate.value"
             ng-init="init(this, control)" ng-change="aggregate(this, control.index, control.indexInParent, true, -1); showRecalculateBtn()" vlc-slds-date-type="string" vlc-slds-date-picker="test" vlc-slds-model-date-format="yyyy-MM-dd">
@@ -82,7 +82,7 @@
             <p class="slds-text-align--left">{{p.ComponentCalculationName.value}}</p>
           </div>
         </div>
-        <div class="slds-size--4-of-12 slds-small-size--2-of-12 slds-medium-size--2-of-12 slds-p-right--x-small slds-medium-p-right--medium" ng-if="p.Selected">
+        <div class="slds-size--12-of-12 slds-small-size--2-of-12 slds-medium-size--2-of-12 slds-p-right--x-small slds-medium-p-right--medium" ng-if="p.Selected">
           <div class="summaryLabel">
             <p class="slds-text-align--center">Navýšenie</p>
           </div>
@@ -91,8 +91,8 @@
             <input ng-model="p.MUWLoadingPercent.value" style="" type="number" class="childrenLoadingInput slds-input ng-touched ng-dirty ng-valid ng-not-empty" value="{{p.MUWLoadingPercent.value}}" ng-change="setComponentSelected(control.vlcSI[control.itemsKey][0].ChildrenComponentsDefinition, p.ComponentCode.value, p.Selected, p)">
           </div>
         </div>
-        <div class="slds-size--4-of-6 slds-medium-size--6-of-12 slds-p-right--x-small slds-medium-p-right--medium" ng-if="p.Selected">
-          <div class="summaryLabel"></div>
+        <div class="slds-size--12-of-12 slds-medium-size--6-of-12 slds-p-right--x-small slds-medium-p-right--medium" ng-if="p.Selected">
+          <div class="summaryLabel hide-on-extra-small"></div>
           <div class="childValue bold" ng-if="p.Selected && showChildrenRecalculateBtn">
             <button class="recalculatBtn" type="button" value="Prepočítať všetky" ng-click="buttonClick(bpTree.response, control, this, control.vlcSI[control.itemsKey][0],control.propSetMap.label, recalculated)" title="Prepočítať všetky">
                         Prepočítať všetky
