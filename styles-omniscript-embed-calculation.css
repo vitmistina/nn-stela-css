@@ -625,6 +625,10 @@
   background-color: white;
   transform: translateX(-55%);
   border: 2px solid #ea650d;
+  cursor: pointer;
+}
+.via-slds .list-group.vertical-steps .list-group-item span {
+  cursor: pointer;
 }
 :root .via-slds .list-group.vertical-steps .list-group-item.active:before {
   background-color: #ea650d !important;
@@ -638,6 +642,11 @@
 .via-slds label[vlc-slds-toggle] .slds-form-element__label--toggleText {
   font-weight: normal;
 }
+
+.via-slds label[vlc-slds-toggle="toggle"] {
+  cursor: pointer;
+}
+
 .via-slds
   .vlc-slds-block
   label[vlc-slds-toggle="toggle"]
@@ -1459,6 +1468,7 @@ ng-form {
 
 .groupName {
   color: #ea650d !important;
+  cursor: pointer;
 }
 
 .endOfCalculationButtonContainer {
