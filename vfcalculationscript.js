@@ -1,3 +1,5 @@
+const menuOffsetTopDesktop = 210;
+const menuOffsetTopMobile = 140;
 var modules = ["vlocity-business-process"];
 var myModule = angular.module("NewCalculations", modules);
 
@@ -5,6 +7,19 @@ myModule.controller("msgController", [
   "$scope",
   function($scope) {
     $scope.errors;
+
+    $scope.$watch(
+      () => $scope.bpTree.asIndex,
+      (newValue, oldValue) => {
+        if (newValue != oldValue) {
+          const scrollToY =
+            window.parent.innerWidth >= 768
+              ? menuOffsetTopDesktop
+              : menuOffsetTopMobile;
+          window.parent.scroll(0, 0);
+        }
+      }
+    );
 
     $scope.$watch("errors", function(scope) {
       if (!!scope && scope.length >= 1) {
