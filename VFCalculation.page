@@ -29,11 +29,9 @@
       var modules = ["vlocity-business-process"];
       var myModule = angular.module("NewCalculations", modules);
 
-      myModule.controller("msgController", [
+      myModule.controller("scrollToTopController", [
         "$scope",
         function($scope) {
-          $scope.errors;
-
           $scope.$watch(
             () => $scope.bpTree.asIndex,
             (newValue, oldValue) => {
@@ -46,6 +44,13 @@
               }
             }
           );
+        }
+      ]);
+
+      myModule.controller("msgController", [
+        "$scope",
+        function($scope) {
+          $scope.errors;
 
           $scope.$watch("errors", function(scope) {
             if (!!scope && scope.length >= 1) {
@@ -483,8 +488,8 @@
 
 
     </script>
+    <div ng-controller="scrollToTopController" data-ng-init="init()"></div>
     <c:vfCompDatePickerTranslationSK />
-
   </div>
   <vlocity_ins:VFActionFunction />
   <!--script type="text/javascript">

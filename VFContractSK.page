@@ -1,0 +1,45 @@
+<apex:page standardStylesheets="false" showHeader="false" sidebar="false" docType="html-5.0">
+    <apex:includeScript value="{!$Resource.Jquery1123}" />
+    <div class="vlocity via-slds" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" ng-app="NewContract">
+        <vlocity_ins:BusinessProcessComponent strOmniScriptType="SK"
+            strOmniScriptSubType="New Contract"
+            strOmniScriptLang="English"
+            previewMode="{!$CurrentPage.parameters.previewEmbedded}"
+            verticalMode="{!$CurrentPage.parameters.verticalMode}"
+            scriptLayout="lightning"
+            strOmniScriptId="{!$CurrentPage.parameters.designerPreviewId}"/>
+        <script type="text/javascript">
+            var modules = ['vlocity-business-process'];
+            var myModule = angular.module('NewContract', modules);
+            myModule.controller("scrollToTopController", [
+              "$scope",
+              function($scope) {
+                $scope.$watch(
+                  () => $scope.bpTree.asIndex,
+                  (newValue, oldValue) => {
+                    if (newValue != oldValue) {
+                      const scrollToY =
+                        window.parent.innerWidth >= 768
+                          ? menuOffsetTopDesktop
+                          : menuOffsetTopMobile;
+                      window.parent.scroll(0, scrollToY);
+                    }
+                  }
+                );
+              }
+            ]);
+        </script>
+         <c:vfCompDatePickerTranslationSK />
+    </div>
+    <apex:stylesheet value="{!$Resource.OsStylsPart1}" />
+    <style>
+        .apexp {
+            display: none;
+        }
+        html body.sfdcBody {
+            overflow: hidden;
+        }
+    </style>
+    <vlocity_ins:VFActionFunction /> 
+    <apex:stylesheet value="{!$Resource.OsStylsPart1}" />
+</apex:page>

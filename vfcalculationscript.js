@@ -3,11 +3,52 @@ const menuOffsetTopMobile = 140;
 var modules = ["vlocity-business-process"];
 var myModule = angular.module("NewCalculations", modules);
 
-myModule.controller("msgController", [
+myModule.controller("scrollToTopController", [
+  "$rootScope",
+  function($scope) {
+    $rootScope.$watch(
+      () => $rootScope.bInitialize,
+      (newValue, oldValue) => {
+        if (newValue != oldValue) {
+          console.warn("new bInitialize", newValue);
+        }
+      }
+    );
+  }
+]);
+
+// let scopeFromElementInController;
+
+// myModule.controller("scrollToTopController", [
+//   "$scope",
+//   function($scope) {
+//     $scope.init = function() {
+//       scopeFromElementInController = angular.element("bptree").scope();
+//       console.warn("controller works");
+//       console.warn(scopeFromElementInController);
+//     };
+//   }
+// ]);
+
+// angular
+//   .element("bptree")
+//   .scope()
+//   .$watch(
+//     () => angular.element("bptree").scope().bpTree.asIndex,
+//     (newStepNumber, oldStepNumber) => {
+//       if (newStepNumber != oldStepNumber) {
+//         const scrollToY =
+//           window.parent.innerWidth >= 768
+//             ? menuOffsetTopDesktop
+//             : menuOffsetTopMobile;
+//         window.parent.scroll(0, scrollToY);
+//       }
+//     }
+//   );
+
+myModule.controller("scrollToTopController", [
   "$scope",
   function($scope) {
-    $scope.errors;
-
     $scope.$watch(
       () => $scope.bpTree.asIndex,
       (newValue, oldValue) => {
@@ -16,10 +57,17 @@ myModule.controller("msgController", [
             window.parent.innerWidth >= 768
               ? menuOffsetTopDesktop
               : menuOffsetTopMobile;
-          window.parent.scroll(0, 0);
+          window.parent.scroll(0, scrollToY);
         }
       }
     );
+  }
+]);
+
+myModule.controller("msgController", [
+  "$scope",
+  function($scope) {
+    $scope.errors;
 
     $scope.$watch("errors", function(scope) {
       if (!!scope && scope.length >= 1) {
