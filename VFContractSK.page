@@ -11,6 +11,8 @@
         <script type="text/javascript">
             var modules = ['vlocity-business-process'];
             var myModule = angular.module('NewContract', modules);
+            const menuOffsetTopDesktop = 210;
+            const menuOffsetTopMobile = 140;
             myModule.controller("scrollToTopController", [
               "$scope",
               function($scope) {
@@ -31,7 +33,6 @@
         </script>
          <c:vfCompDatePickerTranslationSK />
     </div>
-    <apex:stylesheet value="{!$Resource.OsStylsPart1}" />
     <style>
         .apexp {
             display: none;
@@ -41,5 +42,4 @@
         }
     </style>
     <vlocity_ins:VFActionFunction /> 
-    <apex:stylesheet value="{!$Resource.OsStylsPart1}" />
 </apex:page>

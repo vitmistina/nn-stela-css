@@ -28,7 +28,6 @@
       const menuOffsetTopMobile = 140;
       var modules = ["vlocity-business-process"];
       var myModule = angular.module("NewCalculations", modules);
-
       myModule.controller("scrollToTopController", [
         "$scope",
         function($scope) {
@@ -46,7 +45,6 @@
           );
         }
       ]);
-
       myModule.controller("msgController", [
         "$scope",
         function($scope) {
@@ -488,7 +486,6 @@
 
 
     </script>
-    <div ng-controller="scrollToTopController"></div>
     <c:vfCompDatePickerTranslationSK />
   </div>
   <vlocity_ins:VFActionFunction />
