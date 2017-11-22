@@ -488,7 +488,7 @@
 
 
     </script>
-    <div ng-controller="scrollToTopController" data-ng-init="init()"></div>
+    <div ng-controller="scrollToTopController"></div>
     <c:vfCompDatePickerTranslationSK />
   </div>
   <vlocity_ins:VFActionFunction />
