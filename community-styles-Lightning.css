@@ -1,0 +1,395 @@
+@font-face {
+  font-family: "NNDagnyTextWeb";
+  src: url("/nnCalc/s/NNDagnyTextWeb.eot");
+  src: url("/nnCalc/s/NNDagnyTextWeb.eot?#iefix") format("embedded-opentype"),
+    url("/nnCalc/s/NNDagnyTextWeb.woff") format("woff");
+}
+@font-face {
+  font-family: "NNDagnyDisplayWebPro";
+  src: url("/nnCalc/s/NNDagnyDisplayWebPro.eot");
+  src: url("/nnCalc/s/NNDagnyDisplayWebPro.eot?#iefix")
+      format("embedded-opentype"),
+    url("/nnCalc/s/NNDagnyDisplayWebPro.woff") format("woff");
+}
+
+body,
+html {
+  color: #414141;
+  font-size: 16px;
+}
+
+.default-bg-overlay {
+  background: white none repeat scroll 0 0 !important;
+}
+.siteforceNapiliBody .cNavBarCon {
+  background-color: #ffffff !important;
+}
+.navigationMenuWrapper {
+  background-color: #ffffff !important;
+}
+.forceCommunityNavigationMenu {
+  border-top: 1px solid #aaaaaa;
+  background: white;
+}
+a.menuItemLink {
+  background-color: white !important;
+}
+a.menuItemLink:hover {
+  background-color: initial !important;
+  text-decoration: underline;
+}
+
+.myAccount {
+  display: none;
+}
+
+.forceCommunityNavigationMenu {
+  border-top: initial !important;
+  border-bottom: 1px solid #f2efed;
+}
+.menuItem.current .menuItemLink {
+  color: #ea650d !important;
+}
+
+.article-head {
+  color: #ea650d;
+}
+.slds-medium-order--1 {
+  order: 1 !important;
+}
+.slds-medium-order--2 {
+  order: 2 !important;
+}
+@media only screen and (min-width: 48em) {
+  .siteforceNapiliBody .cBrandingLogo {
+    min-height: 6em;
+    position: relative;
+    bottom: 1.5em;
+  }
+}
+
+:root
+  .forceCommunityOmniBox.selfServiceSearchWrapper
+  .search-button
+  span.label {
+  color: white !important;
+}
+
+:root .forceCommunitySearchBox .search-button.uiButton,
+:root .forceCommunitySearchBox .search-button.uiButton.focus,
+:root .forceCommunitySearchBox .has-input .search-button.uiButton {
+  background: 0;
+  content: "";
+  background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABIAAAAUCAYAAACAl21KAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAHLSURBVHgBnZRRTsJAEIZntpQYq0mfMLzBDeoJ1JNYjfiqnkB7AvHNRCL1BnoCuIG9ATyYgPpgE5EY6O64u7SElkKKkzQ7u/n77Uz77yKsiY9TywUDjwHQkVNbPiEABcDpqfL44y9qMQ8wcLdqrGx2kKC2ahNC7IvJ5Kjq//bVnOVBDNN8VRAt5uKKG9N65eFbbir2ORcnhNBHIq17a1hObkXv57u9GBKMJ+yo7odhVtNzbdsy+a1MXbWZ1O3j8jdh7WzZeaFg22U+q5zIS7fG1IeV/Qt+tw6iQlVKQtzpthAPUiACrMdjAAWCIv4cpw7LE3CkEDYLOwVCpC81ljk4hV4vlWrxm0G6NYIXnRjsuABGehVjHaVB46jUBO1eOPw827leBxmeWZdycFXOp1NvyUfDhnXBgDXjEps8ilJ/UHuoHF1La1/OJOTttUY3S6BBw3INYO30KnXlI2FYWzh3c4jK04Z0pd1N1kmEUtmVf+Awu5la5wBetTXqJkullRAAv9IanegDbJgOkrAJWSjMaVC9Xzarrig5qPOSCxyRbLDkylioBETEvU0gGpRz7/jVzKVVCCQh9sI8VJ6AfwQjAfqi0hAQV5u2lMQfgffexhA4enwAAAAASUVORK5CYII=");
+  background-size: cover;
+  width: 18px;
+  height: 20px;
+  right: 90px;
+  top: 12px;
+}
+
+:root .forceCommunitySearchBox .search-button.uiButton:active,
+:root .forceCommunitySearchBox .search-button.uiButton:focus,
+:root .forceCommunitySearchBox .search-button.uiButton:hover,
+:root .forceCommunitySearchBox .has-input .search-button.uiButton:active,
+:root .forceCommunitySearchBox .has-input .search-button.uiButton:focus,
+:root .forceCommunitySearchBox .has-input .search-button.uiButton:hover {
+  background-color: transparent;
+}
+
+:root
+  .forceCommunityOmniBox.selfServiceSearchWrapper
+  .search-button.uiButton:hover {
+  background-color: #ea650d !important;
+}
+
+:root .forceCommunitySearchBox .search-field.uiInput--input.input {
+  border-bottom: 1px solid #f1edeb;
+  max-width: 500px;
+  max-height: 30px;
+  padding-top: 12px;
+}
+
+:root .selfServiceProfileMenuTrigger .profileName {
+  text-transform: none !important;
+  color: #414141;
+  text-shadow: none;
+}
+
+:root .forceCommunityNavigationMenu .menuItemLink,
+:root .forceCommunityNavigationMenu .menuItemLink.triggerLink,
+:root .forceCommunityNavigationMenu .subMenuItem a[aria-disabled="false"] {
+  font-family: "NNDagnyDisplayWebPro";
+  font-size: 16px;
+}
+
+:root .forceCommunityHeadline .headlineTitle {
+  text-transform: none;
+}
+
+:root h1,
+:root h2,
+:root h3,
+:root h4,
+:root h5,
+:root h6 {
+  font-family: "NNDagnyDisplayWebPro";
+}
+
+:root button.buttonStyle {
+  color: white !important;
+  -webkit-border-radius: 5px !important;
+  border-radius: 5px !important;
+  background-color: #ea650d !important;
+}
+.siteforceServiceBody .cHeaderOverlay {
+  height: inherit;
+  background: rgba(255, 255, 255, 0.2) !important;
+}
+
+.cBrandingLogo {
+}
+
+:root .forceActionLink {
+  color: white !important;
+  -webkit-border-radius: 5px !important;
+  border-radius: 5px !important;
+  background-color: #ea650d !important;
+}
+
+.forceCommunityGlobalNavigation .slds-list__item a,
+.forceCommunityGlobalNavigation .slds-list__item button {
+  font-size: 1em !important;
+}
+
+.forceCommunityGlobalNavigation .slds-list__item a:hover,
+.forceCommunityGlobalNavigation
+  .slds-list__item
+  a.slds-is-active:not([data-type="home"]),
+.forceCommunityGlobalNavigation .slds-list__item button:not([disabled]):hover,
+.forceCommunityGlobalNavigation
+  .slds-list__item
+  button:not([disabled]).slds-is-active:not([data-type="home"]) {
+  background-color: transparent !important;
+  text-decoration: underline;
+}
+
+.siteforceServiceBody .cHeaderLine {
+  border-bottom: 1px solid #999999 !important;
+}
+
+.slds-truncate {
+  margin-right: 5px !important;
+}
+
+:root .forceCommunitySearchBox .search-button.uiButton span {
+  display: none;
+}
+
+.siteforceServiceBody .cSearchPublisher .mobile-search-icon {
+  color: #ea650d !important;
+}
+
+.headingFontSize span {
+  font-size: 24px;
+}
+
+:root .siteforceServiceBody .cAltToggleNav .slds-icon {
+  fill: rgba(234, 101, 13, 1) !important;
+}
+
+@media only screen and (min-width: 64.0625em) {
+  :root .siteforceServiceBody .cProfileCon {
+    width: 27%;
+  }
+}
+
+.headingFontSize {
+  font-family: "NNDagnyDisplayWebPro";
+}
+
+.allRecentActivitiesLink {
+  font-family: "NNDagnyDisplayWebPro";
+}
+
+.forceCommunityGlobalNavigation .slds-list__item a,
+.forceCommunityGlobalNavigation .slds-list__item button {
+  font-family: "NNDagnyDisplayWebPro" !important;
+}
+
+.button {
+  font-family: "NNDagnyDisplayWebPro";
+}
+
+button {
+  font-family: "NNDagnyDisplayWebPro";
+}
+
+.slds-form {
+  background: #f1ebeb;
+  padding: 30px;
+  border-radius: 4px;
+}
+
+.slds-button:focus {
+  box-shadow: none;
+}
+
+.slds-button--brand:hover,
+.slds-button--brand:focus {
+  background-color: #ea650d;
+  border-color: #ea650d;
+}
+
+.slds-button--neutral:hover,
+.slds-button--neutral:focus {
+  background-color: #ffffff;
+  color: #ea650d;
+}
+
+.slds-button_neutral,
+.slds-button--neutral {
+  border: 1px solid #ea650d;
+  color: #ea650d;
+}
+
+.slds-button_neutral[disabled],
+.slds-button--neutral[disabled] {
+  display: none;
+}
+
+html {
+  color: #414141;
+}
+
+.default-bg-overlay {
+  background: white none repeat scroll 0 0 !important;
+}
+.siteforceNapiliBody .cNavBarCon {
+  background-color: #ffffff !important;
+}
+.navigationMenuWrapper {
+  background-color: #ffffff !important;
+}
+
+.forceCommunityNavigationMenu {
+  border-top: 1px solid #aaaaaa;
+  background: white;
+}
+a.menuItemLink {
+  background-color: white !important;
+}
+a.menuItemLink:hover {
+  background-color: initial !important;
+  text-decoration: underline;
+}
+.forceCommunityNavigationMenu {
+  border-top: initial !important;
+  border-bottom: 1px solid #f2efed;
+}
+.menuItem.current .menuItemLink {
+  color: #ea650d !important;
+}
+.forceCommunityNavigationMenu .menuItemLink,
+.forceCommunityNavigationMenu .menuItemLink.triggerLink {
+  text-transform: none !important;
+}
+
+h1 {
+  font-size: 35px;
+  color: #ea650d;
+}
+
+h2 {
+  font-size: 24px;
+  color: #ea650d;
+}
+
+h3 {
+  font-size: 16px;
+  color: #ea650d;
+}
+
+.nnLightOrange {
+  color: #ee7f00;
+}
+
+.nnMediumOrange {
+  color: #ea650d;
+}
+
+.slds-has-error .slds-form-element__help {
+  background-color: #cac7c7;
+  color: white;
+  font-size: 15px;
+  border-radius: 4px;
+  padding-left: 10px;
+  padding-top: 5px;
+  padding-bottom: 4px;
+}
+
+.slds-form-element__label,
+.slds-checkbox .slds-form-element__label {
+  font-size: 1rem;
+}
+
+.slds-form-element {
+  margin-bottom: 10px;
+}
+
+.slds-input {
+  border: #cac7c7 1px solid;
+  padding: 2px 1rem 2px 0.75rem;
+}
+
+.slds-select {
+  border: #cac7c7 1px solid;
+  height: calc(1.875rem + (4px * 2));
+}
+
+.slds-required {
+  color: #ea650d;
+}
+
+.slds-input:focus,
+.slds-input:active,
+.slds-select:focus,
+.slds-select:active {
+  border-color: #999999;
+  box-shadow: none;
+}
+
+.slds-has-error .slds-input:focus,
+.slds-has-error .slds-input:active,
+.slds-has-error .slds-select:focus,
+.slds-has-error .slds-select:active {
+  box-shadow: none;
+}
+
+.slds-input:focus,
+.slds-input:active {
+  box-shadow: none;
+}
+.slds-has-error .slds-input {
+  box-shadow: none;
+  border-color: #ea650d;
+}
+
+.slds-accordion__summary-action:hover {
+  background-color: transparent;
+  border-color: transparent;
+  color: inherit;
+}
+
+.message-positive {
+  color: #5b9853;
+}
+
+.message-negative {
+  color: #e64415;
+}
+
+.shoppingCartCard {
+  margin-top: 72px;
+  border: 1px solid #ea650d;
+}

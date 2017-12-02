@@ -1520,3 +1520,10 @@ ng-form {
   text-indent: 100% !important;
   background-color: #f1edeb !important;
 }
+
+#OccupationTypeAheadFI-Block {
+  padding-left: 40px;
+  padding-right: 10px;
+}
+
+
