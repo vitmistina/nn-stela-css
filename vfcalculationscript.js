@@ -1,69 +1,121 @@
-const menuOffsetTopDesktop = 210;
-const menuOffsetTopMobile = 140;
+var menuOffsetTopDesktop = 210;
+var menuOffsetTopMobile = 140;
 var modules = ["vlocity-business-process"];
 var myModule = angular.module("NewCalculations", modules);
 
-myModule.controller("scrollToTopController", [
-  "$rootScope",
-  function($scope) {
-    $rootScope.$watch(
-      () => $rootScope.bInitialize,
-      (newValue, oldValue) => {
-        if (newValue != oldValue) {
-          console.warn("new bInitialize", newValue);
-        }
-      }
-    );
+function scrollToTop(newValue, oldValue) {
+  if (newValue != oldValue) {
+    var scrollToY;
+    if (window.parent.innerWidth >= 768) {
+      scrollToY = menuOffsetTopDesktop;
+    } else {
+      scrollToY = menuOffsetTopMobile;
+    }
+    window.parent.scroll(0, scrollToY);
   }
-]);
-
-// let scopeFromElementInController;
-
-// myModule.controller("scrollToTopController", [
-//   "$scope",
-//   function($scope) {
-//     $scope.init = function() {
-//       scopeFromElementInController = angular.element("bptree").scope();
-//       console.warn("controller works");
-//       console.warn(scopeFromElementInController);
-//     };
-//   }
-// ]);
-
-// angular
-//   .element("bptree")
-//   .scope()
-//   .$watch(
-//     () => angular.element("bptree").scope().bpTree.asIndex,
-//     (newStepNumber, oldStepNumber) => {
-//       if (newStepNumber != oldStepNumber) {
-//         const scrollToY =
-//           window.parent.innerWidth >= 768
-//             ? menuOffsetTopDesktop
-//             : menuOffsetTopMobile;
-//         window.parent.scroll(0, scrollToY);
-//       }
-//     }
-//   );
+}
 
 myModule.controller("scrollToTopController", [
   "$scope",
   function($scope) {
-    $scope.$watch(
-      () => $scope.bpTree.asIndex,
-      (newValue, oldValue) => {
-        if (newValue != oldValue) {
-          const scrollToY =
-            window.parent.innerWidth >= 768
-              ? menuOffsetTopDesktop
-              : menuOffsetTopMobile;
-          window.parent.scroll(0, scrollToY);
+    // watch for change of omniscript step and if changed, scroll to top
+    $scope.$watch(function() {
+      return $scope.bpTree.asIndex;
+    }, scrollToTop);
+
+    let premium;
+    let messages;
+    let form;
+
+    function handleParentScroll() {
+      // make sure the elements exist, if not yet loaded, load them
+      if (
+        !premium ||
+        !messages ||
+        !form ||
+        premium.length === 0 ||
+        messages.length === 0 ||
+        form.length === 0
+      ) {
+        premium = Array.from(document.querySelectorAll("#PremiumInfo")).map(
+          element => element.parentElement.parentElement
+        );
+        messages = Array.from(
+          document.querySelectorAll("#Messages,#RidersMessages")
+        ).map(element => element.parentElement.parentElement);
+        forms = document.querySelectorAll("form[stepform]");
+      }
+
+      console.table({ premium: premium, messages: messages, forms: forms });
+
+      // if omniscript is loaded, go ahead
+      if (premium && messages) {
+        // setting constants with current state of DOM, various widhts, heights, etc
+        const omniscriptTop = window.parent.document.querySelector(
+          ".omni-script"
+        ).offsetTop;
+        const bpTreeTop = document.querySelector(
+          ".vlc-slds-bpTree-step-chart__container"
+        ).offsetTop;
+        const stepChart = document.querySelector("[vlc-slds-step-chart]");
+        const formTop = Array.from(forms).reduce(
+          (acc, cur) => acc + cur.offsetTop,
+          0
+        );
+        const formWidth = Array.from(forms).reduce(
+          (acc, cur) => acc + cur.offsetWidth,
+          0
+        );
+        const topNavigation =
+          window.parent.innerWidth >= 1024 ? 0 : stepChart.offsetHeight;
+        const realTopOfForm =
+          omniscriptTop + bpTreeTop + formTop + topNavigation;
+
+        // if scrolled enough, fix the premium and messages to top
+        if (this.scrollY >= realTopOfForm) {
+          forms.forEach(
+            form =>
+              (form.style.paddingTop = `${premium.offsetHeight +
+                messages.offsetHeight}px`)
+          );
+          // premium.style.position = "fixed";
+          // messages.style.position = "fixed";
+          // premium.style.zIndex = "1";
+          // messages.style.zIndex = "1";
+          // premium.style.backgroundColor = "#f1edeb";
+          // messages.style.backgroundColor = "#f1edeb";
+          // messages.style.maxWidth = formWidth - 25 + "px";
+          // premium.style.maxWidth = formWidth - 25 + "px";
+          // premium.style.paddingTop = "10px";
+          // messages.querySelector(".slds-form-element").style.maxWidth =
+          //   formWidth + "px";
+          // messages.querySelector(".slds-form-element").style.boxShadow =
+          //   "0px 3px 1px -1px rgba(0, 0, 0, 0.25)";
+          // messages.querySelector(".slds-form-element").style.marginBottom =
+          //   "0px";
+          // premium.style.top = `${this.scrollY -
+          //   omniscriptTop -
+          //   bpTreeTop -
+          //   topNavigation}px`;
+          // messages.style.top = `${this.scrollY +
+          //   premium.offsetHeight -
+          //   omniscriptTop -
+          //   bpTreeTop -
+          //   topNavigation}px`;
+        } else {
+          forms.forEach(form => (form.style.paddingTop = ""));
+          // premium.style.position = "";
+          // messages.style.position = "";
+          // premium.style.paddingTop = "";
+          // messages.querySelector(".slds-form-element").style.marginBottom =
+          //   "20px";
+          // messages.querySelector(".slds-form-element").style.boxShadow = "";
         }
       }
-    );
+    }
+    window.parent.addEventListener("scroll", handleParentScroll);
   }
 ]);
-
 myModule.controller("msgController", [
   "$scope",
   function($scope) {
@@ -260,11 +312,14 @@ myModule.directive("format", [
         });
 
         ctrl.$parsers.unshift(function(viewValue) {
-          elem.priceFormat({
-            prefix: "",
-            centsSeparator: ",",
-            thousandsSeparator: " "
-          });
+          priceFormat(
+            {
+              prefix: "",
+              centsSeparator: ",",
+              thousandsSeparator: " "
+            },
+            elem
+          );
 
           return elem[0].value;
         });
@@ -273,232 +328,19 @@ myModule.directive("format", [
   }
 ]);
 
-(function($) {
-  $.fn.priceFormat = function(options) {
-    var defaults = {
-      prefix: "US$ ",
-      suffix: "",
-      centsSeparator: ".",
-      thousandsSeparator: ",",
-      limit: false,
-      centsLimit: 2,
-      clearPrefix: false,
-      clearSufix: false,
-      allowNegative: false,
-      insertPlusSign: false
-    };
-    var options = $.extend(defaults, options);
-    return this.each(function() {
-      var obj = $(this);
-      var is_number = /[0-9]/;
-      var prefix = options.prefix;
-      var suffix = options.suffix;
-      var centsSeparator = options.centsSeparator;
-      var thousandsSeparator = options.thousandsSeparator;
-      var limit = options.limit;
-      var centsLimit = options.centsLimit;
-      var clearPrefix = options.clearPrefix;
-      var clearSuffix = options.clearSuffix;
-      var allowNegative = options.allowNegative;
-      var insertPlusSign = options.insertPlusSign;
-      if (insertPlusSign) allowNegative = true;
-      function to_numbers(str) {
-        var formatted = "";
-        for (var i = 0; i < str.length; i++) {
-          char_ = str.charAt(i);
-          if (formatted.length == 0 && char_ == 0) char_ = false;
-          if (char_ && char_.match(is_number)) {
-            if (limit) {
-              if (formatted.length < limit) formatted = formatted + char_;
-            } else {
-              formatted = formatted + char_;
-            }
-          }
-        }
-        return formatted;
-      }
-      function fill_with_zeroes(str) {
-        while (str.length < centsLimit + 1) str = "0" + str;
-        return str;
-      }
-      function price_format(str) {
-        var formatted = fill_with_zeroes(to_numbers(str));
-        var thousandsFormatted = "";
-        var thousandsCount = 0;
-        if (centsLimit == 0) {
-          centsSeparator = "";
-          centsVal = "";
-        }
-        var centsVal = formatted.substr(
-          formatted.length - centsLimit,
-          centsLimit
-        );
-        var integerVal = formatted.substr(0, formatted.length - centsLimit);
-        formatted =
-          centsLimit == 0 ? integerVal : integerVal + centsSeparator + centsVal;
-        if (thousandsSeparator || $.trim(thousandsSeparator) != "") {
-          for (var j = integerVal.length; j > 0; j--) {
-            char_ = integerVal.substr(j - 1, 1);
-            thousandsCount++;
-            if (thousandsCount % 3 == 0) char_ = thousandsSeparator + char_;
-            thousandsFormatted = char_ + thousandsFormatted;
-          }
-          if (thousandsFormatted.substr(0, 1) == thousandsSeparator)
-            thousandsFormatted = thousandsFormatted.substring(
-              1,
-              thousandsFormatted.length
-            );
-          formatted =
-            centsLimit == 0
-              ? thousandsFormatted
-              : thousandsFormatted + centsSeparator + centsVal;
-        }
-        if (allowNegative && (integerVal != 0 || centsVal != 0)) {
-          if (str.indexOf("-") != -1 && str.indexOf("+") < str.indexOf("-")) {
-            formatted = "-" + formatted;
-          } else {
-            if (!insertPlusSign) formatted = "" + formatted;
-            else formatted = "+" + formatted;
-          }
-        }
-        if (prefix) formatted = prefix + formatted;
-        if (suffix) formatted = formatted + suffix;
-        return formatted;
-      }
-      function key_check(e) {
-        var code = e.keyCode ? e.keyCode : e.which;
-        var typed = String.fromCharCode(code);
-        var functional = false;
-        var str = obj.val();
-        var newValue = price_format(str + typed);
-        if ((code >= 48 && code <= 57) || (code >= 96 && code <= 105))
-          functional = true;
-        if (code == 8) functional = true;
-        if (code == 9) functional = true;
-        if (code == 13) functional = true;
-        if (code == 46) functional = true;
-        if (code == 37) functional = true;
-        if (code == 39) functional = true;
-        if (allowNegative && (code == 189 || code == 109)) functional = true;
-        if (insertPlusSign && (code == 187 || code == 107)) functional = true;
-        if (!functional) {
-          e.preventDefault();
-          e.stopPropagation();
-          if (str != newValue) obj.val(newValue);
-        }
-      }
-      function price_it() {
-        var str = obj.val();
-        var price = price_format(str);
-        if (str != price) obj.val(price);
-      }
-      function add_prefix() {
-        var val = obj.val();
-        obj.val(prefix + val);
-      }
-      function add_suffix() {
-        var val = obj.val();
-        obj.val(val + suffix);
-      }
-      function clear_prefix() {
-        if ($.trim(prefix) != "" && clearPrefix) {
-          var array = obj.val().split(prefix);
-          obj.val(array[1]);
-        }
-      }
-      function clear_suffix() {
-        if ($.trim(suffix) != "" && clearSuffix) {
-          var array = obj.val().split(suffix);
-          obj.val(array[0]);
-        }
-      }
-      $(this).bind("keydown.price_format", key_check);
-      $(this).bind("keyup.price_format", price_it);
-      $(this).bind("focusout.price_format", price_it);
-      if (clearPrefix) {
-        $(this).bind("focusout.price_format", function() {
-          clear_prefix();
-        });
-        $(this).bind("focusin.price_format", function() {
-          add_prefix();
-        });
-      }
-      if (clearSuffix) {
-        $(this).bind("focusout.price_format", function() {
-          clear_suffix();
-        });
-        $(this).bind("focusin.price_format", function() {
-          add_suffix();
-        });
-      }
-      if ($(this).val().length > 0) {
-        price_it();
-        clear_prefix();
-        clear_suffix();
-      }
-    });
-  };
-  $.fn.unpriceFormat = function() {
-    return $(this).unbind(".price_format");
-  };
-  $.fn.unmask = function() {
-    var field = $(this).val();
-    var result = "";
-    for (var f in field) {
-      if (!isNaN(field[f]) || field[f] == "-") result += field[f];
-    }
-    return result;
-  };
-})(jQuery);
-
-(function() {
-  "use strict";
-  var bpModule = angular.module("vlocity-business-process");
-  bpModule.factory("datePickerFormatter", function() {
+myModule.directive("currency", [
+  "$filter",
+  function($filter) {
     return {
-      //removes the hh:mm a pattern if present on the format
-      formatDate: function(format, element, attrs) {
-        if (!format) format = "d.M.yyyy";
-        var lFormat = format.replace(/ hh:mm a$/, "");
-
-        if (format) {
-          return {
-            dateFormat: lFormat,
-
-            format: (function(dFormat) {
-              if (attrs.vlcSldsDatePicker === "Date/Time (Local)") {
-                return dFormat.toUpperCase() + " hh:mm a";
-              } else if (/hh:mm a/.test(format)) {
-                return dFormat.toUpperCase() + " hh:mm a";
-              } else {
-                return dFormat.toUpperCase();
-              }
-            })(lFormat),
-
-            modelFormat: function(mFormat) {
-              var modelFormat = mFormat;
-              return modelFormat && modelFormat.toUpperCase();
-            },
-
-            convertToAbs: function(timeString) {
-              timeString = new Date(timeString).toGMTString();
-              return timeString.replace(/GMT/gi, "");
-            },
-
-            isDateTimePicker: (function() {
-              return (
-                attrs.vlcSldsDatePicker === "Date/Time (Local)" ||
-                /hh:mm a/.test(format)
-              );
-            })()
-          };
-        } else {
-          return {
-            dateFormat: "yyyy/mm/dd",
-            format: "yyyy/mm/dd".toUpperCase()
-          };
-        }
+      require: "ngModel",
+      link: function(elem, $scope, attrs, ngModel) {
+        ngModel.$formatters.push(function(val) {
+          return $filter("currency")(val);
+        });
+        ngModel.$parsers.push(function(val) {
+          return val.replace(/[\$,]/, ".").replace(/ /g, "");
+        });
       }
     };
-  });
-})();
+  }
+]);

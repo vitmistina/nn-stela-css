@@ -1,0 +1,124 @@
+<div ng-controller="medicalQController" id="{{control.vlcSI[control.itemsKey][0].name}}">
+  <div ng-repeat='p in control.vlcSI[control.itemsKey][0].questions'>
+    <!-- main radio button -->
+    <div id="{{control.vlcSI[control.itemsKey][0].name}}{{p.questionId}}Div" ng-class="{'ng-valid': isFilledMainQuestion(p)}"
+      class="slds-form-element__control vlc-slds-radio-control ng-valid-required ng-scope">
+      <label class="slds-form-element__label vlc-slds-inline-control__label ng-binding">
+        <div class="vlc-slds-control-action__container"></div>
+        {{p.number}}. {{p.text}}
+        <span class="vlc-asterix icon-v-asterix" ng-show="p.required"></span>
+
+      </label>
+      <input type="text" ng-required="p.required" ng-change="updateTreeMainQuestion(bpTree.response,control.vlcSI[control.itemsKey][0], p )"
+        name="{{control.vlcSI[control.itemsKey][0].name}}{{p.questionId}}Hid" id="{{control.vlcSI[control.itemsKey][0].name}}{{p.questionId}}Hid"
+        ng-model="p.yesNo" value="{{p.yesNo}}" style="display: none" />
+      <input type="text" ng-required="p.required" name="{{control.vlcSI[control.itemsKey][0].name}}{{p.questionId}}HidFill" ng-model="p.subFilled"
+        value="{{p.subFilled}}" ng-if="p.subQuestions.length > 0 && p.yesNo ===  true && areThereSubCheckboxes(p)" style="display: none"
+      />
+
+      <div style="margin-left: 20px;" horizontalmode="true" class="ng-scope vlc-slds-radio-control">
+        <label ng-class="{'itemSelected': p.yesNo === true}" class="slds-radio ng-scope" style="">
+          <input name="{{control.vlcSI[control.itemsKey][0].name}}{{p.questionId}}Radio" controllerelementid="{{control.vlcSI[control.itemsKey][0].name}}"
+            onchange="angular.element(document.getElementById(this.getAttribute('controllerelementid'))).scope().updateQuestionRadio(this.name , true);"
+            ng-required="p.required" ng-disabled="p.readOnly" type="radio" class="ng-not-empty ng-dirty ng-valid ng-valid-required ng-touched ng-valid-parse"
+            ng-checked="p.yesNo === true">
+          <span class="slds-radio--faux ng-scope">
+            <span class="manualFauxChecked" ng-if="p.yesNo === true"> </span>
+          </span>
+          <span class="slds-form-element__label ng-binding ng-scope" ng-if="true">{{control.vlcSI[control.itemsKey][0].textYes}}</span>
+        </label>
+
+        <label ng-class="{'itemSelected': p.yesNo === false}" class="slds-radio ng-scope" style="">
+
+          <input name="{{control.vlcSI[control.itemsKey][0].name}}{{p.questionId}}Radio" controllerelementid="{{control.vlcSI[control.itemsKey][0].name}}"
+            onchange="angular.element(document.getElementById(this.getAttribute('controllerelementid'))).scope().updateQuestionRadio(this.name , false);"
+            ng-required="p.required" ng-disabled="p.readOnly" type="radio" class="ng-not-empty ng-dirty ng-valid ng-valid-required ng-touched ng-valid-parse"
+            ng-checked="p.yesNo === false">
+          <span class="slds-radio--faux ng-scope" ng-if="true">
+            <span class="manualFauxChecked" ng-if="p.yesNo === false"> </span>
+          </span>
+          <span class="slds-form-element__label ng-binding ng-scope" ng-if="true">{{control.vlcSI[control.itemsKey][0].textNo}}</span>
+        </label>
+      </div>
+    </div>
+    <!-- / main radio button -->
+    <div ng-repeat='sq in p.subQuestions' ng-hide="p.yesNo == false">
+
+      <div class="slds-col--padded slds-size--1-of-1 ng-scope">
+        <!-- textArea -->
+        <div style="margin-left: 40px;" ng-if="sq.type === 'Write' && p.yesNo === true" class="slds-form-element__control slds-form-element vlc-flex vlc-slds-text-area ng-pristine ng-scope ng-invalid ng-invalid-required ng-valid-minlength ng-valid-maxlength">
+          <div class="vlc-control-wrapper vlc-control-text-area__wrapper div.vlc-control-wrapper" help="true">
+            <textarea id="{{control.vlcSI[control.itemsKey][0].name}}{{sq.questionId}}Write" ng-model="sq.respText" class="slds-textarea "
+              ng-minlength="0" ng-maxlength="255" required="{{sq.required}}" ng-required="sq.required" ng-change="updateTree(bpTree.response,control.vlcSI[control.itemsKey][0])"
+              elem-ready="prepareTextAreas(sq, control.vlcSI[control.itemsKey][0].name)" style="overflow: hidden">{{sq.respText}}
+                        </textarea>
+            <label for="{{control.vlcSI[control.itemsKey][0].name}}{{sq.questionId}}Write" class="slds-form-element__label ng-binding">
+              <span class="vlc-asterix icon-v-asterix ng-scope" ng-if="sq.required"></span>
+              {{sq.text}}
+            </label>
+
+            <a vlc-slds-tool-tip="test" help="true" hintId="{{control.vlcSI[control.itemsKey][0].name}}{{sq.questionId}}HintId" onmouseover="document.getElementById(this.getAttribute('hintId')).style.visibility = 'visible';"
+              onmouseout="document.getElementById(this.getAttribute('hintId')).style.visibility = 'hidden';"> i </a>
+            <div style="visibility: hidden" id="{{control.vlcSI[control.itemsKey][0].name}}{{sq.questionId}}HintId" class="slds-popover slds-popover--tooltip slds-nubbin--top-right vlc-slds--tooltip ng-scope"
+              role="tooltip">
+              <div class="slds-popover__body ng-binding">{{sq.text}}</div>
+            </div>
+          </div>
+        </div>
+        <!-- / textArea -->
+        <!-- checkbox - CheckAndWrite-->
+        <div style="margin-left: 40px;" class="slds-form-element__control vlc-slds-checkbox" ng-if="sq.type === 'CheckAndWrite' && p.yesNo ===  true">
+          <label class="slds-checkbox">
+            <input id="{{control.vlcSI[control.itemsKey][0].name}}{{sq.questionId}}Check" type="checkbox" ng-change="updateTree(bpTree.response,control.vlcSI[control.itemsKey][0]);oneChecked(p,control.vlcSI[control.itemsKey][0].name);"
+              ng-model="sq.yesNo" vlc-slds-check-val-checker="response" class="ng-valid ng-touched ng-dirty ng-valid-parse ng-empty"
+              style="">
+            <span class="slds-checkbox--faux"></span>
+            <!-- bubble canceller prevents bubbling of the click events to the checkbox -->
+            <label class="slds-form-element__label vlc-slds-inline-control__label" vlc-bubble-canceller="test">
+              <span for="{{control.vlcSI[control.itemsKey][0].name}}{{sq.questionId}}Check" class="slds-form-element__label ng-binding">{{sq.text}}</span>
+            </label>
+          </label>
+        </div>
+        <!-- / checkbox - CheckAndWrite-->
+        <!-- textarea - CheckAndWrite-->
+        <div style="margin-left: 60px;" ng-if="sq.type === 'CheckAndWrite' && sq.yesNo === true && p.yesNo ===  true" class="slds-form-element__control slds-form-element vlc-flex vlc-slds-text-area ng-pristine ng-scope ng-invalid ng-invalid-required ng-valid-minlength ng-valid-maxlength">
+          <div class="vlc-control-wrapper vlc-control-text-area__wrapper div.vlc-control-wrapper" help="true">
+            <textarea id="{{control.vlcSI[control.itemsKey][0].name}}{{sq.questionId}}CheckAndWrite" ng-required="sq.required" ng-model="sq.respText"
+              class="slds-textarea " ng-minlength="0" ng-maxlength="255" required="{{sq.required}}" ng-change="updateTree(bpTree.response,control.vlcSI[control.itemsKey][0])"
+              elem-ready="prepareTextAreas(sq, control.vlcSI[control.itemsKey][0].name)" style="overflow: hidden">{{sq.respText}}
+                        </textarea>
+            <label for="{{control.vlcSI[control.itemsKey][0].name}}{{sq.questionId}}CheckAndWrite" class="slds-form-element__label ng-binding">
+              <span class="vlc-asterix icon-v-asterix ng-scope" ng-if="sq.required"></span>
+              {{sq.label}}
+            </label>
+
+            <a vlc-slds-tool-tip="test" help="true" hintId="{{control.vlcSI[control.itemsKey][0].name}}{{sq.questionId}}CheckAndWriteHintId"
+              onmouseover="document.getElementById(this.getAttribute('hintId')).style.visibility = 'visible';" onmouseout="document.getElementById(this.getAttribute('hintId')).style.visibility = 'hidden';">
+              i </a>
+            <div style="visibility: hidden" id="{{control.vlcSI[control.itemsKey][0].name}}{{sq.questionId}}CheckAndWriteHintId" class="slds-popover slds-popover--tooltip slds-nubbin--top-right vlc-slds--tooltip ng-scope"
+              role="tooltip">
+              <div class="slds-popover__body ng-binding">{{sq.label}}</div>
+            </div>
+          </div>
+          <br/>
+        </div>
+        <!-- / textarea - CheckAndWrite-->
+        <!-- checkbox - CheckAndWrite-->
+        <div style="margin-left: 40px;" class="slds-form-element__control vlc-slds-checkbox" ng-if="sq.type === 'Check' && p.yesNo ===  true">
+          <label class="slds-checkbox">
+            <input id="{{control.vlcSI[control.itemsKey][0].name}}{{sq.questionId}}CheckOnly" type="checkbox" ng-change="updateTree(bpTree.response,control.vlcSI[control.itemsKey][0]);oneChecked(p, control.vlcSI[control.itemsKey][0].name);"
+              ng-model="sq.yesNo" vlc-slds-check-val-checker="response" class="ng-invalid ng-invalid-required ng-dirty ng-valid-parse ng-empty"
+              style="">
+            <span class="slds-checkbox--faux"></span>
+            <!-- bubble canceller prevents bubbling of the click events to the checkbox -->
+            <label class="slds-form-element__label vlc-slds-inline-control__label" vlc-bubble-canceller="test">
+              <span for="{{control.vlcSI[control.itemsKey][0].name}}{{sq.questionId}}Check" class="slds-form-element__label ng-binding">{{sq.text}}</span>
+            </label>
+          </label>
+        </div>
+        <!-- / checkbox - CheckAndWrite-->
+      </div>
+    </div>
+    <br/>
+  </div>
+</div>

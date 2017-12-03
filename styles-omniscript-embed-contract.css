@@ -1520,3 +1520,15 @@ ng-form {
   text-indent: 100% !important;
   background-color: #f1edeb !important;
 }
+
+.manualFauxChecked {
+  width: 0.5rem;
+  height: 0.5rem;
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate3d(-50%, -50%, 0);
+  border-radius: 50%;
+  background: #ea650d;
+}
