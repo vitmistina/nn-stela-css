@@ -2,26 +2,19 @@ var menuOffsetTopDesktop = 210;
 var menuOffsetTopMobile = 140;
 var modules = ["vlocity-business-process"];
 var myModule = angular.module("NewCalculations", modules);
-
-function scrollToTop(newValue, oldValue) {
-  if (newValue != oldValue) {
-    var scrollToY;
-    if (window.parent.innerWidth >= 768) {
-      scrollToY = menuOffsetTopDesktop;
-    } else {
-      scrollToY = menuOffsetTopMobile;
-    }
-    window.parent.scroll(0, scrollToY);
+var supportsES6 = (function() {
+  try {
+    new Function("(a = 0) => a");
+    return true;
+  } catch (err) {
+    return false;
   }
-}
+})();
 
 myModule.controller("scrollToTopController", [
   "$scope",
   function($scope) {
-    // watch for change of omniscript step and if changed, scroll to top
-    $scope.$watch(function() {
-      return $scope.bpTree.asIndex;
-    }, scrollToTop);
+    if (!supportsES6) return; // do not execute if ES6 not supported
 
     let premium;
     let messages;
@@ -37,20 +30,18 @@ myModule.controller("scrollToTopController", [
         messages.length === 0 ||
         form.length === 0
       ) {
-        premium = Array.from(document.querySelectorAll("#PremiumInfo")).map(
-          element => element.parentElement.parentElement
-        );
+        premium = Array.from(
+          document.querySelectorAll("#PremiumInfo,#PremiumInfo2")
+        ).map(element => element.parentElement.parentElement);
         messages = Array.from(
           document.querySelectorAll("#Messages,#RidersMessages")
         ).map(element => element.parentElement.parentElement);
         forms = document.querySelectorAll("form[stepform]");
       }
 
-      console.table({ premium: premium, messages: messages, forms: forms });
-
       // if omniscript is loaded, go ahead
       if (premium && messages) {
-        // setting constants with current state of DOM, various widhts, heights, etc
+        // setting constants with current state of DOM, various widths, heights, etc
         const omniscriptTop = window.parent.document.querySelector(
           ".omni-script"
         ).offsetTop;
@@ -66,56 +57,108 @@ myModule.controller("scrollToTopController", [
           (acc, cur) => acc + cur.offsetWidth,
           0
         );
+
         const topNavigation =
           window.parent.innerWidth >= 1024 ? 0 : stepChart.offsetHeight;
         const realTopOfForm =
           omniscriptTop + bpTreeTop + formTop + topNavigation;
 
+        const stickyElements = [].concat(messages, premium);
+
         // if scrolled enough, fix the premium and messages to top
         if (this.scrollY >= realTopOfForm) {
+          // set styles on premiums and messages
+          stickyElements.forEach(element => {
+            element.style.position = "fixed";
+            element.style.zIndex = "3";
+            element.style.backgroundColor = "#f1edeb";
+            element.style.maxWidth = formWidth - 25 + "px";
+          });
+
+          // set styles just on premiums
+          premium.forEach(element => {
+            element.style.paddingTop = "10px";
+            element.style.top = `${this.scrollY -
+              omniscriptTop -
+              bpTreeTop -
+              topNavigation}px`;
+          });
+          const premiumHeight = premium.reduce(
+            (acc, cur) => acc + cur.offsetHeight,
+            0
+          );
+
+          // set styles just on messages and their children
+          messages.forEach(element => {
+            const sldsFormElement = element.querySelector(".slds-form-element");
+
+            sldsFormElement.style.maxWidth = formWidth + "px";
+            sldsFormElement.style.boxShadow =
+              "0px 3px 1px -1px rgba(0, 0, 0, 0.25)";
+            sldsFormElement.style.marginBottom = "0px";
+
+            element.style.top = `${this.scrollY +
+              premiumHeight -
+              omniscriptTop -
+              bpTreeTop -
+              topNavigation}px`;
+          });
+          const messagesHeight = messages.reduce(
+            (acc, cur) => acc + cur.offsetHeight,
+            0
+          );
+
+          // set styles on forms
           forms.forEach(
             form =>
-              (form.style.paddingTop = `${premium.offsetHeight +
-                messages.offsetHeight}px`)
+              (form.style.paddingTop = `${premiumHeight +
+                messagesHeight +
+                20}px`)
           );
-          // premium.style.position = "fixed";
-          // messages.style.position = "fixed";
-          // premium.style.zIndex = "1";
-          // messages.style.zIndex = "1";
-          // premium.style.backgroundColor = "#f1edeb";
-          // messages.style.backgroundColor = "#f1edeb";
-          // messages.style.maxWidth = formWidth - 25 + "px";
-          // premium.style.maxWidth = formWidth - 25 + "px";
-          // premium.style.paddingTop = "10px";
-          // messages.querySelector(".slds-form-element").style.maxWidth =
-          //   formWidth + "px";
-          // messages.querySelector(".slds-form-element").style.boxShadow =
-          //   "0px 3px 1px -1px rgba(0, 0, 0, 0.25)";
-          // messages.querySelector(".slds-form-element").style.marginBottom =
-          //   "0px";
-          // premium.style.top = `${this.scrollY -
-          //   omniscriptTop -
-          //   bpTreeTop -
-          //   topNavigation}px`;
-          // messages.style.top = `${this.scrollY +
-          //   premium.offsetHeight -
-          //   omniscriptTop -
-          //   bpTreeTop -
-          //   topNavigation}px`;
         } else {
           forms.forEach(form => (form.style.paddingTop = ""));
-          // premium.style.position = "";
-          // messages.style.position = "";
-          // premium.style.paddingTop = "";
-          // messages.querySelector(".slds-form-element").style.marginBottom =
-          //   "20px";
-          // messages.querySelector(".slds-form-element").style.boxShadow = "";
+
+          // set styles just on premiums
+          premium.forEach(element => {
+            element.style.position = "";
+            element.style.paddingTop = "";
+          });
+
+          // set styles just on messages
+          messages.forEach(element => {
+            const sldsFormElement = element.querySelector(".slds-form-element");
+            sldsFormElement.style.marginBottom = "20px";
+            sldsFormElement.style.boxShadow = "";
+            element.style.position = "";
+          });
         }
       }
     }
+
+    function scrollToTop(newValue, oldValue) {
+      if (newValue != oldValue) {
+        const scrollToY =
+          window.parent.innerWidth >= 768
+            ? menuOffsetTopDesktop
+            : menuOffsetTopMobile;
+
+        window.parent.scroll(0, scrollToY);
+      }
+      $("li").click(function(e) {
+        $(this)
+          .nextAll()
+          .removeClass("completed");
+      });
+    }
+
+    // watch for change of omniscript step and if changed, scroll to top
+    $scope.$watch(() => $scope.bpTree.asIndex, scrollToTop);
+    // listen for window events related to sticky premium info
     window.parent.addEventListener("scroll", handleParentScroll);
+    window.parent.addEventListener("resize", handleParentScroll);
   }
 ]);
+
 myModule.controller("msgController", [
   "$scope",
   function($scope) {

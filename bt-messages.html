@@ -1,0 +1,98 @@
+<div ng-controller="msgController">
+  {{warnings = control.vlcSI[control.itemsKey][0].Warnings;""}} {{errors = control.vlcSI[control.itemsKey][0].Errors;""}} {{infos
+  = control.vlcSI[control.itemsKey][0].Infos;""}} {{questionaries = control.vlcSI[control.itemsKey][0].FinancialAndHealthQuestionaryMessages;""}}
+  <!-- ERRORS -->
+  {{displayErrors = true;""}} {{showWarnings = true;""}} {{showInfos = false;""}} {{showQuestionaries = false;""}}
+  <div style="display:none;">
+    <!-- WARNINGS -->
+    {{control.JSONPath === "BasicInformation:Messages" ? showWarnings = false : ""}} {{control.JSONPath === "FirstInsuredInformation:Messages"
+    ? showWarnings = false : ""}} {{control.JSONPath === "SeconInsuredInformation:Messages" ? showWarnings = false : ""}}
+    {{control.JSONPath === "Riders:RidersMessages" ? expandWarnings = true : ""}} {{control.JSONPath === "SecondInsuredRiders:RidersMessages"
+    ? expandWarnings = true : ""}} {{control.JSONPath === "ChildDefinitionStep:Messages" ? expandWarnings = true : ""}} {{control.JSONPath
+    === "CartPremiumProduct:Messages" ? expandWarnings = true : ""}} {{control.JSONPath === "IllustrationInvestment:Messages"
+    ? expandWarnings = true : ""}} {{control.JSONPath === "Anniversary:Messages" ? expandWarnings = true : ""}} {{control.JSONPath
+    === "SummaryInfo:Messages" ? expandWarnings = true : ""}}
+
+    <!-- INFOS -->
+    {{control.JSONPath === "Riders:RidersMessages" ? showInfos = true : ""}} {{control.JSONPath === "SecondInsuredRiders:RidersMessages"
+    ? showInfos = true : ""}} {{control.JSONPath === "ChildDefinitionStep:Messages" ? showInfos = true : ""}} {{control.JSONPath
+    === "SummaryInfo:Messages" ? showInfos = true : ""}} {{control.JSONPath === "Riders:RidersMessages" ? expandInfos = true
+    : ""}} {{control.JSONPath === "SecondInsuredRiders:RidersMessages" ? expandInfos = true : ""}} {{control.JSONPath ===
+    "ChildDefinitionStep:Messages" ? expandInfos = true : ""}} {{control.JSONPath === "SummaryInfo:Messages" ? expandInfos
+    = true : ""}}
+    <!-- QUESTIONARIES -->
+
+    {{control.JSONPath === "Riders:RidersMessages" ? showQuestionaries = true : ""}} {{control.JSONPath === "SecondInsuredRiders:RidersMessages"
+    ? showQuestionaries = true : ""}} {{control.JSONPath === "ChildDefinitionStep:Messages" ? showQuestionaries = true :
+    ""}} {{control.JSONPath === "CartPremiumProduct:Messages" ? displayQuestionaries = true : ""}} {{control.JSONPath ===
+    "CartPremiumProduct:Messages" ? expandQuestionaries = true : ""}} {{control.JSONPath === "Riders:RidersMessages" ? expandQuestionaries
+    = true : ""}} {{control.JSONPath === "SecondInsuredRiders:RidersMessages" ? expandQuestionaries = true : ""}} {{control.JSONPath
+    === "ChildDefinitionStep:Messages" ? expandQuestionaries = true : ""}}
+  </div>
+  <div ng-if="infos.length > 0 && showInfos" class="messages-card">
+    <div class="messages-summary">
+      <img class="messages-icon" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAMAAAAM7l6QAAAAWlBMVEV+q9T////8/f6DrtaGsNfW5fLR4fCvy+X1+fzR4O/x9vu60uixzeajw+Ccv960z+fd6fTN3++NtdnK3O2Ks9ni7PaArNXm7/e90+mlxeKQt9q91Om80+mewN9SsWBQAAAA6ElEQVQoz4XT6xqCIAwG4DlGEIrlqXP3f5utgImW9P1SXuUBxqBKQd08R6XGttEog4ntg0BCtVvyPqCkHzLGBr5ywMR4hR+5YuSDDBmtzfx/4AEkx6o6gqR7s+u3mCyzTC2TS+7MBJshBC0vvn7nljHjvOVwUl3OBlp5th/eZco4zvs4n+2KCVT+ul/x6R+PJSZoC8xoCsyoC8yItM2Kz/wiF8j7iSvm/U0qzmxJDjXGpe8ds5yyTWwhZAiXKVZlwpgpTR0YfVxJzCnUF0sX2WDWBkO/ROqWTeRqleElLTNvQdOSUrRowRcsDwfCIltwFwAAAABJRU5ErkJggg==">
+      <div ng-show="!expandInfos" class="messages-count-text">Máte {{infos.length}} informácií o poistení</div>
+      <div class="messages-expand-close">
+        <a class="open" ng-show="!expandInfos" ng-click="expandInfos = !expandInfos">
+          <span>&rsaquo; </span>Zobraziť</a>
+        <a class="close" ng-show="expandInfos" ng-click="expandInfos = !expandInfos">&times;</a>
+      </div>
+    </div>
+    <div class="messages-content">
+      <ul ng-show="expandInfos" style="width:100%" class="messages-list info">
+        <li ng-repeat="i in infos">
+          {{i.col2}}
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <div ng-if="errors.lenght > 0">
+    <div style="display: inline-block; margin-right: 10px;">Našli sme {{errors.length}} chyby</div>
+    <div style="display: inline-block;">
+      <a ng-show="!displayErrors" ng-click="displayErrors = !displayErrors">Zobraziť</a>
+      <a ng-show="displayErrors" ng-click="displayErrors = !displayErrors">Skryť</a>
+    </div>
+    <ul ng-show="displayErrors" style="width:100%" class="error">
+      <li ng-repeat="i in errors">
+        {{i.col2}}
+      </li>
+    </ul>
+  </div>
+
+  <div ng-if="questionaries.length > 0 && showQuestionaries">
+    <div style="display: inline-block; margin-right: 10px;">Máte {{questionaries.length}} informácie o zdravoných dotaznikoch</div>
+    <div style="display: inline-block;">
+      <a ng-show="!expandQuestionaries" ng-click="expandQuestionaries = !expandQuestionaries">Zobraziť</a>
+      <a ng-show="expandQuestionaries" ng-click="expandQuestionaries = !expandQuestionaries">Skryť</a>
+    </div>
+    <ul ng-show="expandQuestionaries" style="width:100%" class="questionary">
+      <li ng-repeat="i in questionaries">
+        {{i}}
+      </li>
+    </ul>
+  </div>
+
+  <div ng-if="warnings.length > 0 && showWarnings">
+    <div style="display: inline-block; margin-right: 10px;">Máte {{warnings.length}} varovné hlášky</div>
+    <div style="display: inline-block;">
+      <a ng-show="!expandWarnings" ng-click="expandWarnings = !expandWarnings">Zobraziť</a>
+      <a ng-show="expandWarnings" ng-click="expandWarnings = !expandWarnings">Skryť</a>
+    </div>
+    <ul ng-show="expandWarnings" style="width:100%" class="warning">
+      <li ng-repeat="i in warnings">
+        {{i.col2}}
+      </li>
+    </ul>
+  </div>
+
+
+  <!--HIDDEN CONTENT-->
+  <ul style="display:none" class="autocorrect">
+    <li ng-repeat="i in control.vlcSI[control.itemsKey][0].Autocorrect">
+      {{i.col2}}
+    </li>
+  </ul>
+  <div style="display:none">{{errors = control.vlcSI[control.itemsKey][0].Errors}}</div>
+</div>

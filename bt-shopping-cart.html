@@ -1,0 +1,35 @@
+<div class="slds-grid slds-wrap" ng-controller="ShoppingCartController as cart">
+  <div class="slds-size--2-of-3">
+    <h2>{{cart.texts.premium}} {{cart.temp.premium | currency }}</h2>
+  </div>
+  <div class="slds-size--1-of-3">
+    <button ng-if="!cart.isOpen" ng-click="cart.toggleOpen()" class="open-button slds-button_neutral slds-float_right 
+    " type="button">{{cart.texts.openCart}}</button>
+    <button ng-if="cart.isOpen" ng-click="cart.toggleOpen()" class="close-button slds-button_neutral slds-float_right
+    " type="button">{{cart.texts.closeCart}}</button>
+  </div>
+  <div ng-if="cart.isOpen" class="slds-tabs_default">
+    <ul class="slds-tabs_default__nav" role="tablist">
+      <li ng-class="{slds-is-active: cart.activeTab === 1}" class="slds-tabs_default__item" title="{cart.texts.tab1}" role="presentation">
+        <a ng-click="cart.openTab(1)" class="slds-tabs_default__link" href role="tab" tabindex="0" aria-selected="true" aria-controls="tab-cart-1"
+          id="tab-cart-1__item">{{cart.texts.tab1}}</a>
+      </li>
+      <li ng-class="{slds-is-active: cart.activeTab === 2}" class="slds-tabs_default__item" title="{cart.texts.tab2}" role="presentation">
+        <a ng-click="cart.openTab(2)" class="slds-tabs_default__link" href role="tab" tabindex="-1" aria-selected="false" aria-controls="tab-cart-2"
+          id="tab-cart-2__item">{{cart.texts.tab2}}</a>
+      </li>
+      <li ng-class="{slds-is-active: cart.activeTab === 3}" class="slds-tabs_default__item" title="{cart.texts.tab3}" role="presentation">
+        <a ng-click="cart.openTab(3)" class="slds-tabs_default__link" href role="tab" tabindex="-1" aria-selected="false" aria-controls="tab-cart-3"
+          id="tab-cart-3__item">{{cart.texts.tab3}}</a>
+      </li>
+      <li ng-class="{slds-is-active: cart.activeTab === 4}" class="slds-tabs_default__item" title="{cart.texts.tab4}" role="presentation">
+        <a ng-click="cart.openTab(4)" class="slds-tabs_default__link" href role="tab" tabindex="-1" aria-selected="false" aria-controls="tab-cart-4"
+          id="tab-cart-4__item">{{cart.texts.tab4}}</a>
+      </li>
+    </ul>
+    <div ng-if="cart.activeTab === 1" id="tab-cart-1" class="slds-tabs_default__content" role="tabpanel" aria-labelledby="tab-cart-1__item">Tady zobrazíme všechny informácie a umožníme přepočet</div>
+    <div ng-if="cart.activeTab === 2" id="tab-cart-2" class="slds-tabs_default__content" role="tabpanel" aria-labelledby="tab-cart-2__item">Tady bude summary 1. pojištěného</div>
+    <div ng-if="cart.activeTab === 3" id="tab-cart-3" class="slds-tabs_default__content" role="tabpanel" aria-labelledby="tab-cart-3__item">Tady bude summary 2. pojištěného</div>
+    <div ng-if="cart.activeTab === 4" id="tab-cart-4" class="slds-tabs_default__content" role="tabpanel" aria-labelledby="tab-cart-3__item">Tady bude summary dětí</div>
+  </div>
+</div>
