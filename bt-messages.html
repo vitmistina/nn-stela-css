@@ -1,4 +1,4 @@
-<div ng-controller="msgController">
+<div ng-controller="msgController" class="messages-container">
   {{warnings = control.vlcSI[control.itemsKey][0].Warnings;""}} {{errors = control.vlcSI[control.itemsKey][0].Errors;""}} {{infos
   = control.vlcSI[control.itemsKey][0].Infos;""}} {{questionaries = control.vlcSI[control.itemsKey][0].FinancialAndHealthQuestionaryMessages;""}}
   <!-- ERRORS -->
@@ -29,62 +29,80 @@
     = true : ""}} {{control.JSONPath === "SecondInsuredRiders:RidersMessages" ? expandQuestionaries = true : ""}} {{control.JSONPath
     === "ChildDefinitionStep:Messages" ? expandQuestionaries = true : ""}}
   </div>
-  <div ng-if="infos.length > 0 && showInfos" class="messages-card">
+  <div ng-if="infos.length > 0 && showInfos" class="messages-card infos">
     <div class="messages-summary">
-      <img class="messages-icon" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAMAAAAM7l6QAAAAWlBMVEV+q9T////8/f6DrtaGsNfW5fLR4fCvy+X1+fzR4O/x9vu60uixzeajw+Ccv960z+fd6fTN3++NtdnK3O2Ks9ni7PaArNXm7/e90+mlxeKQt9q91Om80+mewN9SsWBQAAAA6ElEQVQoz4XT6xqCIAwG4DlGEIrlqXP3f5utgImW9P1SXuUBxqBKQd08R6XGttEog4ntg0BCtVvyPqCkHzLGBr5ywMR4hR+5YuSDDBmtzfx/4AEkx6o6gqR7s+u3mCyzTC2TS+7MBJshBC0vvn7nljHjvOVwUl3OBlp5th/eZco4zvs4n+2KCVT+ul/x6R+PJSZoC8xoCsyoC8yItM2Kz/wiF8j7iSvm/U0qzmxJDjXGpe8ds5yyTWwhZAiXKVZlwpgpTR0YfVxJzCnUF0sX2WDWBkO/ROqWTeRqleElLTNvQdOSUrRowRcsDwfCIltwFwAAAABJRU5ErkJggg==">
-      <div ng-show="!expandInfos" class="messages-count-text">Máte {{infos.length}} informácií o poistení</div>
+      <div class="messages-left-part">
+        <img class="messages-icon" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAMAAAAM7l6QAAAAgVBMVEWXs0P///+euE7M2qGiu1b+//3y9ujf6MXD1JOrwmj4+/Pm7dHF1Za/0IqfuVKbtkr8/fn4+fHX4rXH15rB0o+xx3Lt8t/q79ni6srd58LO3KbJ152wxW+tw2v6+/X1+O3x9eXc5r/b5b66zIKpwGOnv2CkvFrz9+rU4LLR3ay2ynsnVX01AAABHElEQVQoz23T15KDMAwF0Cub3gmkJ5ueLf//gavACot17gN4dEYDHssgSXbt7zWAQ3n5IIlwaw2mmC6a84JRp/pS3CTwUjhewo/JhYs3+nOS7sUb3THl8YujwEOzZf2GaZn3nlarvy9aQlN5vaxhOawybL3mDfd2w4qxl2qSH4e3ZbVSA+9ZqmHK7yPrWlpS1OPiQZzTA4iI2qcw4xgTvfxcl/zs4ec5uD0TrXR5Oqp7S2OODmukkJSj5nA5INEb/n98PWJMSV+6VsqYqTnJmUulQQOymJIQhYFiSyDVXjW00c0RM11dYU2J4sU4TJ0aktTpnkYOb9O/x05vbs738NKF+hoEczSX+SX63AUKbUbCkjAulgFQHYrYXcFf2PYKoe0DOtEAAAAASUVORK5CYII=">
+        <div ng-if="!expandInfos" class="messages-count-text">Máte {{infos.length}} informácií o poistení</div>
+        <ul ng-if="expandInfos" class="messages-list">
+          <li ng-repeat="i in infos">
+            {{i.col2}}
+          </li>
+        </ul>
+      </div>
       <div class="messages-expand-close">
         <a class="open" ng-show="!expandInfos" ng-click="expandInfos = !expandInfos">
           <span>&rsaquo; </span>Zobraziť</a>
         <a class="close" ng-show="expandInfos" ng-click="expandInfos = !expandInfos">&times;</a>
       </div>
     </div>
-    <div class="messages-content">
-      <ul ng-show="expandInfos" style="width:100%" class="messages-list info">
-        <li ng-repeat="i in infos">
-          {{i.col2}}
-        </li>
-      </ul>
+  </div>
+
+  <div ng-if="errors.length > 0" class="messages-card errors">
+    <div class="messages-summary">
+      <div class="messages-left-part">
+        <img class="messages-icon" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAMAAAAM7l6QAAAAb1BMVEXOCyT////54OTUKT/to6z98fPsoKrTJjzSHDP++frjcoHRGTDnhJHleofZQFTTIzrxtr3QEirvsbnuqLHoiJTdUmTYPFHxusHlfYrjdoTibn3haHffW2zZRVj65ef65Of54uXlgIzaSFrXNUrVLEJm+5JkAAAA+0lEQVQoz33T57KCMBCG4S+QAqEj4rGdfv/XKGVTdoy+P3lmx40QCFfZ29kMQ9faU+kfOlZ1BV83fXOWBVi5jNniqSbwDYmOjhsk+9hZ40WHlT9zbF1zv9cVW4Va+Adbtchy0kxM7hlK4xZZnFSIXxrHiD25uiGV2OtxQez5qmHZM+5w6dVplmpRAfE8U8Jw0KURiWhn2j9UcOVeoWWqNfM7zkwBGfsFfaTSn89ga4Tal/9TpNu8+seaKSFq+geUBiXV7N44hCrCEaiOfvBrYXHAi/Tbj6lxn+IxpTdBnJy37BoYjoXklyibuoBVrYRnqjzZthsGM9s+XMEH9/wIGJSjfJ8AAAAASUVORK5CYII=">
+        <div ng-if="!displayErrors" class="messages-count-text">Máte {{errors.length}} chýb vo vašej kalkulácii</div>
+        <ul ng-if="displayErrors" class="messages-list">
+          <li ng-repeat="i in errors">
+            {{i.col2}}
+          </li>
+        </ul>
+      </div>
+      <div class="messages-expand-close">
+        <a class="open" ng-show="!displayErrors" ng-click="displayErrors = !displayErrors">
+          <span>&rsaquo; </span>Zobraziť</a>
+        <a class="close" ng-show="displayErrors" ng-click="displayErrors = !displayErrors">&times;</a>
+      </div>
     </div>
   </div>
 
-  <div ng-if="errors.lenght > 0">
-    <div style="display: inline-block; margin-right: 10px;">Našli sme {{errors.length}} chyby</div>
-    <div style="display: inline-block;">
-      <a ng-show="!displayErrors" ng-click="displayErrors = !displayErrors">Zobraziť</a>
-      <a ng-show="displayErrors" ng-click="displayErrors = !displayErrors">Skryť</a>
+  <div ng-if="questionaries.length > 0 && showQuestionaries" class="messages-card questionnaires">
+    <div class="messages-summary">
+      <div class="messages-left-part">
+        <img class="messages-icon" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAMAAAAM7l6QAAAAWlBMVEV+q9T////8/f6DrtaGsNfW5fLR4fCvy+X1+fzR4O/x9vu60uixzeajw+Ccv960z+fd6fTN3++NtdnK3O2Ks9ni7PaArNXm7/e90+mlxeKQt9q91Om80+mewN9SsWBQAAAA6ElEQVQoz4XT6xqCIAwG4DlGEIrlqXP3f5utgImW9P1SXuUBxqBKQd08R6XGttEog4ntg0BCtVvyPqCkHzLGBr5ywMR4hR+5YuSDDBmtzfx/4AEkx6o6gqR7s+u3mCyzTC2TS+7MBJshBC0vvn7nljHjvOVwUl3OBlp5th/eZco4zvs4n+2KCVT+ul/x6R+PJSZoC8xoCsyoC8yItM2Kz/wiF8j7iSvm/U0qzmxJDjXGpe8ds5yyTWwhZAiXKVZlwpgpTR0YfVxJzCnUF0sX2WDWBkO/ROqWTeRqleElLTNvQdOSUrRowRcsDwfCIltwFwAAAABJRU5ErkJggg==">
+        <div ng-if="!expandQuestionaries" class="messages-count-text">Máte {{questionaries.length}} informácií o zdravotných dotazníkoch</div>
+        <ul ng-if="expandQuestionaries" class="messages-list">
+          <li ng-repeat="i in questionaries">
+            {{i}}
+          </li>
+        </ul>
+      </div>
+      <div class="messages-expand-close">
+        <a class="open" ng-show="!expandQuestionaries" ng-click="expandQuestionaries = !expandQuestionaries">
+          <span>&rsaquo; </span>Zobraziť</a>
+        <a class="close" ng-show="expandQuestionaries" ng-click="expandQuestionaries = !expandQuestionaries">&times;</a>
+      </div>
     </div>
-    <ul ng-show="displayErrors" style="width:100%" class="error">
-      <li ng-repeat="i in errors">
-        {{i.col2}}
-      </li>
-    </ul>
   </div>
 
-  <div ng-if="questionaries.length > 0 && showQuestionaries">
-    <div style="display: inline-block; margin-right: 10px;">Máte {{questionaries.length}} informácie o zdravoných dotaznikoch</div>
-    <div style="display: inline-block;">
-      <a ng-show="!expandQuestionaries" ng-click="expandQuestionaries = !expandQuestionaries">Zobraziť</a>
-      <a ng-show="expandQuestionaries" ng-click="expandQuestionaries = !expandQuestionaries">Skryť</a>
+  <div ng-if="warnings.length > 0 && showWarnings" class="messages-card warnings">
+    <div class="messages-summary">
+      <div class="messages-left-part">
+        <img class="messages-icon" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAMAAAAM7l6QAAAAclBMVEXoZSP////qczfqbzD+9fHyqYTrdzzzsZD40b7th1TrdTrqbC34zrn3x672wqf1uJnyrInqcTP++/r++vj87OT2vqLypH3uilj87eb52cj41cLypX3vlmjtg0797+j75tr639H3yrPzrovypoHwmW3vkGEc4cQtAAAA6klEQVQoz3WSSZKDMBAEq5BAYjeLjZfx7PP/L445IEphK2+ppCNoELgxNad7BWT3m5/C4ZatMwhkbo5zZxBRtZpPeCLf8xte8LflPBz13vc6v+ZufyU+yIK2az4XqWwswQNSGY6YqnQ2Fg3SGR66cr3mWpfHAsGSVr1ErTqTs7pBxAf5iTQX8gIk5xvyGsdStSOP6gty1W8y8hs8lKWMtIE16kNkxQg6cTeyVyVoh6Am/ubFO0F+7b7mQfcAKX/8qIsdnq9itV+dX245zAs/3DPbIo5DS8089/KAcZZbDlzzsqrrosz9GM7+AT30B4wEaE5pAAAAAElFTkSuQmCC">
+        <div ng-if="!expandWarnings" class="messages-count-text">Máte {{warnings.length}} varovných hlášok</div>
+        <ul ng-if="expandWarnings" class="messages-list">
+          <li ng-repeat="i in warnings">
+            {{i.col2}}
+          </li>
+        </ul>
+      </div>
+      <div class="messages-expand-close">
+        <a class="open" ng-show="!expandWarnings" ng-click="expandWarnings = !expandWarnings">
+          <span>&rsaquo; </span>Zobraziť</a>
+        <a class="close" ng-show="expandWarnings" ng-click="expandWarnings = !expandWarnings">&times;</a>
+      </div>
     </div>
-    <ul ng-show="expandQuestionaries" style="width:100%" class="questionary">
-      <li ng-repeat="i in questionaries">
-        {{i}}
-      </li>
-    </ul>
-  </div>
-
-  <div ng-if="warnings.length > 0 && showWarnings">
-    <div style="display: inline-block; margin-right: 10px;">Máte {{warnings.length}} varovné hlášky</div>
-    <div style="display: inline-block;">
-      <a ng-show="!expandWarnings" ng-click="expandWarnings = !expandWarnings">Zobraziť</a>
-      <a ng-show="expandWarnings" ng-click="expandWarnings = !expandWarnings">Skryť</a>
-    </div>
-    <ul ng-show="expandWarnings" style="width:100%" class="warning">
-      <li ng-repeat="i in warnings">
-        {{i.col2}}
-      </li>
-    </ul>
   </div>
 
 
