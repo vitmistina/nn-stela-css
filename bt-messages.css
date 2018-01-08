@@ -93,3 +93,7 @@ div.messages-card {
 .messages-container > div {
   margin-top: 4px;
 }
+
+.messages-expand-close {
+  min-width: 70px;
+}
