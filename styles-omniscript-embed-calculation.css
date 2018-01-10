@@ -218,7 +218,11 @@
 
 .via-slds .slds-select_container .slds-select {
   padding-left: 10px;
-  padding-right: 10px;
+  padding-right: 50px;
+  white-space: normal !important;
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .via-slds .slds-has-error .slds-select:active,
@@ -1232,7 +1236,7 @@ select {
 }
 .via-slds .slds-form-element__control > div.vlc-control-wrapper {
   position: relative;
-  background-color: white;
+  background-color: white !important;
 }
 .via-slds .slds-form-element__control > div.vlc-control-wrapper > input,
 .via-slds .slds-form-element__control > div.vlc-control-wrapper > textarea {
@@ -1495,36 +1499,44 @@ ng-form {
   padding-right: 10px;
 }
 
-#SportTypeAhead-Block, #SportTypeAhead2I-Block {
+#SportTypeAhead-Block,
+#SportTypeAhead2I-Block {
   padding-left: 40px;
 }
 @media only screen and (max-width: 64em) {
-  #SportTypeAhead-Block, #SportTypeAhead2I-Block {
+  #SportTypeAhead-Block,
+  #SportTypeAhead2I-Block {
     padding-right: 10px;
   }
 }
-#AddSport,#AddSport2 {
+#AddSport,
+#AddSport2 {
   margin-right: 10px;
 }
-#AddSport > p,#AddSport2 > p {
+#AddSport > p,
+#AddSport2 > p {
   margin-left: -5px;
 }
 @media only screen and (max-width: 64em) {
-  #AddSport,#AddSport2 {
+  #AddSport,
+  #AddSport2 {
     margin-left: 40px;
   }
-  #AddSport > p,#AddSport2 > p {
+  #AddSport > p,
+  #AddSport2 > p {
     margin-left: 15px;
   }
 }
-#Sport,#Sport2 {
+#Sport,
+#Sport2 {
   margin-left: 40px;
   width: calc(100% - 40px);
 }
 label[for="Sport"] {
   margin-left: 40px;
 }
-input#SportSelected, input#SportSelected2 {
+input#SportSelected,
+input#SportSelected2 {
   display: none;
 }
 #BlockSport .vlc-control-wrapper {
@@ -1562,4 +1574,8 @@ span.slds-icon_container.slds-icon-utility-down.slds-input__icon.slds-input__ico
   #RecalculateIncome > p {
     margin-left: 20px;
   }
+}
+
+#ProductInfoBlock ng-form {
+  padding-right: 0;
 }
