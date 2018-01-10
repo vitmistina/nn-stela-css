@@ -250,6 +250,39 @@ myModule.controller("childrenCtrl", [
   "$scope",
   function($scope) {
     $scope.showChildrenRecalculateBtn = true;
+    $scope.selectedCmpCount = {}; //CEPP2-229  array to hold the counts of selected items across all children
+
+    //AS, 11.12.2017 added for CEPP2-229
+    //function to initialize the counter of the riders
+    //to be called from a ng-init call together with hideNextBtnChild()
+    $scope.initSelectionSummary = function(collection) {
+      $.each(collection, function(index, cmp) {
+        var key = cmp.ComponentCode.value;
+        $scope.selectedCmpCount[key] = 0;
+      });
+    };
+
+    //CEPP2-229: function to recalc the overall selected riders. To be called after a child is removed and eventually from the callback function after a recalc callout.
+    $scope.updateSelectionSummary = function(collection) {
+      //input must be the complete collection of data
+      //for each child need to loop trhoug collection of components
+      //and mark each selected component
+      //reset the counters
+      $scope.initSelectionSummary(collection.ChildrenComponentsDefinition);
+
+      $.each(collection.Children, function(index, child) {
+        $.each(child.Component, function(iComp, comp) {
+          if (comp.Selected) {
+            $scope.selectedCmpCount[comp.ComponentCode.value]++;
+          }
+        });
+      });
+
+      $.each(collection.ChildrenComponentsDefinition, function(index, comp) {
+        comp.Selected = $scope.selectedCmpCount[comp.ComponentCode.value] > 0;
+      });
+    };
+
     $scope.addChildToCollection = function(collection) {
       var copyOfChild = angular.copy(collection.Children[0]);
       copyOfChild.BirthDate.value = today();
@@ -262,11 +295,14 @@ myModule.controller("childrenCtrl", [
       collection.Children.push(copyOfChild);
     };
 
+    //updated for CEPP2-229;
     $scope.removeChildFromCollection = function(child, collection) {
       var index = collection.Children.indexOf(child);
       collection.Children.splice(index, 1);
+      $scope.updateSelectionSummary(collection);
     };
 
+    //updated for CEPP2-229; update the overall counter instead of copy the selected checkbox value only
     $scope.setComponentSelected = function(
       collection,
       componentCode,
@@ -274,7 +310,17 @@ myModule.controller("childrenCtrl", [
       scope
     ) {
       $.each(collection, function(index, cmp) {
-        if (cmp.ComponentCode.value === componentCode) cmp.Selected = selected;
+        if (cmp.ComponentCode.value === componentCode) {
+          //cmp.Selected = selected;
+          if (selected) {
+            $scope.selectedCmpCount[cmp.ComponentCode.value]++;
+            cmp.Selected = true;
+          } else {
+            $scope.selectedCmpCount[cmp.ComponentCode.value]--;
+            if ($scope.selectedCmpCount[cmp.ComponentCode.value] < 1)
+              cmp.Selected = false;
+          }
+        }
       });
 
       if (!!scope && !scope.MUWLoadingPercent.value)
@@ -294,9 +340,11 @@ myModule.controller("childrenCtrl", [
       $("#ChildDefinitionStep_nextBtn").hide();
     };
 
-    $scope.recalculated = function() {
+    //updated for CEPP2-229: added parameter and call to update the selection summary
+    $scope.recalculated = function(collection) {
       $("#ChildDefinitionStep_nextBtn").show();
       $scope.showChildrenRecalculateBtn = false;
+      $scope.updateSelectionSummary(collection);
     };
 
     function today() {
