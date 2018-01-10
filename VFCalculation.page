@@ -8,7 +8,6 @@
     <script src="{!URLFOR($Resource.angular_locales, '/angular-locale_sk_sk.js')}"></script>
     <script src="{!URLFOR($Resource.cep_bt, 'bt/utils/PriceFormater.js')}"></script>
     <script src="{!URLFOR($Resource.cep_bt, 'bt/main/common.js')}"></script>
-    <apex:includeScript value="{!URLFOR($Resource.StickyBitsZip, '/stickybits.min.js')}"/>
 
 
     <script type="text/javascript">
@@ -97,8 +96,5 @@
     <c:vfCompDatePickerTranslationSK />
   </div>
   <vlocity_ins:VFActionFunction />
-  <!--script type="text/javascript">
-    stickybits('.premium-info-container');
-  </script-->
-
+  <apex:stylesheet value="{!$Resource.btCalcCSS}"/>
 </apex:page>
