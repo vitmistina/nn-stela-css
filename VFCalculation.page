@@ -7,6 +7,7 @@
     <script src="{!URLFOR($Resource.NNResources, '/jQueryUITag-it.js')}"></script>
     <script src="{!URLFOR($Resource.angular_locales, '/angular-locale_sk_sk.js')}"></script>
     <script src="{!URLFOR($Resource.cep_bt, 'bt/utils/PriceFormater.js')}"></script>
+    <script src="{!URLFOR($Resource.cep_bt, 'bt/main/common.js')}"></script>
     <apex:includeScript value="{!URLFOR($Resource.StickyBitsZip, '/stickybits.min.js')}"/>
 
 
@@ -24,14 +25,22 @@
           input[type='tel'] {
               text-align: right !important;
           }
+
+          #Variant {
+              text-align: right !important;
+          }
+
+          #AllocationFeeDiscount {
+              text-align: right !important;
+          }
       </style>
     <vlocity_ins:BusinessProcessComponent ContextId="{!contextId}" strOmniScriptType="SK" strOmniScriptSubType="New Calculation"
       strOmniScriptLang="English" strPrefillDataRaptorBundle="DRTransformJSONData" previewMode="{!$CurrentPage.parameters.previewEmbedded}"
       verticalMode="{!$CurrentPage.parameters.verticalMode}" strOmniScriptId="{!$CurrentPage.parameters.designerPreviewId}"
       scriptLayout="lightning" />
 
-    <apex:includeScript value="{!$Resource.VFCalculationJS}"/>
-    <script type="text/javascript">
+   
+    <script type="text/javascript">    
       (function() {
         "use strict";
         var bpModule = angular.module("vlocity-business-process");
