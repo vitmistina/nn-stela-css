@@ -1607,3 +1607,116 @@ span.slds-icon_container.slds-icon-utility-down.slds-input__icon.slds-input__ico
 .left ng-form {
   flex-direction: row;
 }
+
+/* vlocity template bt-messages */
+
+div.messages-card {
+  display: flex;
+  background: #ffffff;
+  -webkit-border-radius: 4px;
+  border-radius: 4px;
+  padding: 10px;
+  flex-direction: column;
+  border: 1px solid;
+}
+
+div.messages-card.infos {
+  border-color: #96b439 !important;
+}
+
+div.messages-card.questionnaires {
+  border-color: #7eabd4 !important;
+}
+
+div.messages-card.warnings {
+  border-color: #ea650d !important;
+}
+
+div.messages-card.errors {
+  border-color: #d0021b !important;
+}
+
+.messages-summary {
+  display: flex;
+  justify-content: space-between;
+  font-size: 13px;
+}
+
+ul.messages-list {
+  list-style: disc;
+  margin-left: 20px;
+  padding: 0;
+}
+
+img.messages-icon {
+  width: 18px;
+  height: 18px;
+  margin-right: 20px;
+}
+
+div.messages-card {
+  display: flex;
+  background: #ffffff;
+  border: 1px solid #7eabd4 !important;
+  -webkit-border-radius: 4px;
+  border-radius: 4px;
+  padding: 4px 10px;
+  flex-direction: column;
+}
+
+.messages-card a.close {
+  color: #999999;
+  font-size: 25px;
+  top: -10px;
+  line-height: 18px;
+}
+
+.messages-card a.close:hover {
+  text-decoration: none;
+}
+
+.messages-card a.open {
+  color: #444444;
+}
+
+.messages-card a.open:hover {
+  text-decoration: none;
+}
+
+.messages-card a.open span {
+  color: #ea650d;
+  font-size: 30px;
+  line-height: 8px;
+  position: relative;
+  top: 5px;
+  margin-right: 4px;
+}
+
+.messages-left-part {
+  display: flex;
+  margin-right: 10px;
+}
+
+.messages-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.messages-container > div {
+  margin-top: 4px;
+}
+
+@media only screen and (max-width: 425px) {
+  img.messages-icon {
+    width: 18px;
+    height: 18px;
+    margin-right: 8px;
+  }
+}
+
+.messages-expand-close a.open {
+  min-width: 70px;
+  display: flex;
+  justify-content: flex-end;
+}
