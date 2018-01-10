@@ -825,9 +825,7 @@
   top: 60%;
   color: rgba(65, 65, 65, 1);
 }
-ng-form {
-  padding-right: 0.65rem;
-}
+
 .via-slds section.slds-page-header.vlc-slds-page--header:after {
   display: none;
 }
@@ -1351,9 +1349,7 @@ select {
   top: 60%;
   color: rgba(65, 65, 65, 1);
 }
-ng-form {
-  padding-right: 0.65rem;
-}
+
 .via-slds section.slds-page-header.vlc-slds-page--header:after {
   display: none;
 }
@@ -1477,6 +1473,9 @@ ng-form {
 .child-input > svg {
   right: 21px !important;
 }
+#IllustrationGraphElement {
+  overflow: scroll;
+}
 #IllustrationGraphElement > div > p {
   overflow: scroll;
 }
@@ -1495,45 +1494,45 @@ ng-form {
 #AddSportInfo,
 #OccupationTypeAheadPH-Block,
 #OccupationTypeAhead2I-Block {
-  padding-left: 40px;
-  padding-right: 10px;
+  padding-left: 0;
+  padding-right: 0;
 }
 
 #SportTypeAhead-Block,
 #SportTypeAhead2I-Block {
-  padding-left: 40px;
+  padding-left: 0;
 }
 @media only screen and (max-width: 64em) {
   #SportTypeAhead-Block,
   #SportTypeAhead2I-Block {
-    padding-right: 10px;
+    padding-right: 0;
   }
 }
 #AddSport,
 #AddSport2 {
-  margin-right: 10px;
+  margin-right: 0;
 }
 #AddSport > p,
 #AddSport2 > p {
-  margin-left: -5px;
+  margin-left: 0;
 }
 @media only screen and (max-width: 64em) {
   #AddSport,
   #AddSport2 {
-    margin-left: 40px;
+    margin-left: 0;
   }
   #AddSport > p,
   #AddSport2 > p {
-    margin-left: 15px;
+    margin-left: 0;
   }
 }
 #Sport,
 #Sport2 {
-  margin-left: 40px;
-  width: calc(100% - 40px);
+  margin-left: 0;
+  width: 100%;
 }
 label[for="Sport"] {
-  margin-left: 40px;
+  margin-left: 0;
 }
 input#SportSelected,
 input#SportSelected2 {
@@ -1543,19 +1542,19 @@ input#SportSelected2 {
   min-height: auto;
 }
 #GrossMonthlyIncome {
-  margin-left: 40px;
-  width: calc(100% - 40px);
+  margin-left: 0;
+  width: 100%;
 }
 label[for="GrossMonthlyIncome"] {
-  margin-left: 40px;
+  margin-left: 0;
 }
 @media only screen and (max-width: 64em) {
   #NetMonthlyIncome {
-    margin-left: 40px;
-    width: calc(100% - 40px);
+    margin-left: 0;
+    width: 100%;
   }
   label[for="NetMonthlyIncome"] {
-    margin-left: 40px;
+    margin-left: 0;
   }
 }
 svg.slds-icon.slds-icon--small.slds-button__icon.slds-button__icon--large {
@@ -1578,4 +1577,33 @@ span.slds-icon_container.slds-icon-utility-down.slds-input__icon.slds-input__ico
 
 #ProductInfoBlock ng-form {
   padding-right: 0;
+}
+
+.via-slds
+  .vlc-slds-block
+  label[vlc-slds-toggle="toggle"]
+  ~ div[vlc-slds-toggle-elem="visible"] {
+  padding-left: 0;
+}
+
+.slds-has-input-has-icon--right input {
+  padding-right: 50px !important;
+  white-space: normal !important;
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+@media (min-width: 62.5em) {
+  ng-form {
+    padding-right: 0;
+  }
+}
+
+.groupName {
+  font-size: 16px;
+}
+
+.left ng-form {
+  flex-direction: row;
 }

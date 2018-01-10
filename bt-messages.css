@@ -74,9 +74,10 @@ div.messages-card {
 .messages-card a.open span {
   color: #ea650d;
   font-size: 30px;
-  line-height: 0;
+  line-height: 8px;
   position: relative;
   top: 5px;
+  margin-right: 4px;
 }
 
 .messages-left-part {
@@ -94,6 +95,16 @@ div.messages-card {
   margin-top: 4px;
 }
 
-.messages-expand-close {
+@media only screen and (max-width: 425px) {
+  img.messages-icon {
+    width: 18px;
+    height: 18px;
+    margin-right: 8px;
+  }
+}
+
+.messages-expand-close a.open {
   min-width: 70px;
+  display: flex;
+  justify-content: flex-end;
 }
