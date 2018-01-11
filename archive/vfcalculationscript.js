@@ -21,6 +21,11 @@ myModule.controller("scrollToTopController", [
     let form;
 
     function handleParentScroll() {
+      console.warn(window.parent.innerWidth);
+      console.warn(window.parent.innerWidth <= 425);
+      // do not execute on mobile
+      if (window.parent.innerWidth <= 425) return;
+
       // make sure the elements exist, if not yet loaded, load them
       if (
         !premium ||

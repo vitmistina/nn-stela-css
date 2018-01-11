@@ -1,5 +1,8 @@
 <apex:page standardController="vlocity_ins__Application__c" extensions="vlocity_ins.VFPageControllerBase,CalculationPageExtension"
   standardStylesheets="false" showHeader="false" sidebar="false">
+  <head>
+    <title>NN Rychlá kalkulácia</title>
+  </head>
   <div class="vlocity via-slds" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" ng-app="NewCalculations">
     <!-- START CUSTOM CODE-->
     <script src="{!URLFOR($Resource.NNResources, '/jQueryv2.2.4.js')}"></script>

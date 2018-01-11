@@ -1748,3 +1748,15 @@ div.messages-card {
 #SummaryBlock .slds-form-element__control p > p {
   font-size: 16px;
 }
+
+@media only screen and (max-width: 768px) {
+  #FundsList td {
+    font-size: 16px;
+  }
+}
+
+@media only screen and (max-width: 425px) {
+  #FundsList td {
+    font-size: 12px;
+  }
+}

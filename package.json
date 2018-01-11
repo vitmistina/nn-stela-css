@@ -1,0 +1,23 @@
+{
+  "name": "nn-stela",
+  "version": "1.0.0",
+  "description": "",
+  "main": "cart-controller.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vitmistina/nn-stela-css.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/vitmistina/nn-stela-css/issues"
+  },
+  "homepage": "https://github.com/vitmistina/nn-stela-css#readme",
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-zip": "^4.1.0"
+  }
+}
