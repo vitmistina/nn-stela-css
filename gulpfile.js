@@ -11,3 +11,14 @@ gulp.task("cep_bt", function() {
 gulp.task("watch-cep_bt", function() {
   gulp.watch("cep_bt/**/*", ["cep_bt"]);
 });
+
+gulp.task("css", function() {
+  gulp
+    .src("css/*")
+    .pipe(zip("css.zip"))
+    .pipe(gulp.dest("dist"));
+});
+
+gulp.task("watch-css", function() {
+  gulp.watch("css/**/*", ["css"]);
+});

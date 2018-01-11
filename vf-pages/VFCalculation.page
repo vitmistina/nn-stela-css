@@ -2,6 +2,7 @@
   standardStylesheets="false" showHeader="false" sidebar="false">
   <head>
     <title>NN Rychlá kalkulácia</title>
+    <link rel="shortcut icon" href="{!URLFOR($Resource.cep_bt_css, 'css/favicon.ico')}" type="image/x-icon"/>
   </head>
   <div class="vlocity via-slds" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" ng-app="NewCalculations">
     <!-- START CUSTOM CODE-->
@@ -99,5 +100,5 @@
     <c:vfCompDatePickerTranslationSK />
   </div>
   <vlocity_ins:VFActionFunction />
-  <apex:stylesheet value="{!$Resource.btCalcCSS}"/>
+  <apex:stylesheet value="{!URLFOR($Resource.cep_bt_css, 'calculation.css')}"/>
 </apex:page>

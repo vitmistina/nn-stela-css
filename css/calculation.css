@@ -1630,7 +1630,27 @@ span.slds-icon_container.slds-icon-utility-down.slds-input__icon.slds-input__ico
   flex-direction: row;
 }
 
-/* vlocity template bt-messages */
+#SummaryBlock .slds-form-element__control p > p {
+  font-size: 16px;
+}
+
+@media only screen and (max-width: 768px) {
+  #FundsList td {
+    font-size: 16px;
+  }
+}
+
+@media only screen and (max-width: 425px) {
+  #FundsList td {
+    font-size: 12px;
+  }
+}
+
+/************************************
+  ------ VLOCITY TEMPLATES -------
+*************************************/
+
+/* bt-messages */
 
 div.messages-card {
   display: flex;
@@ -1745,18 +1765,211 @@ div.messages-card {
 
 /* end of bt-messages */
 
-#SummaryBlock .slds-form-element__control p > p {
-  font-size: 16px;
+/* bt-illustration-funds */
+
+input[type="text"] {
+  width: 100%;
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
 }
 
-@media only screen and (max-width: 768px) {
-  #FundsList td {
-    font-size: 16px;
+.input-icon {
+  position: relative;
+}
+
+.input-icon > i {
+  position: absolute;
+  display: block;
+  transform: translate(0, -50%);
+  top: 50%;
+  pointer-events: none;
+  width: 25px;
+  text-align: center;
+  font-style: normal;
+}
+
+.input-icon > input {
+  padding-right: 25px;
+  padding-right: 0;
+}
+
+.input-icon-right > i {
+  right: 10px;
+}
+
+.input-icon-right > input {
+  padding-left: 0;
+  padding-right: 35px;
+  text-align: right;
+}
+
+.fundsRecalculatBtn {
+  float: right;
+  color: white !important;
+  margin: 20px !important;
+  height: 35px;
+  width: 180px;
+  background-color: #ee7f00;
+}
+
+/* end of bt-illustration-funds */
+
+/* bt-rider-list-sk-first */
+
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.valuePadding {
+  border: 1px inset #ccc;
+}
+.valuePadding input {
+  border: none;
+  padding: 0px;
+  outline: none;
+}
+
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+input[type="text"] {
+  width: 100%;
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+}
+
+
+.groupName {
+  color: #ee7f00;
+  font-weight: bold;
+}
+
+.input-icon {
+  position: relative;
+}
+
+.input-icon > i {
+  position: absolute;
+  display: block;
+  transform: translate(0, -50%);
+  top: 50%;
+  pointer-events: none;
+  width: 25px;
+  text-align: center;
+  font-style: normal;
+}
+
+.input-icon > input {
+  padding-right: 25px;
+  padding-right: 0;
+}
+
+.input-icon-right > i {
+  right: 10px;
+}
+
+.input-icon-right > input {
+  padding-left: 0;
+  padding-right: 35px;
+  text-align: right;
+}
+
+td {
+  white-space: normal;
+  word-wrap: break-word;
+}
+
+.whitespace {
+  white-space: normal;
+}
+
+.nn-chevron-trans {
+  transform: rotate(180deg);
+  transition: all 0.2s linear;
+}
+.nn-chevron-icon {
+  width: 1.5rem;
+  height: 1.5rem;
+  float: left;
+  transition: all 0.2s linear;
+  cursor: pointer;
+}
+
+.slds-input.ng-pristine.ng-valid .ng-not-empty.ng-valid-pattern.ng-touched {
+  text-align: left !important;
+}
+.fontCapitalized {
+  font-size: 14px;
+  text-transform: capitalize;
+}
+
+@media only screen and (max-width: 700px) {
+  .showOverflow {
+    overflow: scroll;
   }
 }
 
-@media only screen and (max-width: 425px) {
-  #FundsList td {
-    font-size: 12px;
-  }
+.rider-name-with-hint > a {
+  content: "i";
+  line-height: 1.5rem;
+  font-size: 0.9rem;
+  right: 11px;
+  display: inline-block;
+  height: 1.5rem;
+  width: 1.5rem;
+  border-radius: 100%;
+  border: none;
+  text-align: center;
+  font-weight: 700;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background: #ea650d;
+  color: #fff;
+  text-decoration: none;
 }
+
+.rider-name-with-hint > a:hover {
+  color: white;
+}
+
+.tooltip-dropdown {
+  max-width: 300px;
+  background-color: white;
+  font-size: 12px;
+  padding: 2px 8px;
+  margin-top: 8px;
+  border-radius: 4px;
+}
+
+.tooltip-dropdown-content {
+  z-index: 1;
+}
+
+:root .tooltip-dropdown {
+  border: 1px solid;
+}
+
+.tooltip-dropdown .arrow {
+  border-left: 1px solid rgb(229, 222, 217);
+  border-top: 1px solid rgb(229, 222, 217);
+  width: 16px;
+  height: 16px;
+  display: block;
+  background: white;
+  transform: translateY(-66%) translateX(50%) rotate(45deg);
+  display: none;
+}
+
+.rider-name-with-hint a + .tooltip-dropdown {
+  display: none;
+}
+
+.rider-name-with-hint a:hover + .tooltip-dropdown {
+  display: flex;
+}
+
+/* end of bt-rider-list-sk-first */
