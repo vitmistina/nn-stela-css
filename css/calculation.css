@@ -1973,6 +1973,30 @@ td {
   display: flex;
 }
 
+.rider-selection-flex {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.rider-selection-flex-left {
+  display: flex;
+}
+
+.rider-selection-flex .recalculatBtn {min-width: 215px;}
+
+.rider-selection-flex a.tooltip {
+  margin-right:8px;
+}
+
+@media (max-width: 425px) {
+  .rider-selection-flex {
+      display: flex;
+      flex-wrap:wrap;
+      justify-content:flex-end
+  }
+}
+
 /* end of bt-rider-list-sk-first */
 
 @media (min-width: 64em) {

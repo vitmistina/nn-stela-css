@@ -7,24 +7,22 @@
 
     <div ng-show="IsVisible == g.GroupName" ng-repeat='p in g.Components' ng-if="p.Relevant">
       <div class="slds-grid slds-grid_pull-padded slds-wrap slds-size--1-of-1">
-        <div class="slds-size--1-of-6 slds-small-size--1-of-12 slds-medium-size--1-of-12 slds-p-right--x-small slds-medium-p-right--medium">
-          <label class="slds-checkbox">
-            <input ng-disabled="{{p.Availability == 'mandatory'}}" type="checkbox" ng-model="p.Selected" ng-checked="{{p.Selected}}"
-              ng-change="riderChanged(p)" />
-            <span class="slds-checkbox--faux"></span>
-          </label>
-        </div>
-        <div class="slds-size--5-of-6 slds-small-size--11-of-12 slds-medium-size--7-of-12 slds-p-right--x-small slds-medium-p-right--medium">
-          <span ng-attr-title="{{p.ComponentHint}}">{{p.ComponentCalculationName}}</span>
-          <span class="rider-name-with-hint">
-            <a class="tooltip"> i </a>
-            <div class="tooltip-dropdown" role="tooltip">
-              <div class="tooltip-dropdown-content">{{p.ComponentHint}}</div>
-              <span class="arrow"></span>
-            </div>
-          </span>
-        </div>
-        <div class="slds-size--1-of-1 slds-medium-size--4-of-12 slds-p-right--x-small slds-medium-p-right--medium" ng-if="p.Selected">
+        <div class="rider-selection-flex">
+          <div class="rider-selection-flex-left">
+            <label class="slds-checkbox">
+              <input ng-disabled="{{p.Availability == 'mandatory'}}" type="checkbox" ng-model="p.Selected" ng-checked="{{p.Selected}}"
+                ng-change="riderChanged(p)" />
+              <span class="slds-checkbox--faux"></span>
+            </label>
+            <span class="rider-name-with-hint">
+              <a class="tooltip"> i </a>
+              <div class="tooltip-dropdown" role="tooltip">
+                <div class="tooltip-dropdown-content">{{p.ComponentHint}}</div>
+                <span class="arrow"></span>
+              </div>
+            </span>
+            <span ng-attr-title="{{p.ComponentHint}}">{{p.ComponentCalculationName}}</span>
+          </div>
           <button ng-if="showFirstInsuredRecalculateBtn" class="recalculatBtn" type="button" value="Prepočítať všetky" ng-click="buttonClick(bpTree.response, control, this, replacePercentages(control.vlcSI[control.itemsKey]),control.propSetMap.sendJSONPath, recalculated)"
             title="Prepočítať všetky">
             Prepočítať všetky
@@ -32,82 +30,84 @@
             />
           </button>
         </div>
+        <div class="slds-grid slds-grid_pull-padded slds-wrap slds-size--1-of-1" ng-if="p.Selected">
+          <div class="slds-size--3-of-4 slds-medium-size--2-of-12 slds-p-right--x-small slds-medium-p-right--medium" ng-if="p.Selected">
+            <div ng-show="!p.IsWop" class="summaryLabel">
+              <p class="slds-text-align--center">Poistná suma (€)</p>
+            </div>
+            <div ng-show="!p.IsWop" class="summaryValue input-icon input-icon-right">
+              <input type="text" ng-change="riderChanged(p)" ng-model="p.SumAssured" currency format="currency" min="0" class="slds-input"
+                placeholder="Poistná suma">
+            </div>
+          </div>
+          <div class="slds-size--1-of-4 slds-medium-size--1-of-12 slds-p-right--x-small slds-medium-p-right--medium" ng-if="p.Selected">
+            <div class="summaryLabel">
+              <p class="slds-text-align--center">Poistná doba</p>
+            </div>
+            <div class="summaryValue">
+              <input ng-change="riderChanged(p)" ng-model="p.Term" min="1" to-number class="slds-input" type="number" placeholder="Poistiť do veku poisteneho"
+                value="{{p.Term}}">
+            </div>
+          </div>
+          <div class="slds-size--1-of-3 slds-medium-size--2-of-12 slds-p-right--x-small slds-medium-p-right--medium" ng-if="p.Selected">
+            <div class="summaryLabel">
+              <p class="slds-text-align--center">Zdravotné navýšenie</p>
+            </div>
+            <div class="summaryValue input-icon input-icon-right">
+              <i class="">%</i>
+              <input ng-change="riderChanged(p)" min="0" to-number ng-model="p.MedicalLoading" class="slds-input" type="number" step="1"
+                onkeypress="return event.charCode >= 48 && event.charCode <= 57" title="Numbers only" placeholder="Loading"
+                value="{{p.MedicalLoading}}">
+            </div>
+          </div>
+          <div class="slds-size--1-of-3 slds-medium-size--1-of-12 slds-p-right--x-small slds-medium-p-right--medium" ng-if="p.Selected">
+            <div class="summaryLabel">
+              <p class="slds-text-align--center">Riziková skupina</p>
+            </div>
+            <div class="summaryValue">
+              <p class="slds-text-align--center">{{p.RiskGroup}}</p>
+            </div>
+          </div>
+          <div class="slds-size--1-of-3 slds-medium-size--2-of-12 slds-p-right--x-small slds-medium-p-right--medium" ng-if="p.Selected">
+            <div class="summaryLabel">
+              <p class="slds-text-align--center">Celkové navýšenie</p>
+            </div>
+            <div class="summaryValue">
+              <p class="slds-text-align--center">{{ p.CalculatedLoadingPercent | number : 0 }} %</p>
+            </div>
+          </div>
+          <div class="slds-size--1-of-2 slds-medium-size--2-of-12 slds-p-right--x-small slds-medium-p-right--medium" ng-if="p.Selected">
+            <div class="summaryLabel">
+              <p class="slds-text-align--center">Pred zľavami</p>
+            </div>
+            <div class="summaryValue">
+              <p class="slds-text-align--center previous-price">{{p.PremiumBeforeAllDiscount | currency}} €</p>
+            </div>
+          </div>
+          <div class="slds-size--1-of-2 slds-medium-size--2-of-12 slds-p-right--x-small slds-medium-p-right--medium" ng-if="p.Selected">
+            <div class="summaryLabel">
+              <p class="slds-text-align--center">Poistné po zľavách</p>
+            </div>
+            <div class="summaryValue">
+              <p class="slds-text-align--center final-price">{{p.PremiumAfterAllDiscount | currency}} €</p>
+            </div>
+          </div>
+          <select ng-model="selectedDecreasingType" ng-show="p.DecreasingTypeType !='X'" ng-disabled="p.DecreasingTypeType == 'automatic'"
+            ng-model="selectedValue" ng-options="item as item.Label for item in p.DecreasingType.choice track by item.Code"
+            style="border-style: none; height:45px; width:35%" class="slds-select ng-not-empty ng-dirty ng-valid-parse ng-valid ng-valid-required ng-touched"
+            ng-value="p.DecreasingType.value">
+            <option value="" selected hidden/>
+          </select>
+          {{selectedDecreasingType}}
+          <div ng-show="selectedDecreasingType == 'calendar'" class="slds-size--1-of-1 slds-medium-size--4-of-12 slds-p-right--x-small slds-medium-p-right--medium"
+            ng-if="p.Selected">
+            <button ng-if="p." class="recalculatBtn" type="button" value="Nastaviť kalednár" title="Nastaviť kalednár">
+              Nastaviť kalednár
+            </button>
+          </div>
+        </div>
       </div>
-      <div class="slds-grid slds-grid_pull-padded slds-wrap slds-size--1-of-1" ng-if="p.Selected">
-        <div class="slds-size--3-of-4 slds-medium-size--2-of-12 slds-p-right--x-small slds-medium-p-right--medium" ng-if="p.Selected">
-          <div ng-show="!p.IsWop" class="summaryLabel">
-            <p class="slds-text-align--center">Poistná suma (€)</p>
-          </div>
-          <div ng-show="!p.IsWop" class="summaryValue input-icon input-icon-right">
-            <input type="text" ng-change="riderChanged(p)" ng-model="p.SumAssured" currency format="currency" min="0" class="slds-input"
-              placeholder="Poistná suma">
-          </div>
-        </div>
-        <div class="slds-size--1-of-4 slds-medium-size--1-of-12 slds-p-right--x-small slds-medium-p-right--medium" ng-if="p.Selected">
-          <div class="summaryLabel">
-            <p class="slds-text-align--center">Poistná doba</p>
-          </div>
-          <div class="summaryValue">
-            <input ng-change="riderChanged(p)" ng-model="p.Term" min="1" to-number class="slds-input" type="number" placeholder="Poistiť do veku poisteneho"
-              value="{{p.Term}}">
-          </div>
-        </div>
-        <div class="slds-size--1-of-3 slds-medium-size--2-of-12 slds-p-right--x-small slds-medium-p-right--medium" ng-if="p.Selected">
-          <div class="summaryLabel">
-            <p class="slds-text-align--center">Zdravotné navýšenie</p>
-          </div>
-          <div class="summaryValue input-icon input-icon-right">
-            <i class="">%</i>
-            <input ng-change="riderChanged(p)" min="0" to-number ng-model="p.MedicalLoading" class="slds-input" type="number" step="1"
-              onkeypress="return event.charCode >= 48 && event.charCode <= 57" title="Numbers only" placeholder="Loading" value="{{p.MedicalLoading}}">
-          </div>
-        </div>
-        <div class="slds-size--1-of-3 slds-medium-size--1-of-12 slds-p-right--x-small slds-medium-p-right--medium" ng-if="p.Selected">
-          <div class="summaryLabel">
-            <p class="slds-text-align--center">Riziková skupina</p>
-          </div>
-          <div class="summaryValue">
-            <p class="slds-text-align--center">{{p.RiskGroup}}</p>
-          </div>
-        </div>
-        <div class="slds-size--1-of-3 slds-medium-size--2-of-12 slds-p-right--x-small slds-medium-p-right--medium" ng-if="p.Selected">
-          <div class="summaryLabel">
-            <p class="slds-text-align--center">Celkové navýšenie</p>
-          </div>
-          <div class="summaryValue">
-            <p class="slds-text-align--center">{{ p.CalculatedLoadingPercent | number : 0 }} %</p>
-          </div>
-        </div>
-        <div class="slds-size--1-of-2 slds-medium-size--2-of-12 slds-p-right--x-small slds-medium-p-right--medium" ng-if="p.Selected">
-          <div class="summaryLabel">
-            <p class="slds-text-align--center">Pred zľavami</p>
-          </div>
-          <div class="summaryValue">
-            <p class="slds-text-align--center previous-price">{{p.PremiumBeforeAllDiscount | currency}} €</p>
-          </div>
-        </div>
-        <div class="slds-size--1-of-2 slds-medium-size--2-of-12 slds-p-right--x-small slds-medium-p-right--medium" ng-if="p.Selected">
-          <div class="summaryLabel">
-            <p class="slds-text-align--center">Poistné po zľavách</p>
-          </div>
-          <div class="summaryValue">
-            <p class="slds-text-align--center final-price">{{p.PremiumAfterAllDiscount | currency}} €</p>
-          </div>
-        </div>
-        <select ng-model="selectedDecreasingType" ng-show="p.DecreasingTypeType !='X'" ng-disabled="p.DecreasingTypeType == 'automatic'"
-          ng-model="selectedValue" ng-options="item as item.Label for item in p.DecreasingType.choice track by item.Code" style="border-style: none; height:45px; width:35%"
-          class="slds-select ng-not-empty ng-dirty ng-valid-parse ng-valid ng-valid-required ng-touched" ng-value="p.DecreasingType.value">
-          <option value="" selected hidden/>
-        </select>
-        {{selectedDecreasingType}}
-        <div ng-show="selectedDecreasingType == 'calendar'" class="slds-size--1-of-1 slds-medium-size--4-of-12 slds-p-right--x-small slds-medium-p-right--medium"
-          ng-if="p.Selected">
-          <button ng-if="p." class="recalculatBtn" type="button" value="Nastaviť kalednár" title="Nastaviť kalednár">
-            Nastaviť kalednár
-          </button>
-        </div>
-      </div>
-    </div>
 
+    </div>
   </div>
 </div>

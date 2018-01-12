@@ -31,7 +31,7 @@ gulp.task("css", function() {
 
 gulp.task("css-zip", function() {
   gulp
-    .src(["css/*.min.css", "css/*.woff", "css/*.eot"])
+    .src(["css/*.min.css", "css/*.woff", "css/*.eot", "css/*.png", "css/*.svg"])
     .pipe(zip("css.zip"))
     .pipe(gulp.dest("dist"));
 });
