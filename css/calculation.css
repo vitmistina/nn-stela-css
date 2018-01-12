@@ -885,7 +885,7 @@
   position: relative;
   left: -25px;
   padding-left: 25px;
-  width: 108%;
+  width: calc(100% + 50px);
   margin-bottom: 20px;
   border-bottom: 2px solid #ffffff;
 }
@@ -1477,8 +1477,8 @@ select {
     text-align: left;
   }
   .endOfCalculationButtonContainer img {
-    height: 40px;
-    min-width: 50px;
+    height: 30px;
+    min-width: 40px;
     padding-right: 10px;
   }
 }
@@ -1742,7 +1742,7 @@ div.messages-card {
 .messages-container {
   display: flex;
   flex-direction: column;
-  width: 100%;
+  width: calc(100% - 25px);
 }
 
 .messages-container > div {
@@ -1842,7 +1842,6 @@ input[type="text"] {
   -moz-box-sizing: border-box;
 }
 
-
 .groupName {
   color: #ee7f00;
   font-weight: bold;
@@ -1937,6 +1936,8 @@ td {
 }
 
 .tooltip-dropdown {
+  position: absolute;
+  z-index: 999;
   max-width: 300px;
   background-color: white;
   font-size: 12px;
@@ -1973,3 +1974,41 @@ td {
 }
 
 /* end of bt-rider-list-sk-first */
+
+@media (min-width: 64em) {
+  .slds-large-size--6-of-12:nth-child(odd) {
+    padding-right: 10px;
+  }
+
+  #SportTypeAhead-Block ng-form {
+    padding-right: 10px;
+  }
+
+  #SportTypeAhead2I-Block ng-form {
+    padding-right: 10px;
+  }
+
+  #IncomeBlock .slds-large-size--5-of-12 {
+    padding-right: 10px;
+  }
+
+  #AddSport {
+    padding: 23px;
+    margin-top: 1px;
+  }
+
+  #AddSport2 {
+    padding: 23px;
+    margin-top: 1px;
+  }
+
+  #RecalculateIncome {
+    padding: 23px;
+    margin-top: 1px;
+  }
+}
+
+.recalculate-illustration-container {
+  display: flex;
+  justify-content: flex-end;
+}

@@ -100,5 +100,5 @@
     <c:vfCompDatePickerTranslationSK />
   </div>
   <vlocity_ins:VFActionFunction />
-  <apex:stylesheet value="{!URLFOR($Resource.cep_bt_css, 'calculation.css')}"/>
+  <apex:stylesheet value="{!URLFOR($Resource.cep_bt_css, 'calculation.min.css')}"/>
 </apex:page>

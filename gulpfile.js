@@ -1,5 +1,8 @@
 var gulp = require("gulp");
 var zip = require("gulp-zip");
+var cssmin = require("gulp-cssmin");
+var rename = require("gulp-rename");
+const autoprefixer = require("gulp-autoprefixer");
 
 gulp.task("cep_bt", function() {
   gulp
@@ -14,11 +17,25 @@ gulp.task("watch-cep_bt", function() {
 
 gulp.task("css", function() {
   gulp
-    .src("css/*")
+    .src("css/calculation.css")
+    .pipe(
+      autoprefixer({
+        browsers: ["last 2 versions"],
+        cascade: false
+      })
+    )
+    .pipe(cssmin())
+    .pipe(rename({ suffix: ".min" }))
+    .pipe(gulp.dest("css"));
+});
+
+gulp.task("css-zip", function() {
+  gulp
+    .src(["css/*.min.css", "css/*.woff", "css/*.eot"])
     .pipe(zip("css.zip"))
     .pipe(gulp.dest("dist"));
 });
 
 gulp.task("watch-css", function() {
-  gulp.watch("css/**/*", ["css"]);
+  gulp.watch("css/**/*", ["css", "css-zip"]);
 });

@@ -18,6 +18,9 @@
   "homepage": "https://github.com/vitmistina/nn-stela-css#readme",
   "devDependencies": {
     "gulp": "^3.9.1",
+    "gulp-autoprefixer": "^4.1.0",
+    "gulp-cssmin": "^0.2.0",
+    "gulp-rename": "^1.2.2",
     "gulp-zip": "^4.1.0"
   }
 }
