@@ -2048,11 +2048,11 @@ td {
   display: flex;
 }
 
-.premium-info-container .left {
+.premium-info-container .premium-info-left {
   display: flex;
 }
 
-.premium-info-container .right {
+.premium-info-container .premium-info-right {
   display: flex;
   justify-content: flex-end;
 }
