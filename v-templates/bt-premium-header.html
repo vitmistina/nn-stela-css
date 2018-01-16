@@ -1,5 +1,5 @@
 <div class="slds-grid slds-wrap slds-size--1-of-1" ng-controller="ShoppingCartController as cart">
-  <div id="premium-info-container" class="div2 premium-info-container slds-size--1-of-1">
+  <div id="premium-info-container" class="premium-info-container slds-size--1-of-1">
     <div class="premium-info-left">
       <h2 class="premium-info">Celkové poistné:
         <span ng-if="!cart.showCalculateBtn"> {{control.vlcSI[control.itemsKey][0].TotalPremiumAfterDiscounts | currency}} €</span>
@@ -35,7 +35,7 @@
           id="tab-cart-4__item">Deti</a>
       </li>
     </ul>
-    <div ng-if="cart.activeTab === 1" id="tab-cart-1" class="slds-tabs_default__content" role="tabpanel" aria-labelledby="tab-cart-1__item">
+    <div ng-if="cart.activeTab === 1" id="tab-cart-1" class="slds-tabs_default__content premium-overview" role="tabpanel" aria-labelledby="tab-cart-1__item">
       <!-- PRODUCT TYPE -->
       <div class="slds-form-element__control slds-input-has-icon slds-has-input-has-icon--right">
         <div class="slds-select_container vlc-control-wrapper vlc-slds__border vlc-slds__border--primary slds-input-has-icon slds-has-input-has-icon--right"

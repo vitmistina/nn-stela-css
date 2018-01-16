@@ -2041,11 +2041,7 @@ td {
 
 .premium-info-container {
   display: flex;
-  justify-content: flex-end;
-}
-
-.premium-info-container {
-  display: flex;
+  justify-content: space-between;
 }
 
 .premium-info-container .premium-info-left {
@@ -2073,6 +2069,10 @@ h2.premium-info {
   margin-left: 10px;
 }
 
+.premium-info button {
+  margin-left: 10px;
+}
+
 ul.slds-tabs_default__nav {
   display: flex;
   border-bottom: 2px solid #f1edeb;
@@ -2080,22 +2080,22 @@ ul.slds-tabs_default__nav {
 
 li.slds-tabs_default__item {
   margin: 0 15px;
+  position: relative;
+  top: 2px;
 }
 
-.slds-tabs_default.ng-scope {
+.slds-tabs_default {
   background-color: #ffffff;
   padding: 20px;
   margin-top: 20px;
   border-radius: 4px;
 }
 
-li.slds-tabs_default__item.active {
+li.slds-tabs_default__item.slds-is-active {
   border-bottom: 2px solid;
-  position: relative;
-  top: 2px;
 }
 
-li.slds-tabs_default__item.active a {
+li.slds-tabs_default__item.slds-is-active a {
   color: #ea650d;
 }
 
@@ -2107,4 +2107,21 @@ li.slds-tabs_default__item a:hover,
 li.slds-tabs_default__item a:focus,
 li.slds-tabs_default__item a:active {
   text-decoration: none;
+}
+
+.premium-overview {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.premium-overview > .slds-form-element__control,
+.premium-overview > .summaryValue {
+  width: calc(50% - 10px);
+  margin: 10px 0;
+}
+
+.premium-overview > .slds-form-element__control:nth-child(odd),
+.premium-overview > .summaryValue:nth-child(odd) {
+  margin-right: 20px;
 }
