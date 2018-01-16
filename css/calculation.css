@@ -1983,17 +1983,19 @@ td {
   display: flex;
 }
 
-.rider-selection-flex .recalculatBtn {min-width: 215px;}
+.rider-selection-flex .recalculatBtn {
+  min-width: 215px;
+}
 
 .rider-selection-flex a.tooltip {
-  margin-right:8px;
+  margin-right: 8px;
 }
 
 @media (max-width: 425px) {
   .rider-selection-flex {
-      display: flex;
-      flex-wrap:wrap;
-      justify-content:flex-end
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-end;
   }
 }
 
@@ -2035,4 +2037,74 @@ td {
 .recalculate-illustration-container {
   display: flex;
   justify-content: flex-end;
+}
+
+.premium-info-container {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.premium-info-container {
+  display: flex;
+}
+
+.premium-info-container .left {
+  display: flex;
+}
+
+.premium-info-container .right {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.slds-button_neutral {
+  background-color: #ffffff;
+  color: #ea650d !important;
+  border: 1px solid;
+  border-radius: 4px;
+  padding: 4px 10px;
+}
+
+h2.premium-info {
+  color: #ea650d;
+}
+
+.premium-info span {
+  margin-left: 10px;
+}
+
+ul.slds-tabs_default__nav {
+  display: flex;
+  border-bottom: 2px solid #f1edeb;
+}
+
+li.slds-tabs_default__item {
+  margin: 0 15px;
+}
+
+.slds-tabs_default.ng-scope {
+  background-color: #ffffff;
+  padding: 20px;
+  margin-top: 20px;
+  border-radius: 4px;
+}
+
+li.slds-tabs_default__item.active {
+  border-bottom: 2px solid;
+  position: relative;
+  top: 2px;
+}
+
+li.slds-tabs_default__item.active a {
+  color: #ea650d;
+}
+
+li.slds-tabs_default__item a {
+  color: #414141;
+}
+
+li.slds-tabs_default__item a:hover,
+li.slds-tabs_default__item a:focus,
+li.slds-tabs_default__item a:active {
+  text-decoration: none;
 }
