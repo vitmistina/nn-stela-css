@@ -1,9 +1,12 @@
 <div class="slds-grid slds-wrap slds-size--1-of-1" ng-controller="ShoppingCartController as cart">
-  <div id="premium-info-container" class="premium-info-container slds-size--1-of-1">
+  <div id="premium-info-container" class="div2 premium-info-container slds-size--1-of-1">
     <div class="premium-info-left">
-      <h2 class="premium-info">Celkové poistné:
-        <span ng-if="!cart.showCalculateBtn"> {{control.vlcSI[control.itemsKey][0].TotalPremiumAfterDiscounts | currency}} €</span>
-      </h2>
+      <h2 class="premium-info">Celkové poistné:</h2>
+      <div class="premium" ng-if="!cart.showCalculateBtn">
+        <span class="sum"> {{control.vlcSI[control.itemsKey][0].TotalPremiumAfterDiscounts | currency}} €</span>
+        <span class="frequency"></span>
+      </div>
+
       <button ng-if="cart.showCalculateBtn" ng-click="buttonClick(bpTree.response, control, this, control.vlcSI[control.itemsKey][0],control.propSetMap.sendJSONPath, recalculated(control.vlcSI[control.itemsKey][0]))"
         class="open-button slds-button_neutral slds-float_right" type="button">Prepočítať</button>
     </div>
@@ -35,7 +38,8 @@
           id="tab-cart-4__item">Deti</a>
       </li>
     </ul>
-    <div ng-if="cart.activeTab === 1" id="tab-cart-1" class="slds-tabs_default__content premium-overview" role="tabpanel" aria-labelledby="tab-cart-1__item">
+    <div ng-if="cart.activeTab === 1" id="tab-cart-1" class="slds-tabs_default__content premium-overview slds-size--1-of-1" role="tabpanel"
+      aria-labelledby="tab-cart-1__item">
       <!-- PRODUCT TYPE -->
       <div class="slds-form-element__control slds-input-has-icon slds-has-input-has-icon--right">
         <div class="slds-select_container vlc-control-wrapper vlc-slds__border vlc-slds__border--primary slds-input-has-icon slds-has-input-has-icon--right"
@@ -46,10 +50,7 @@
             class="slds-select ng-not-empty ng-dirty ng-valid-parse ng-valid ng-valid-required ng-touched" ng-value="control.vlcSI[control.itemsKey][0].RateVariant[0].Default">
             <option value="" selected hidden />
           </select>
-          <label for="cart_variant" class="slds-form-element__label ng-binding">Variant
-            <span class="vlc-asterix icon-v-asterix ng-scope" ng-if="true">
-            </span>
-          </label>
+          <label for="cart_variant" class="slds-form-element__label ng-binding">Variant</label>
           <span class="slds-icon_container slds-icon-utility-down slds-input__icon slds-input__icon_right">
             <svg aria-hidden="true" class="slds-icon slds-icon--small slds-button__icon slds-button__icon--large" xmlns="http://www.w3.org/2000/svg"
               preserveAspectRatio="xMixYMid meet" sprite="'utility'" icon="'down'" size="'small'" extra-classes="'slds-button__icon slds-button__icon--large'"
@@ -70,10 +71,7 @@
             ng-value="control.vlcSI[control.itemsKey][0].PaymentFrequency[0].Default">
             <option value="" selected hidden />
           </select>
-          <label for="cart_frequency" class="slds-form-element__label ng-binding">Frekvencia
-            <span class="vlc-asterix icon-v-asterix ng-scope" ng-if="true">
-            </span>
-          </label>
+          <label for="cart_frequency" class="slds-form-element__label ng-binding">Frekvencia</label>
           <span class="slds-icon_container slds-icon-utility-down slds-input__icon slds-input__icon_right">
             <svg aria-hidden="true" class="slds-icon slds-icon--small slds-button__icon slds-button__icon--large" xmlns="http://www.w3.org/2000/svg"
               preserveAspectRatio="xMixYMid meet" sprite="'utility'" icon="'down'" size="'small'" extra-classes="'slds-button__icon slds-button__icon--large'"
@@ -84,10 +82,16 @@
         </div>
       </div>
       <!--REQUESTED PREMIUM -->
-      <div ng-if="control.vlcSI[control.itemsKey][0].ProductType == 'invest'" class="summaryValue input-icon input-icon-right">
-        <input ng-model="control.vlcSI[control.itemsKey][0].RequiredPremiumFor" type="text" currency format="currency" min="0" class="slds-input"
-          placeholder="Poistná suma" value="control.vlcSI[control.itemsKey][0].RequiredPremiumFor">
+      <div class="slds-form-element__control" ng-if="control.vlcSI[control.itemsKey][0].ProductType == 'invest'">
+        <div class="vlc-control-wrapper summaryValue input-icon input-icon-right">
+          <i class="">€</i>
+          <input ng-model="control.vlcSI[control.itemsKey][0].RequiredPremiumFor" type="text" currency format="currency" min="0" class="slds-input ng-dirty"
+            placeholder="Poistná suma" value="control.vlcSI[control.itemsKey][0].RequiredPremiumFor">
+          <label for="Poistná suma" class="slds-form-element__label ng-binding">Požadované poistné
+          </label>
+        </div>
       </div>
+
       <!--REQUESTED PREMIUM TYPE -->
       <div ng-if="control.vlcSI[control.itemsKey][0].ProductType == 'invest'" class="slds-form-element__control slds-input-has-icon slds-has-input-has-icon--right">
         <div class="slds-select_container vlc-control-wrapper vlc-slds__border vlc-slds__border--primary slds-input-has-icon slds-has-input-has-icon--right"
@@ -100,8 +104,6 @@
             <option value="" selected hidden />
           </select>
           <label for="cart_premium_type" class="slds-form-element__label ng-binding">Požadované nastavené poistné
-            <span class="vlc-asterix icon-v-asterix ng-scope" ng-if="true">
-            </span>
           </label>
           <span class="slds-icon_container slds-icon-utility-down slds-input__icon slds-input__icon_right">
             <svg aria-hidden="true" class="slds-icon slds-icon--small slds-button__icon slds-button__icon--large" xmlns="http://www.w3.org/2000/svg"
@@ -113,26 +115,74 @@
         </div>
       </div>
       <!--EMPLOYER CONTRIBUTION -->
-      <div class="summaryValue input-icon input-icon-right">
-        <input ng-model="control.vlcSI[control.itemsKey][0].EmployerPayment" type="text" currency format="currency" min="0" class="slds-input"
-          placeholder="Poistná suma" value="control.vlcSI[control.itemsKey][0].EmployerPayment">
+      <div class="slds-form-element__control">
+        <div class="summaryValue vlc-control-wrapper input-icon input-icon-right">
+          <i class="">€</i>
+          <input ng-model="control.vlcSI[control.itemsKey][0].EmployerPayment" type="text" currency format="currency" min="0" class="slds-input ng-dirty"
+            placeholder="Príspevok zamestnávateľa" value="control.vlcSI[control.itemsKey][0].EmployerPayment">
+          <label for="Príspevok zamestnávateľa" class="slds-form-element__label ng-binding">Príspevok zamestnávateľa
+          </label>
+        </div>
       </div>
+
       <!-- GROUP DISCOUNT -->
-      <div class="summaryValue input-icon input-icon-right">
-        <i class="">%</i>
-        <input ng-model="control.vlcSI[control.itemsKey][0].GroupDiscountPercent" min="0" to-number class="slds-input" type="number"
-          placeholder="Loading" value="control.vlcSI[control.itemsKey][0].GroupDiscountPercent">
+      <div class="slds-form-element__control">
+        <div class="summaryValue vlc-control-wrapper input-icon input-icon-right">
+          <i class="">%</i>
+          <input ng-model="control.vlcSI[control.itemsKey][0].GroupDiscountPercent" min="0" to-number class="slds-input ng-dirty" type="number"
+            placeholder="Loading" value="control.vlcSI[control.itemsKey][0].GroupDiscountPercent">
+          <label for="Príspevok zamestnávateľa" class="slds-form-element__label ng-binding">Príspevok zamestnávateľa
+          </label>
+        </div>
       </div>
+
       <!-- ALLOCATION FEE DISCOUNT -->
-      <div ng-if="control.vlcSI[control.itemsKey][0].ProductType == 'invest'" class="summaryValue input-icon input-icon-right">
-        <i class="">%</i>
-        <input ng-model="control.vlcSI[control.itemsKey][0].AllocationPercentDiscount" min="0" to-number class="slds-input" type="number"
-          placeholder="Loading" value="control.vlcSI[control.itemsKey][0].AllocationPercentDiscount">
+      <div class="slds-form-element__control slds-size--1-of-1" ng-if="control.vlcSI[control.itemsKey][0].ProductType == 'invest'">
+        <div class="vlc-control-wrapper summaryValue input-icon input-icon-right">
+          <i class="">%</i>
+          <input ng-model="control.vlcSI[control.itemsKey][0].AllocationPercentDiscount" min="0" to-number class="slds-input ng-dirty"
+            type="number" placeholder="Loading" value="control.vlcSI[control.itemsKey][0].AllocationPercentDiscount">
+          <label for="AllocationPercentDiscount" class="slds-form-element__label ng-binding">AllocationPercentDiscount
+          </label>
+        </div>
       </div>
+
       <!-- ANTIINFLATION PROGRAM -->
-      <div ng-if="control.vlcSI[control.itemsKey][0].ProductType == 'invest'" class="cart_check">
-        <input ng-model="control.vlcSI[control.itemsKey][0].AntiInflationProgram" type="checkbox">Protiinflačný program
+      <div ng-if="control.vlcSI[control.itemsKey][0].ProductType == 'invest'" class="slds-form-element__control vlc-slds-checkbox slds-size--1-of-1">
+
+        <label class="slds-checkbox">
+
+          <input id="checkboxAntiInflationProgram" type="checkbox" ng-model="control.vlcSI[control.itemsKey][0].AntiInflationProgram"
+            class="ng-valid ng-touched ng-dirty ng-empty">
+
+          <span class="slds-checkbox--faux"></span>
+
+          <!-- bubble canceller prevents bubbling of the click events to the checkbox -->
+          <label class="slds-form-element__label vlc-slds-inline-control__label" vlc-bubble-canceller="test">
+
+            <!-- tooltip template -->
+
+
+            <div class="vlc-slds-control-action__container">
+
+              <!-- ngIf: ::control.propSetMap.repeat -->
+
+              <!-- ngIf: child.eleArray.length > 1 -->
+
+            </div>
+            <!-- OMNI-1963 -->
+            <span for="checkboxAntiInflationProgram" class="slds-form-element__label ng-binding">
+              Protiinflačný program
+            </span>
+
+            <!-- ngIf: control.req -->
+
+          </label>
+
+        </label>
+
       </div>
+
       <div class="calculations">
         <div class="left2">
           Hlavné krytie:
@@ -206,7 +256,7 @@
         <hr class="style1">
       </div>
     </div>
-    <div ng-if="cart.activeTab === 2" id="tab-cart-2" class="slds-tabs_default__content" role="tabpanel" aria-labelledby="tab-cart-2__item">
+    <div ng-if="cart.activeTab === 2" id="tab-cart-2" class="slds-tabs_default__content slds-size--1-of-1" role="tabpanel" aria-labelledby="tab-cart-2__item">
       <div ng-repeat="group in control.vlcSI[control.itemsKey][0].FirstInsuredRiders">
         <div ng-repeat="p in group.Components" class="summaryComponent slds-size--1-of-1">
           <h2 ng-if="p.Selected">{{p.ComponentCalculationName}}</h2>
@@ -271,7 +321,7 @@
         </div>
       </div>
     </div>
-    <div ng-if="cart.activeTab === 3 && control.vlcSI[control.itemsKey][0].SecondInsuredRiders.length != 0" id="tab-cart-3" class="slds-tabs_default__content"
+    <div ng-if="cart.activeTab === 3 && control.vlcSI[control.itemsKey][0].SecondInsuredRiders.length != 0" id="tab-cart-3" class="slds-tabs_default__content slds-size--1-of-1"
       role="tabpanel" aria-labelledby="tab-cart-3__item">
       <div ng-repeat="group in control.vlcSI[control.itemsKey][0].SecondInsuredRiders">
         <div ng-repeat="p in group.Components" class="summaryComponent slds-size--1-of-1">
@@ -339,7 +389,7 @@
 
 
     </div>
-    <div ng-if="cart.activeTab === 4" id="tab-cart-4" class="slds-tabs_default__content" role="tabpanel" aria-labelledby="tab-cart-3__item">
+    <div ng-if="cart.activeTab === 4" id="tab-cart-4" class="slds-tabs_default__content slds-size--1-of-1" role="tabpanel" aria-labelledby="tab-cart-3__item">
       <div ng-repeat='child in control.vlcSI[control.itemsKey][0].ChildrenRiders.Children' class="summaryComponent slds-si--1-of-1">
         <div ng-repeat='p in child.Component'>
           <!--<div ng-repeat="p in components" class="summaryComponent slds-si--1-of-1"> -->

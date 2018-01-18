@@ -615,6 +615,9 @@
 :root div {
   border-color: rgba(229, 222, 217, 1) !important;
 }
+:focus {
+  outline: none;
+}
 .via-slds
   .vlc-slds-multiSelect-control
   ul[horizontalmode]
@@ -875,9 +878,9 @@
   max-width: 37rem !important;
 }
 
-#PremiumInfo label,
-#PremiumInfo2 label {
-  display: none;
+label[for="PremiumInfo"],
+label[for="PremiumInfo2"] {
+  display: none !important;
 }
 
 #Messages,
@@ -888,6 +891,7 @@
   width: calc(100% + 50px);
   margin-bottom: 20px;
   border-bottom: 2px solid #ffffff;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 3px 1px -1px;
 }
 
 .via-slds .vlc-slds-right--panel:after {
@@ -895,14 +899,20 @@
 }
 
 .recalculatBtn {
-  border: 0;
-  background-color: transparent;
+  background-color: white;
+  border: 1px solid;
+  border-radius: 4px;
+  padding: 4px;
   color: #ea650d !important;
   font-weight: 700 !important;
 }
 
 .recalculatBtn img {
   padding-left: 15px;
+}
+
+.childValue .recalculatBtn {
+  padding: 10px;
 }
 
 .via-slds .slds-page-header__title {
@@ -1136,6 +1146,11 @@ select {
   background: #f1edeb;
   -webkit-border-radius: 5px;
   border-radius: 5px;
+}
+@media (min-width: 62.5em) {
+  .via-slds form[stepform] {
+    padding-top: 1.5rem;
+  }
 }
 .via-slds section.slds-page-header.vlc-slds-page--header {
   font-weight: normal;
@@ -1446,26 +1461,27 @@ select {
   color: #ea650d !important;
   cursor: pointer;
 }
-.endOfCalculationButtonContainer {
+
+div.endOfCalculationButtonContainer {
   display: flex;
-  flex-direction: column;
+  background-color: #ffffff;
+  border: 1px solid;
+  border-color: #ea650d !important;
+  padding: 10px;
+  border-radius: 4px;
 }
 
 .endOfCalculationButtonContainer a {
   display: flex;
   justify-content: center;
   text-align: center;
-}
-
-.endOfCalculationButtonContainer a {
-  display: flex;
-  justify-content: center;
-  text-align: center;
+  font-size: 20px;
 }
 
 .endOfCalculationButtonContainer img {
-  height: 40px;
-  width: 40px;
+  height: 30px;
+  width: 30px;
+  margin-right: 10px;
 }
 
 @media only screen and (max-width: 64em) {
@@ -1997,6 +2013,10 @@ td {
     flex-wrap: wrap;
     justify-content: flex-end;
   }
+
+  .recalculatBtn {
+    width: 100%;
+  }
 }
 
 /* end of bt-rider-list-sk-first */
@@ -2061,15 +2081,15 @@ td {
   padding: 4px 10px;
 }
 
-h2.premium-info {
+.premium-info {
   color: #ea650d;
 }
 
-.premium-info span {
+.premium-info-container .premium {
   margin-left: 10px;
 }
 
-.premium-info button {
+.premium-info-container button {
   margin-left: 10px;
 }
 
@@ -2124,4 +2144,34 @@ li.slds-tabs_default__item a:active {
 .premium-overview > .slds-form-element__control:nth-child(odd),
 .premium-overview > .summaryValue:nth-child(odd) {
   margin-right: 20px;
+}
+
+.premium span {
+  font-size: 20px;
+  color: #ea650d;
+}
+
+.premium-overview > .slds-form-element__control.slds-size--1-of-1 {
+  width: 100%;
+  margin-right: 0;
+}
+
+@media (max-width: 425px) {
+  .premium-overview > .slds-form-element__control,
+  .premium-overview > .summaryValue {
+    width: 100%;
+  }
+
+  .premium-overview > .slds-form-element__control:nth-child(odd),
+  .premium-overview > .summaryValue:nth-child(odd) {
+    margin-right: 0;
+  }
+
+  .premium-info-container {
+    font-size: 12px;
+  }
+
+  .premium-info {
+    flex-basis: 55px;
+  }
 }

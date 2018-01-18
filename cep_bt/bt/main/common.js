@@ -1,5 +1,7 @@
 var menuOffsetTopDesktop = 210;
 var menuOffsetTopMobile = 140;
+var cartOffsetTopDesktop = 309;
+var cartOffsetTopMobile = 191;
 var modules = ["vlocity-business-process"];
 var myModule = angular.module("NewCalculations", modules);
 var supportsES6 = (function() {
@@ -17,9 +19,16 @@ myModule.filter("if2", function() {
   };
 });
 
+myModule.filter("year", function() {
+  return function(input) {
+    return parseInt(input, 10) + 2017;
+  };
+});
+
 myModule.controller("scrollToTopController", [
   "$scope",
-  function($scope) {
+  "$rootScope",
+  function($scope, $rootScope) {
     if (!supportsES6) return; // do not execute if ES6 not supported
 
     let premium;
@@ -74,23 +83,29 @@ myModule.controller("scrollToTopController", [
 
         const stickyElements = [].concat(messages, premium);
 
-        // if scrolled enough, fix the premium and messages to top
-        if (this.scrollY >= realTopOfForm) {
+        // if (scrolled enough && window high enough && cart not open)
+        // fix the premium and messages to top
+        if (
+          this.scrollY >= realTopOfForm &&
+          window.parent.innerWidth >= 768 &&
+          !$rootScope.shoppingCartIsOpen
+        ) {
           // set styles on premiums and messages
           stickyElements.forEach(element => {
             element.style.position = "fixed";
             element.style.zIndex = "3";
             element.style.backgroundColor = "#f1edeb";
-            element.style.maxWidth = formWidth - 25 + "px";
+            element.style.maxWidth = formWidth - 24 + "px";
           });
 
           // set styles just on premiums
           premium.forEach(element => {
-            element.style.paddingTop = "10px";
+            element.style.paddingTop = "24px";
             element.style.top = `${this.scrollY -
               omniscriptTop -
               bpTreeTop -
               topNavigation}px`;
+            element.style.paddingRight = 24 + "px";
           });
           const premiumHeight = premium.reduce(
             (acc, cur) => acc + cur.offsetHeight,
@@ -131,6 +146,7 @@ myModule.controller("scrollToTopController", [
           premium.forEach(element => {
             element.style.position = "";
             element.style.paddingTop = "";
+            element.style.paddingRight = "";
           });
 
           // set styles just on messages
@@ -139,19 +155,35 @@ myModule.controller("scrollToTopController", [
             sldsFormElement.style.marginBottom = "20px";
             sldsFormElement.style.boxShadow = "";
             element.style.position = "";
+            element.style.paddingRight = "";
           });
         }
       }
     }
 
-    function scrollToTop(newValue, oldValue) {
-      if (newValue != oldValue) {
-        const scrollToY =
-          window.parent.innerWidth >= 768
-            ? menuOffsetTopDesktop
-            : menuOffsetTopMobile;
+    function scrollToTopMenu() {
+      const scrollToY =
+        window.parent.innerWidth >= 768
+          ? menuOffsetTopDesktop
+          : menuOffsetTopMobile;
 
-        window.parent.scroll(0, scrollToY);
+      window.parent.scroll(0, scrollToY);
+      handleParentScroll();
+    }
+
+    function scrollToTopCart() {
+      const scrollToY =
+        window.parent.innerWidth >= 768
+          ? cartOffsetTopDesktop
+          : cartOffsetTopMobile;
+
+      window.parent.scroll(0, scrollToY);
+      handleParentScroll();
+    }
+
+    function watchOmniscriptStepChange(newValue, oldValue) {
+      if (newValue != oldValue) {
+        scrollToTopMenu();
       }
       $("li").click(function(e) {
         $(this)
@@ -160,8 +192,21 @@ myModule.controller("scrollToTopController", [
       });
     }
 
+    function watchShoppingCartOpening(newValue, oldValue) {
+      if (newValue === true) {
+        scrollToTopCart();
+      }
+    }
+
     // watch for change of omniscript step and if changed, scroll to top
-    $scope.$watch(() => $scope.bpTree.asIndex, scrollToTop);
+    $scope.$watch(() => $scope.bpTree.asIndex, watchOmniscriptStepChange);
+
+    // watch for opening of cart
+    $scope.$watch(
+      () => $rootScope.shoppingCartIsOpen,
+      watchShoppingCartOpening
+    );
+
     // listen for window events related to sticky premium info
     window.parent.addEventListener("scroll", handleParentScroll);
     window.parent.addEventListener("resize", handleParentScroll);
@@ -191,7 +236,8 @@ myModule.controller("msgController", [
 
 myModule.controller("ShoppingCartController", [
   "$scope",
-  function($scope) {
+  "$rootScope",
+  function($scope, $rootScope) {
     const shoppingCart = this;
     shoppingCart.texts = {
       premium: "Celkové poistné",
@@ -203,19 +249,22 @@ myModule.controller("ShoppingCartController", [
       tab4: "Deti"
     };
 
+    $rootScope.shoppingCartIsOpen = false;
     shoppingCart.isOpen = false;
-    shoppingCart.toggleOpen = () =>
-      (shoppingCart.isOpen = !shoppingCart.isOpen);
+    shoppingCart.toggleOpen = () => {
+      shoppingCart.isOpen = !shoppingCart.isOpen;
+      $rootScope.shoppingCartIsOpen = !$rootScope.shoppingCartIsOpen;
+    };
 
     shoppingCart.activeTab = 1;
     shoppingCart.openTab = tabIndex => (shoppingCart.activeTab = tabIndex);
 
-    //this is temp and will come from vlocity:
-    shoppingCart.temp = {
-      premium: 14.53
-    };
-
     $scope.showCalculateBtn = false;
+
+	$scope.recalculated = function(){
+			debugger;
+		 $scope.showCalculateBtn = false;
+	}
   }
 ]);
 
@@ -224,7 +273,12 @@ myModule.controller("ridersCtrl", [
   function($scope) {
     $scope.showFirstInsuredRecalculateBtn = false;
     $scope.showSecondInsuredRecalculateBtn = false;
+    $scope.IsVisible = "Úmrtie";
+    $scope.currencyVal = 0;
 
+    $scope.init = function() {
+      $("#Riders_nextBtn").hide();
+    };
     angular.element(document).ready(function() {});
 
     $scope.recalculated = function() {
@@ -265,6 +319,60 @@ myModule.controller("ridersCtrl", [
       var jsonString = JSON.stringify(s);
       jsonString = jsonString.replace(/%/g, "&#37;");
       return JSON.parse(jsonString);
+    };
+
+    $scope.containsCode = function(obj, value) {
+      if (obj.Code === value) return true;
+
+      return false;
+    };
+
+    $scope.showModal = function(component, mainCover) {
+      var modal = document.getElementById("calendar_" + component.Code);
+      modal.style.display = "block";
+
+      var pCount = Object.keys(component.SumAssuredCalendar.calendarMap).length;
+      if (Number(mainCover.Term) + 1 != pCount) {
+        for (var i = 1; i <= pCount; i++) {
+          delete component.SumAssuredCalendar.calendarMap[String(i)];
+        }
+
+        for (var i = 1; i <= Number(mainCover.Term); i++) {
+          component.SumAssuredCalendar.calendarMap[String(i)] = "";
+        }
+        component.SumAssuredCalendar.calendarMap[0] = component.SumAssured;
+      }
+    };
+
+    $scope.setDecreasingType = function(
+      component,
+      selectedDecreasingType,
+      bpTree
+    ) {
+      component.DecreasingType.value = selectedDecreasingType.Code;
+      debugger;
+    };
+
+    $scope.hideModal = function(componentCode) {
+      var modal = document.getElementById("calendar_" + componentCode);
+      modal.style.display = "none";
+    };
+
+    $scope.saveCalendar = function(component, componentCode) {
+      var modal = document.getElementById("calendar_" + componentCode);
+      modal.style.display = "none";
+
+      component.SumAssuredCalendar.value = [];
+
+      for (
+        var i = 0;
+        i < Object.keys(component.SumAssuredCalendar.calendarMap).length;
+        i++
+      ) {
+        component.SumAssuredCalendar.value.push(
+          component.SumAssuredCalendar.calendarMap[0]
+        );
+      }
     };
 
     $scope.ShowHide = function(Groupname) {
