@@ -1,5 +1,5 @@
 <div class="slds-grid slds-wrap slds-size--1-of-1" ng-controller="ShoppingCartController as cart">
-  <div id="premium-info-container" class="div2 premium-info-container slds-size--1-of-1">
+  <div id="premium-info-container" class="premium-info-container slds-size--1-of-1">
     <div class="premium-info-left">
       <h2 class="premium-info">Celkové poistné:</h2>
       <div class="premium" ng-if="!cart.showCalculateBtn">
@@ -131,7 +131,7 @@
           <i class="">%</i>
           <input ng-model="control.vlcSI[control.itemsKey][0].GroupDiscountPercent" min="0" to-number class="slds-input ng-dirty" type="number"
             placeholder="Loading" value="control.vlcSI[control.itemsKey][0].GroupDiscountPercent">
-          <label for="Príspevok zamestnávateľa" class="slds-form-element__label ng-binding">Príspevok zamestnávateľa
+          <label for="Skupinová zľava" class="slds-form-element__label ng-binding">Skupinová zľava
           </label>
         </div>
       </div>
@@ -183,77 +183,87 @@
 
       </div>
 
-      <div class="calculations">
-        <div class="left2">
-          Hlavné krytie:
+      <div class="premium-summary">
+        <div class="row">
+          <div>
+            Hlavné krytie:
+          </div>
+          <div>
+            {{control.vlcSI[control.itemsKey][0].MainCoverage | currency}} €
+          </div>
         </div>
-        <div class="right2">
-          {{control.vlcSI[control.itemsKey][0].MainCoverage | currency}} €
+        <div class="row">
+          <div>
+            Pripoistenie:
+          </div>
+          <div>
+            {{control.vlcSI[control.itemsKey][0].FirstInsuredRiderPremiumBeforeAllDiscounts | currency}} €
+          </div>
         </div>
-        <hr class="style1">
-        <div class="left2">
-          Pripoistenie:
+        <div class="row">
+          <div>
+            2. poistený:
+          </div>
+          <div>
+            {{control.vlcSI[control.itemsKey][0].SecondInsured | currency}} €
+          </div>
         </div>
-        <div class="right2">
-          {{control.vlcSI[control.itemsKey][0].FirstInsuredRiderPremiumBeforeAllDiscounts | currency}} €
+        <div class="row">
+          <div>
+            Zľava za frekvenciu:
+          </div>
+          <div>
+            {{control.vlcSI[control.itemsKey][0].FrequencyDiscount | currency}} €
+          </div>
         </div>
-        <hr class="style1">
-        <div class="left2">
-          2. poistený:
+        <div class="row">
+          <div>
+            Zľava za riziko:
+          </div>
+          <div>
+            {{control.vlcSI[control.itemsKey][0].RiskPremiumDiscount | currency}} €
+          </div>
         </div>
-        <div class="right2">
-          {{control.vlcSI[control.itemsKey][0].SecondInsured | currency}} €
+        <div class="row">
+          <div>
+            Skupinová zľava:
+          </div>
+          <div>
+            {{control.vlcSI[control.itemsKey][0].GroupDiscountSum | currency}} €
+          </div>
         </div>
-        <hr class="style1">
-        <div class="left2">
-          Zľava za frekvenciu:
+        <div class="row" ng-if="control.vlcSI[control.itemsKey][0].ProductType == 'invest'">
+          <div>
+            Zľava z alokačného poplatku:
+          </div>
+          <div>
+            {{control.vlcSI[control.itemsKey][0].AllocationPercentDiscount}} %
+          </div>
         </div>
-        <div class="right2">
-          {{control.vlcSI[control.itemsKey][0].FrequencyDiscount | currency}} €
+        <div class="row subtotal">
+          <div>
+            Celkové poistné:
+          </div>
+          <div>
+            {{control.vlcSI[control.itemsKey][0].TotalPremiumAfterDiscounts | currency}} €
+          </div>
         </div>
-        <hr class="style1">
-        <div class="left2">
-          Zľava za riziko:
+        <div class="row">
+          <div>
+            Príspevok zamestnávateľa:
+          </div>
+          <div>
+            {{control.vlcSI[control.itemsKey][0].EmployerPayment | currency}} €
+          </div>
         </div>
-        <div class="right2">
-          {{control.vlcSI[control.itemsKey][0].RiskPremiumDiscount | currency}} €
+        <div class="row subtotal">
+          <div>
+            Poistné platené klientom:
+          </div>
+          <div>
+            {{control.vlcSI[control.itemsKey][0].CalculatedClientPremium | currency}} €
+          </div>
         </div>
-        <hr class="style1">
-        <div class="left2">
-          Skupinová zľava:
-        </div>
-        <div class="right2">
-          {{control.vlcSI[control.itemsKey][0].GroupDiscountSum | currency}} €
-        </div>
-        <hr class="style1">
-        <div class="left2" ng-if="control.vlcSI[control.itemsKey][0].ProductType == 'invest'">
-          Zľava z alokačného poplatku:
-        </div>
-        <div class="right2" ng-if="control.vlcSI[control.itemsKey][0].ProductType == 'invest'">
-          {{control.vlcSI[control.itemsKey][0].AllocationPercentDiscount}} %
-        </div>
-        <hr class="style1" ng-if="control.vlcSI[control.itemsKey][0].ProductType == 'invest'">
-        <div class="left2">
-          Celkové poistné:
-        </div>
-        <div class="right2">
-          {{control.vlcSI[control.itemsKey][0].TotalPremiumAfterDiscounts | currency}} €
-        </div>
-        <hr class="style1">
-        <div class="left2">
-          Príspevok zamestnávateľa:
-        </div>
-        <div class="right2">
-          {{control.vlcSI[control.itemsKey][0].EmployerPayment | currency}} €
-        </div>
-        <hr class="style1">
-        <div class="left2">
-          Poistné platené klientom:
-        </div>
-        <div class="right2">
-          {{control.vlcSI[control.itemsKey][0].CalculatedClientPremium | currency}} €
-        </div>
-        <hr class="style1">
       </div>
     </div>
     <div ng-if="cart.activeTab === 2" id="tab-cart-2" class="slds-tabs_default__content slds-size--1-of-1" role="tabpanel" aria-labelledby="tab-cart-2__item">
