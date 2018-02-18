@@ -29,6 +29,20 @@ gulp.task("css", function() {
     .pipe(gulp.dest("css"));
 });
 
+gulp.task("css-contract", function() {
+  gulp
+    .src("css/contract.css")
+    .pipe(
+      autoprefixer({
+        browsers: ["last 2 versions"],
+        cascade: false
+      })
+    )
+    .pipe(cssmin())
+    .pipe(rename({ suffix: ".min" }))
+    .pipe(gulp.dest("css"));
+});
+
 gulp.task("css-zip", function() {
   gulp
     .src(["css/*.min.css", "css/*.woff", "css/*.eot", "css/*.png", "css/*.svg"])
@@ -37,5 +51,5 @@ gulp.task("css-zip", function() {
 });
 
 gulp.task("watch-css", function() {
-  gulp.watch("css/**/*", ["css", "css-zip"]);
+  gulp.watch("css/**/*", ["css", "css-contract"]);
 });

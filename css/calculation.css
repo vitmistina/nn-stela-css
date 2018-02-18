@@ -1291,6 +1291,14 @@ select {
 .via-slds
   .slds-form-element__control
   > div.vlc-control-wrapper
+  select.ng-dirty
+  + label {
+  -webkit-transform: translate3d(0, -1.2rem, 0) scale3d(0.65, 0.65, 1);
+  transform: translate3d(0, -1.2rem, 0) scale3d(0.65, 0.65, 1);
+}
+.via-slds
+  .slds-form-element__control
+  > div.vlc-control-wrapper
   input.ng-dirty
   + label,
 .via-slds
@@ -1617,12 +1625,16 @@ span.slds-icon_container.slds-icon-utility-down.slds-input__icon.slds-input__ico
   padding-left: 0;
 }
 
-.slds-has-input-has-icon--right input {
+/* .slds-has-input-has-icon--right input {
   padding-right: 50px !important;
   white-space: normal !important;
   max-width: 100%;
   overflow: hidden;
   text-overflow: ellipsis;
+} */
+
+.slds-input-has-icon--right input {
+  padding-right: 1rem !important;
 }
 
 @media (min-width: 62.5em) {
@@ -2009,7 +2021,7 @@ td {
 /* end of bt-rider-list-sk-first */
 
 @media (min-width: 64em) {
-  .slds-large-size--6-of-12:nth-child(odd) {
+  .slds-medium-size--6-of-12:nth-child(odd) {
     padding-right: 10px;
   }
 
@@ -2021,7 +2033,7 @@ td {
     padding-right: 10px;
   }
 
-  #IncomeBlock .slds-large-size--5-of-12 {
+  #IncomeBlock .slds-medium-size--5-of-12 {
     padding-right: 10px;
   }
 
@@ -2262,7 +2274,11 @@ li.slds-tabs_default__item a:active {
   min-height: auto;
 }
 
-@media (max-width: 767px) {
+.mobile-hint {
+  display: none;
+}
+
+@media (max-width: 740px) {
   .riderGroup {
     display: grid;
     grid-template-columns: repeat(12, 1fr);
@@ -2282,6 +2298,41 @@ li.slds-tabs_default__item a:active {
 
   .final-price {
     grid-column: 1 / -1;
+  }
+
+  .riderGroup > div.sum-assured {
+    grid-column: 1 / span 6;
+    justify-content: stretch;
+  }
+
+  .riderGroup > div.term {
+    grid-column: span 6;
+    justify-content: stretch;
+  }
+
+  .riderGroup > div.medical-loading {
+    grid-column: span 6;
+    justify-content: stretch;
+  }
+
+  .risk-group {
+    grid-column: span 6;
+  }
+
+  .calculated-loading {
+    grid-column: span 6;
+  }
+
+  .previous-price {
+    grid-column: span 6;
+  }
+
+  .mobile-hint {
+    display: block;
+  }
+
+  .tooltip-dropdown {
+    margin-top: 60px;
   }
 }
 
@@ -2335,6 +2386,16 @@ sidebar {
   min-height: auto;
 }
 
-.via-slds #VlocityBP {
-  min-height: 100vh;
+/* currency fields */
+span.vlc-slds-currency-symbol {
+  border-color: rgba(229, 222, 217, 1) !important;
 }
+
+.via-slds .vlc-slds-omniscript-currency .vlc-slds-currency-symbol__readonly {
+  border: 1px solid !important;
+  border-right: 0 !important;
+  border-color: rgba(229, 222, 217, 1) !important;
+}
+
+/* picklist color */
+.vlc-control-wrapper ul li * { color: #414141!important}
