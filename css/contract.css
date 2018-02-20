@@ -1385,6 +1385,32 @@ ng-form {
   border-color: #f1edeb !important;
 }
 
+#SignatureOptions\|0 label.slds-radio,
+#SignatureOptions2\|0 label.slds-radio,
+#SignatureOptions3\|0 label.slds-radio {
+  width: 100%;
+  height: 100px;
+}
+
+#SignatureOptions\|0 .imgItemContainer,
+#SignatureOptions2\|0 .imgItemContainer,
+#SignatureOptions3\|0 .imgItemContainer {
+  height: 100px;
+  background-color: #ea650d;
+  font-size: 16px;
+}
+
+#SignatureOptions\|0 .imgItemContainer .imgItem,
+#SignatureOptions2\|0 .imgItemContainer .imgItem,
+#SignatureOptions3\|0 .imgItemContainer .imgItem {
+  color: white !important;
+}
+
+#SignatureOptions\|0 .via-slds .borderOverlay,
+#SignatureOptions2\|0 .via-slds .borderOverlay,
+#SignatureOptions3\|0 .via-slds .borderOverlay {
+  border: 0;
+}
 #SignatureOptions0 label.slds-radio,
 #SignatureOptions20 label.slds-radio,
 #SignatureOptions30 label.slds-radio {
@@ -1609,4 +1635,24 @@ ng-form {
 
 #BeneficiaryBlockFI .vlc-slds-control-action__container span:before {
   content: "+";
+}
+
+.via-slds .slds-form-element__control p[vlc-bind-html] p {
+  color: #414141;
+  font-weight: normal;
+}
+
+/* currency fields */
+span.vlc-slds-currency-symbol {
+  border-color: rgba(229, 222, 217, 1) !important;
+}
+
+.via-slds .vlc-slds-omniscript-currency .vlc-slds-currency-symbol__readonly {
+  border: 1px solid !important;
+  border-right: 0 !important;
+  border-color: rgba(229, 222, 217, 1) !important;
+}
+
+.slds-input-has-icon--right input {
+  padding-right: 1rem !important;
 }

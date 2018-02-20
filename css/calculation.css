@@ -2398,4 +2398,40 @@ span.vlc-slds-currency-symbol {
 }
 
 /* picklist color */
-.vlc-control-wrapper ul li * { color: #414141!important}
+.vlc-control-wrapper ul li * {
+  color: #414141 !important;
+}
+
+/* bt-child-rider-list-sk */
+.children-riders-container {
+  width: 100%;
+}
+
+.child-rider-list-container {
+  display: grid;
+  grid-template-columns: 30px 5fr minmax(150px, 1fr);
+  grid-row-gap: 8px;
+}
+
+.via-slds .child-rider-list-container .slds-input,
+.via-slds .child-rider-list-container .slds-select[vlc-slds-val-checker] {
+  height: 2rem;
+  min-height: auto;
+}
+
+.child-rider-list-heading {
+  grid-column: -2;
+}
+
+.child-rider-list-container > div.grid {
+  display: grid;
+  align-items: center;
+  justify-content: center;
+}
+
+.child-rider-list-container > div.rider-name-with-hint {
+  display: grid;
+  grid-template-columns: 30px 1fr;
+  grid-gap: 6px;
+  align-items: center;
+}
