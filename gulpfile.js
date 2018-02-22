@@ -26,7 +26,7 @@ gulp.task("css", function() {
     )
     .pipe(cssmin())
     .pipe(rename({ suffix: ".min" }))
-    .pipe(gulp.dest("css"));
+    .pipe(gulp.dest("css-min"));
 });
 
 gulp.task("css-contract", function() {
@@ -40,16 +40,22 @@ gulp.task("css-contract", function() {
     )
     .pipe(cssmin())
     .pipe(rename({ suffix: ".min" }))
-    .pipe(gulp.dest("css"));
+    .pipe(gulp.dest("css-min"));
 });
 
 gulp.task("css-zip", function() {
   gulp
-    .src(["css/*.min.css", "css/*.woff", "css/*.eot", "css/*.png", "css/*.svg"])
+    .src([
+      "css-min/*.min.css",
+      "css-min/*.woff",
+      "css-min/*.eot",
+      "css-min/*.png",
+      "css-min/*.svg"
+    ])
     .pipe(zip("cep_bt_css.resource"))
     .pipe(gulp.dest("dist"));
 });
 
 gulp.task("watch-css", function() {
-  gulp.watch("css/**/*", ["css", "css-contract"]);
+  gulp.watch("css/**/*", ["css", "css-contract", "css-zip"]);
 });

@@ -1653,6 +1653,7 @@ span.vlc-slds-currency-symbol {
   border-color: rgba(229, 222, 217, 1) !important;
 }
 
-.slds-input-has-icon--right input {
+/* remove for BTDEV */
+/* .slds-input-has-icon--right input {
   padding-right: 1rem !important;
-}
+} */
