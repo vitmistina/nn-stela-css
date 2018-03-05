@@ -148,7 +148,34 @@
   <!-- CHILD INPUT SECTION  END -->
   <br/>
   <!-- SELECTED RIDERS LISTING BEGIN -->
-  <div ng-repeat='p in control.vlcSI[control.itemsKey][0].ChildrenComponentsDefinition'>
+
+  <div class="child-rider-settings" ng-if="isAComponentSelected(control.vlcSI[control.itemsKey][0].ChildrenComponentsDefinition)">
+    <div class="heading">Poistná suma (€)</div>
+    <div class="heading">Poistné pred zľavami</div>
+    <div class="heading">Poistné po zľavách</div>
+    <div class="grid-border"></div>
+    <div ng-repeat-start='p in control.vlcSI[control.itemsKey][0].ChildrenComponentsDefinition' ng-if="p.Selected" class="rider-name grid">{{p.ComponentCalculationName.value}}</div>
+    <div ng-if="p.Selected" class="sum-assured grid">
+      <input ng-model="p.SumAssured.value" type="text" ng-currency currency-symbol="" fraction="0" min="0" class="slds-input" component="{{p.ComponentCode.value}}"
+        name="SumAssuredInput$index" placeholder="Poistná suma" value="{{p.SumAssured.value}}" ng-change="showRecalculateBtn()"
+      />
+    </div>
+    <div ng-if="p.Selected && !showChildrenRecalculateBtn && p.PremiumAfterAllDiscount.value != 0" class="premium-before grid">{{p.PremiumBeforeAllDiscount.value | currency}} €</div>
+    <div ng-if="p.Selected && !showChildrenRecalculateBtn && p.PremiumAfterAllDiscount.value != 0" class="premium-final grid">{{p.PremiumAfterAllDiscount.value | currency}} €</div>
+
+    <div ng-if="p.Selected && showChildrenRecalculateBtn" class="recalculate-button-container">
+      <button class="recalculatBtn grid" type="button" value="Prepočítať všetky" ng-click="buttonClick(bpTree.response, control, this, control.vlcSI[control.itemsKey][0],control.propSetMap.sendJSONPath, recalculated(control.vlcSI[control.itemsKey][0]))"
+        title="Prepočítať všetky">
+        Prepočítať všetky
+        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAMBSURBVHgBlVZvThpREJ95szRN/bc2hpSkicsJxBMUTlA8gZBo02/S9gDKARrpt6Y2gZ5AeoLiCeQGbj/RIomo1dDie9N5C1rU3Yf9JewOj/nz5jfz3oAwBUcl359RusiKAyRcBuY+GzgFxvalpla20e+77DHph+ON2TwjbouYBwcYoWkMf8h8/tV6UIBOyQ8opevTHMegoYfDaqYxCBMDdEszOUipfRGD8VII0xFMyKEEKUwGuQlgd+55+lBS9u13DVDO7J03YAq6m7IpUIdJQTz7sIUUWr4xjJxbkDbRu1eBIqh/65MYGmilaxft7uZcOJGJUJwSigeFmwCzntni26mCIcxFKSq1K88gLkAK4avkWoQRlZM6+R+v5ivPPp3VlKWGkXfuGivAhSgAYgjJiHSY4fs9e+btKAOhJh9vy0EUQOu13/A4lqLHMBifAQ5jGtLvSKt7CPySY48DBva5WANxMnAfJiNZUsw6QtET5zmXce8tlRTDumasesq8YMY8sl5jojoY8J/u6oIjdKDgTnHjYBD6HlyF0lenVpYl35hIDl124nzFm+rc6LYSzYHInjFtJAiFtrBX0U3rYRqUsN93K6gSAtVTRDlStIVM+ycV8FFRHdm2sAscCr3Qdqks7ZrKH6OzS+9189To8pnRi7bw8s6eGbMKTqAEYD5wqfTeqNojRUe9d1RcINqfV3TSrUBO3kf247KV6+ZADZGbLiViU5Msy6R1S85E1crpGrRlJpTl3iqD03jYUs/3LixFrcRdKMrbNh1CKpB7Y8XKtgaKYN3KDveNzMdBGPWBJionFVsOom/G3XKFsHjdpiCpmATPklmoaVgd2Y/R2ZwryWGsT+iF6b3zLDwAxxszFcbJjjKr6REzt++InxuzOzgak9c7aSK62zhyoqF4PUfA1mhijtwfmTYThG2hIID/gKVFZnP57my+dxbtFJPCFuQK/gIPQ19avXr5hFbjBj+6LDuv/QC0tl2Ul2Ivy/UYjLbLfSn2gdLYvpinZraW/NflLyesSrfPx0rIAAAAAElFTkSuQmCC"
+        />
+      </button>
+    </div>
+    <div ng-repeat-end class="grid-border" ng-if="p.Selected"></div>
+  </div>
+
+  <!-- full grid end -->
+  <!-- <div ng-repeat='p in control.vlcSI[control.itemsKey][0].ChildrenComponentsDefinition'>
     <div class="slds-grid slds-grid_pull-padded slds-wrap slds-size--1-of-1" style="width:100%;" ng-if="p.Selected">
       <div class="slds-size--1-of-1 slds-medium-size--5-of-12 slds-p-right--x-small slds-medium-p-right--medium">
         <div class="summaryLabel"></div>
@@ -165,7 +192,7 @@
           <input ng-model="p.SumAssured.value" style="text-align:left !Important; min-width: 90px;" type="text" ng-currency currency-symbol=""
             fraction="0" min="0" class="slds-input" component="{{p.ComponentCode.value}}" name="SumAssuredInput$index" placeholder="Poistná suma"
             value="{{p.SumAssured.value}}" ng-change="showRecalculateBtn()">
-          <!--CEPP2-229: replaced ng-change. Was: setComponentSelected(control.vlcSI[control.itemsKey][0].ChildrenComponentsDefinition, p.ComponentCode.value, p.Selected, p)-->
+          
         </div>
       </div>
       <div class="slds-size--1-of-2 slds-small-size--1-of-3 slds-medium-size--2-of-12 slds-p-right--x-small slds-medium-p-right--medium">
@@ -195,6 +222,6 @@
         </div>
       </div>
     </div>
-  </div>
+  </div> -->
   <!-- SELECTED RIDERS LISTING END -->
 </div>

@@ -2476,7 +2476,8 @@ ul.ui-select-choices {
   font-family: sans-serif;
 }
 
-.ui-select-bootstrap .ui-select-choices-row.active > span:hover, .ui-select-bootstrap .ui-select-choices-row.active > span:focus {
+.ui-select-bootstrap .ui-select-choices-row.active > span:hover,
+.ui-select-bootstrap .ui-select-choices-row.active > span:focus {
   background-color: #f5f5f5;
 }
 
@@ -2497,7 +2498,6 @@ ul.ui-select-choices {
 .ui-select-match-item:hover {
   background-color: #ea650d;
   color: #ffffff;
-
 }
 
 .ui-select-match-close {
@@ -2510,4 +2510,45 @@ ul.ui-select-choices {
 
 .ui-select-search {
   width: 100%;
+}
+
+.child-rider-settings {
+  display: grid;
+  width: 100%;
+  grid-template-columns: 5fr minmax(100px, 1fr) 1fr 1fr;
+  grid-column-gap: 10px;
+  grid-row-gap: 4px;
+}
+
+.child-rider-settings .heading:first-child {
+  grid-column: 2;
+}
+
+.child-rider-settings .heading {
+  display: grid;
+  align-content: end;
+}
+
+.via-slds .child-rider-settings .slds-input,
+.via-slds .child-rider-settings .slds-select[vlc-slds-val-checker] {
+  height: 2rem;
+  min-height: auto;
+}
+
+.child-rider-settings > div.grid {
+  display: grid;
+  align-items: center;
+  justify-content: center;
+}
+
+.child-rider-settings > div.rider-name {
+  justify-content: start;
+}
+
+.child-rider-settings > div.premium-before {
+  text-decoration: line-through;
+}
+
+.child-rider-settings > div.premium-final {
+  font-weight: bold;
 }
