@@ -2552,3 +2552,26 @@ ul.ui-select-choices {
 .child-rider-settings > div.premium-final {
   font-weight: bold;
 }
+
+#Sport.ui-select-container {
+  display: grid;
+}
+
+.ui-select-container>div:first-child {
+  margin:0;
+  display: grid;
+}
+
+.ui-select-container>div>.ui-select-match {
+  background:red;
+}
+
+.ui-select-container>div>input {
+  border: 2px solid #3F51B5 !important;
+}
+
+
+
+.ui-select-multiple.ui-select-bootstrap {
+  padding: 0
+}
