@@ -908,7 +908,7 @@ label[for="PremiumInfo2"] {
 }
 
 .recalculatBtn img {
-  padding-left: 15px;
+  padding-left: 5px;
 }
 
 .childValue .recalculatBtn {
@@ -2214,7 +2214,7 @@ li.slds-tabs_default__item a:active {
   display: grid;
   grid-template-columns:
     30px 5fr minmax(80px, 2fr) minmax(50px, 1fr) minmax(75px, 1fr)
-    repeat(2, 1fr) minmax(60px, 1fr) minmax(60px, 1fr);
+    repeat(2, 1fr) minmax(72px, 1fr) minmax(72px, 1fr);
   font-size: 12px;
   grid-column-gap: 4px;
   grid-row-gap: 6px;
@@ -2344,6 +2344,21 @@ li.slds-tabs_default__item a:active {
   .tooltip-dropdown {
     margin-top: 60px;
   }
+
+  .recalculate-button-container,
+  .sso4-type,
+  .sso4-calendar-button {
+    grid-column: span 12;
+    justify-self: stretch;
+  }
+
+  .modal-content table {
+    font-size: 9px !important;
+  }
+
+  .modal-content {
+    width: 100%;
+  }
 }
 
 /* MODAL SSO4 GRID RIDERS */
@@ -2357,17 +2372,23 @@ li.slds-tabs_default__item a:active {
   width: 100%; /* Full width */
   height: 100%; /* Full height */
   overflow: auto; /* Enable scroll if needed */
-  background-color: rgb(0,0,0); /* Fallback color */
-  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+  background-color: rgb(0, 0, 0); /* Fallback color */
+  background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
 }
 
 /* Modal Content/Box */
 .modal-content {
-  background-color: #fefefe;
+  border-radius: 4px;
+  background-color: #ffffff;
   margin: 15% auto; /* 15% from the top and centered */
   padding: 20px;
-  border: 1px solid #888;
   width: 80%; /* Could be more or less, depending on screen size */
+}
+
+.modal-content > p {
+  font-size: 16px;
+  color: #ea650d;
+  text-align: center;
 }
 
 /* The Close Button */
@@ -2385,8 +2406,52 @@ li.slds-tabs_default__item a:active {
   cursor: pointer;
 }
 
-.err{
-color:red !important;
+.err {
+  text-align: center;
+  color: #d0021b !important;
+}
+
+.sso4-type {
+  grid-column: 3 / span 3;
+}
+
+.sso4-calendar-button {
+  grid-column: span 3 / -1;
+  align-self: center;
+  justify-self: end;
+}
+
+.flex {
+  display: flex;
+  width: 100%;
+}
+
+.space-between {
+  justify-content: space-between;
+  align-items: center;
+}
+
+.modal .slds-box-secondary {
+  color: #ea650d !important;
+  border: 1px solid #ea650d !important;
+  border-radius: 4px;
+  padding: 5px 10px;
+}
+
+.modal .slds-box {
+  color: #ffffff !important;
+  background: #ea650d;
+  border: 0 !important;
+  border-radius: 4px;
+  padding: 5px 10px;
+}
+
+div[title="Rok"] {
+  text-align: center;
+}
+
+div[title="Vek"] {
+  text-align: center;
 }
 
 /* WIDE OMNISCRIPT */
@@ -2537,7 +2602,6 @@ span.vlc-slds-currency-symbol {
  * License: MIT
  */
 
-
 /* Style when highlighting a search. */
 .ui-select-highlight {
   font-weight: bold;
@@ -2557,7 +2621,6 @@ span.vlc-slds-currency-symbol {
   top: 0px !important;
 }
 
-
 .ui-select-choices-row:hover {
   background-color: #ea650d;
 }
@@ -2566,19 +2629,19 @@ span.vlc-slds-currency-symbol {
 
 /* Mark invalid Select2 */
 .ng-dirty.ng-invalid > a.select2-choice {
-    border-color: #D44950;
+  border-color: #d44950;
 }
 
 .select2-result-single {
   padding-left: 0;
 }
 
-.select2-locked > .select2-search-choice-close{
-  display:inline;
+.select2-locked > .select2-search-choice-close {
+  display: inline;
 }
 
-.select-locked > .ui-select-match-close{
-    display:inline;
+.select-locked > .ui-select-match-close {
+  display: inline;
 }
 
 body > .select2-container.open {
@@ -2588,47 +2651,56 @@ body > .select2-container.open {
 /* Handle up direction Select2 */
 .ui-select-container[theme="select2"].direction-up .ui-select-match,
 .ui-select-container.select2.direction-up .ui-select-match {
-    border-radius: 4px; /* FIXME hardcoded value :-/ */
-    border-top-left-radius: 0;
-    border-top-right-radius: 0;
+  border-radius: 4px; /* FIXME hardcoded value :-/ */
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
 }
 .ui-select-container[theme="select2"].direction-up .ui-select-dropdown,
 .ui-select-container.select2.direction-up .ui-select-dropdown {
-    border-radius: 4px; /* FIXME hardcoded value :-/ */
-    border-bottom-left-radius: 0;
-    border-bottom-right-radius: 0;
+  border-radius: 4px; /* FIXME hardcoded value :-/ */
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
 
-    border-top-width: 1px;  /* FIXME hardcoded value :-/ */
-    border-top-style: solid;
+  border-top-width: 1px; /* FIXME hardcoded value :-/ */
+  border-top-style: solid;
 
-    box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.25);
+  box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.25);
 
-    margin-top: -4px; /* FIXME hardcoded value :-/ */
+  margin-top: -4px; /* FIXME hardcoded value :-/ */
 }
-.ui-select-container[theme="select2"].direction-up .ui-select-dropdown .select2-search,
+.ui-select-container[theme="select2"].direction-up
+  .ui-select-dropdown
+  .select2-search,
 .ui-select-container.select2.direction-up .ui-select-dropdown .select2-search {
-    margin-top: 4px; /* FIXME hardcoded value :-/ */
+  margin-top: 4px; /* FIXME hardcoded value :-/ */
 }
-.ui-select-container[theme="select2"].direction-up.select2-dropdown-open .ui-select-match,
-.ui-select-container.select2.direction-up.select2-dropdown-open .ui-select-match {
-    border-bottom-color: #5897fb;
+.ui-select-container[theme="select2"].direction-up.select2-dropdown-open
+  .ui-select-match,
+.ui-select-container.select2.direction-up.select2-dropdown-open
+  .ui-select-match {
+  border-bottom-color: #5897fb;
 }
 
-.ui-select-container[theme="select2"] .ui-select-dropdown .ui-select-search-hidden,
-.ui-select-container[theme="select2"] .ui-select-dropdown .ui-select-search-hidden input{
-    opacity: 0;
-    height: 0;
-    min-height: 0;
-    padding: 0;
-    margin: 0;
-    border:0;
+.ui-select-container[theme="select2"]
+  .ui-select-dropdown
+  .ui-select-search-hidden,
+.ui-select-container[theme="select2"]
+  .ui-select-dropdown
+  .ui-select-search-hidden
+  input {
+  opacity: 0;
+  height: 0;
+  min-height: 0;
+  padding: 0;
+  margin: 0;
+  border: 0;
 }
 
 /* Selectize theme */
 
 /* Helper class to show styles when focus */
-.selectize-input.selectize-focus{
-  border-color: #007FBB !important;
+.selectize-input.selectize-focus {
+  border-color: #007fbb !important;
 }
 
 /* Fix input width for Selectize theme */
@@ -2649,23 +2721,23 @@ body > .select2-container.open {
 
 /* Mark invalid Selectize */
 .ng-dirty.ng-invalid > div.selectize-input {
-    border-color: #D44950;
+  border-color: #d44950;
 }
 
 /* Handle up direction Selectize */
 .ui-select-container[theme="selectize"].direction-up .ui-select-dropdown {
-    box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.25);
-    margin-top: -2px; /* FIXME hardcoded value :-/ */
+  box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.25);
+  margin-top: -2px; /* FIXME hardcoded value :-/ */
 }
 
-.ui-select-container[theme="selectize"] input.ui-select-search-hidden{
-    opacity: 0;
-    height: 0;
-    min-height: 0;
-    padding: 0;
-    margin: 0;
-    border:0;
-    width: 0;
+.ui-select-container[theme="selectize"] input.ui-select-search-hidden {
+  opacity: 0;
+  height: 0;
+  min-height: 0;
+  padding: 0;
+  margin: 0;
+  border: 0;
+  width: 0;
 }
 
 /* Bootstrap theme */
@@ -2673,12 +2745,13 @@ body > .select2-container.open {
 /* Helper class to show styles when focus */
 .btn-default-focus {
   color: #333;
-  background-color: #EBEBEB;
-  border-color: #ADADAD;
+  background-color: #ebebeb;
+  border-color: #adadad;
   text-decoration: none;
   outline: 5px auto -webkit-focus-ring-color;
   outline-offset: -2px;
-  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(102, 175, 233, 0.6);
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075),
+    0 0 8px rgba(102, 175, 233, 0.6);
 }
 
 .ui-select-bootstrap .ui-select-toggle {
@@ -2704,22 +2777,24 @@ body > .select2-container.open {
   border-top-right-radius: 0;
   border-bottom-right-radius: 0;
 }
-.input-group > .ui-select-bootstrap > input.ui-select-search.form-control.direction-up {
+.input-group
+  > .ui-select-bootstrap
+  > input.ui-select-search.form-control.direction-up {
   border-radius: 4px !important; /* FIXME hardcoded value :-/ */
   border-top-right-radius: 0 !important;
   border-bottom-right-radius: 0 !important;
 }
 
-.ui-select-bootstrap .ui-select-search-hidden{
-    opacity: 0;
-    height: 0;
-    min-height: 0;
-    padding: 0;
-    margin: 0;
-    border:0;
+.ui-select-bootstrap .ui-select-search-hidden {
+  opacity: 0;
+  height: 0;
+  min-height: 0;
+  padding: 0;
+  margin: 0;
+  border: 0;
 }
 
-.ui-select-bootstrap > .ui-select-match > .btn{
+.ui-select-bootstrap > .ui-select-match > .btn {
   /* Instead of center because of .btn */
   text-align: left !important;
 }
@@ -2731,7 +2806,8 @@ body > .select2-container.open {
 }
 
 /* See Scrollable Menu with Bootstrap 3 http://stackoverflow.com/questions/19227496 */
-.ui-select-bootstrap > .ui-select-choices ,.ui-select-bootstrap > .ui-select-no-choice {
+.ui-select-bootstrap > .ui-select-choices,
+.ui-select-bootstrap > .ui-select-no-choice {
   width: 100%;
   height: auto;
   max-height: 200px;
@@ -2794,63 +2870,64 @@ body > .ui-select-bootstrap.open {
   border-right: 1px solid #428bca;
 }
 
-.ui-select-bootstrap .ui-select-choices-row>span {
-    cursor: pointer;
-    display: block;
-    padding: 3px 20px;
-    clear: both;
-    font-weight: 400;
-    line-height: 1.42857143;
-    color: #333;
-    white-space: nowrap;
-    background-color:#f1edeb;
-    border-radius:3px;
+.ui-select-bootstrap .ui-select-choices-row > span {
+  cursor: pointer;
+  display: block;
+  padding: 3px 20px;
+  clear: both;
+  font-weight: 400;
+  line-height: 1.42857143;
+  color: #333;
+  white-space: nowrap;
+  background-color: #f1edeb;
+  border-radius: 3px;
 }
 
-.ui-select-bootstrap .ui-select-choices-row>span:hover, .ui-select-bootstrap .ui-select-choices-row>span:focus {
-    text-decoration: none;
-    color: #262626;
-    background-color: #f5f5f5;
+.ui-select-bootstrap .ui-select-choices-row > span:hover,
+.ui-select-bootstrap .ui-select-choices-row > span:focus {
+  text-decoration: none;
+  color: #262626;
+  background-color: #f5f5f5;
 }
 
-.ui-select-bootstrap .ui-select-choices-row.active>span {
-    color: #fff;
-    text-decoration: none;
-    outline: 0;
-    background-color: #f5f5f5;
+.ui-select-bootstrap .ui-select-choices-row.active > span {
+  color: #fff;
+  text-decoration: none;
+  outline: 0;
+  background-color: #f5f5f5;
 }
 
-.ui-select-bootstrap .ui-select-choices-row.disabled>span,
-.ui-select-bootstrap .ui-select-choices-row.active.disabled>span {
-    color: #777;
-    cursor: not-allowed;
-    background-color: #fff;
+.ui-select-bootstrap .ui-select-choices-row.disabled > span,
+.ui-select-bootstrap .ui-select-choices-row.active.disabled > span {
+  color: #777;
+  cursor: not-allowed;
+  background-color: #fff;
 }
 
 /* fix hide/show angular animation */
 .ui-select-match.ng-hide-add,
 .ui-select-search.ng-hide-add {
-    display: none !important;
+  display: none !important;
 }
 
 /* Mark invalid Bootstrap */
 .ui-select-bootstrap.ng-dirty.ng-invalid > button.btn.ui-select-match {
-    border-color: #D44950;
+  border-color: #d44950;
 }
 
 /* Handle up direction Bootstrap */
 .ui-select-container[theme="bootstrap"].direction-up .ui-select-dropdown {
-    box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.25);
+  box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.25);
 }
 
 .ui-select-bootstrap .ui-select-match-text {
-    width: 100%;
-    padding-right: 1em;
+  width: 100%;
+  padding-right: 1em;
 }
 .ui-select-bootstrap .ui-select-match-text span {
-    display: inline-block;
-    width: 100%;
-    overflow: hidden;
+  display: inline-block;
+  width: 100%;
+  overflow: hidden;
 }
 .ui-select-bootstrap .ui-select-toggle > a.btn {
   position: absolute;
@@ -2861,10 +2938,10 @@ body > .ui-select-bootstrap.open {
 
 /* Spinner */
 .ui-select-refreshing.glyphicon {
-    position: absolute;
-    right: 0;
-    padding: 8px 27px;
- }
+  position: absolute;
+  right: 0;
+  padding: 8px 27px;
+}
 
 @-webkit-keyframes ui-select-spin {
   0% {
@@ -2897,10 +2974,9 @@ body > .ui-select-bootstrap.open {
 }
 
 .close {
-    float:none !important;
-    padding:0px 3px 0px 3px !important;
+  float: none !important;
+  padding: 0px 3px 0px 3px !important;
 }
-
 
 /* UI SELECT (OmniSportTypeAheadTest) */
 
@@ -2917,7 +2993,6 @@ ul.ui-select-choices {
   box-sizing: border-box;
   margin: 0;
 }
-
 
 .ui-select-container > div:first-child {
   margin: 5px 10px;
@@ -2940,7 +3015,8 @@ ul.ui-select-choices {
   background-color: #f5f5f5;
 }
 
-.ui-select-choices-row:hover, .ui-select-choices-row:focus {
+.ui-select-choices-row:hover,
+.ui-select-choices-row:focus {
   background-color: #ffffff !important;
 }
 .ui-select-match-item {
@@ -2952,7 +3028,8 @@ ul.ui-select-choices {
   border-radius: 4px;
 }
 
-.ui-select-match-item:hover, .ui-select-match-item:focus {
+.ui-select-match-item:hover,
+.ui-select-match-item:focus {
   background-color: #ea650d;
   color: #ffffff !important;
 }
@@ -2961,7 +3038,8 @@ ul.ui-select-choices {
   color: #ffffff !important;
 }
 
-.ui-select-match-close:hover,.ui-select-match-close:focus {
+.ui-select-match-close:hover,
+.ui-select-match-close:focus {
   color: #ffffff !important;
 }
 
@@ -2969,11 +3047,10 @@ ul.ui-select-choices {
   width: 100% !important;
 }
 
-.ui-select-container>div:first-child {
-  margin:0;
+.ui-select-container > div:first-child {
+  margin: 0;
   display: grid;
 }
-
 
 .ui-select-match > span {
   display: grid;
@@ -2981,18 +3058,18 @@ ul.ui-select-choices {
 }
 
 .ui-select-match {
-  display:flex;
+  display: flex;
   flex-direction: row;
-  flex-wrap:wrap;
+  flex-wrap: wrap;
 }
 
 .ui-select-container {
-  font-family:"Salesforce Sans", sans-serif;
+  font-family: "Salesforce Sans", sans-serif;
   display: grid;
   padding: 8px;
 }
 
 input.ui-select-search {
-  font-family:"Salesforce Sans", sans-serif;
+  font-family: "Salesforce Sans", sans-serif;
   font-size: 16px;
 }
